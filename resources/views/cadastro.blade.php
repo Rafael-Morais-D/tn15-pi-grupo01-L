@@ -69,7 +69,7 @@
                     <div class="checkbox">
                         <label class="custom-control custom-checkbox">
                             <input class="custom-control-input" type="checkbox">
-                            <span class="custom-control-label align-middle">Estou de acordo com os <a data-toggle="modal" href="#termosDeUso">Termos de Uso.</a></span>
+                            <span class="custom-control-label d-inline-block">Estou de acordo com os <a data-toggle="modal" href="#termosDeUso">Termos de Uso.</a></span>
                         </label>
                     </div>
                     <div class="col-12 text-center mt-4">

@@ -262,7 +262,7 @@ i.fa-plus-circle:hover::before {
 
 #section-counter {
   position: relative;
-  z-index: 0;
+  z-index: 1050;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 90%, #000000 100%), url('../img/08_bakeandgo.jpg')!important;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -339,8 +339,8 @@ i.fa-plus-circle:hover::before {
 ul {
   display: block;
   list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   padding-inline-start: 0px;
@@ -507,7 +507,7 @@ nav.nav-adm a {
 
 nav.nav-cliente {
   top: 73.17px!important;
-  z-index: 0;
+  z-index: 1050;
   max-width: 45vw!important;
   border-radius: 0 0 20px 20px;
   background-color: #8f793c!important;

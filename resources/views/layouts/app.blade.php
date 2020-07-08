@@ -92,7 +92,7 @@
     <!--[if IE]><link rel="shortcut icon" href="{{ asset("favicon/favicon.ico") }}"><![endif]-->
     <meta name="msapplication-TileImage" content="{{ asset("favicon/bakeandgo-150x150.png") }}">
     <link rel="icon" type="image/png" sizes="512x512" href="{{ asset("favicon/bakeandgo-512x512.png") }}">
-    <link rel="icon" sizes="192x192" href="./assets/favicon/bakeandgo-192x192.png") }}">
+    <link rel="icon" sizes="192x192" href="{{ asset("favicon/bakeandgo-192x192.png") }}">
     <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ asset("favicon/bakeandgo-180x180.png") }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset("favicon/bakeandgo-32x32.png") }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset("favicon/bakeandgo-16x16.png") }}">
