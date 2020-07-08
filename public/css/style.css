@@ -451,6 +451,20 @@ img.logo-footer {
   background-color: #faf8f3;
 }
 
+.modal-login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
 .modal-footer a {
   color: #8f793c;
 }
@@ -628,7 +642,7 @@ nav.nav-cliente a {
   }
 
   img.logo-footer {
-    max-width: 300px;
+    max-width: 195px;
   }
 
   .quem-somos-banner h2 {

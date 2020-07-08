@@ -148,7 +148,7 @@
                   </div>
                 </div>
                 <div class="col-12 mt-5 mb-3 text-center">
-                  <a href="#" class="btn btn-primary mb-5">VER MENU</a>
+                  <a href="/produtos" class="btn btn-primary mb-5">VER MENU</a>
                 </div>
                 </div>
                 </section>

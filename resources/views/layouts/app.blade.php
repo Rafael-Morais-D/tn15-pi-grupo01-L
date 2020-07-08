@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Bake & Go') }}</title>
+    {{-- <title>{{ config('app.name', 'Bake & Go') }}</title> --}}
+    <title>Bake & Go</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -154,9 +155,9 @@
                         <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <p class="pt-3">Novo por aqui? <a href="/cadastro" class="d-inline-block">Cadastre-se agora!</a></p>
-                        <button type="button" class="btn btn-primary mb-0" data-dismiss="modal" style="width:130px;">Fechar</button>
+                    <div class="modal-login">
+                        <p class="pt-0">Novo por aqui? <a href="/cadastro" class="d-inline-block">Cadastre-se agora!</a></p>
+                        <button type="button" class="btn btn-primary mb-0 mr-2" data-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary mb-0" data-dismiss="modal">Login</button>
                     </div>
                 </div>
@@ -258,7 +259,7 @@
         </div>
         </div>
         
-        <!-- JS SCRIPTS -->
+        <!-- ANIMACAO FADE UP - JS SCRIPTS -->
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>AOS.init();</script>
         
