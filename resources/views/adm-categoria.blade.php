@@ -1,6 +1,7 @@
 @extends('layouts.adm')
 
 @section('content')
+
 <section class="container py-5 mt-5 adm-pag">
     <div class="d-flex justify-content-between align-items-center">
         <h2 class="mb-0">Categorias</h2>
@@ -149,4 +150,5 @@
             </div>
         </div>
 </section>
+
 @endsection

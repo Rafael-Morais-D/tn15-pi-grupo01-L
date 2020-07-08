@@ -1,6 +1,7 @@
 @extends('layouts.adm')
 
 @section('content')
+
 <section class="container py-5 mt-5 adm-pag">
     <h2 class="mb-0">Usuários</h2>
     <div class="table-responsive">
@@ -50,7 +51,6 @@
                 </tr>
             </tbody>
         </table>
-
         <!-- Modal - Excluir usuário -->
         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -72,4 +72,5 @@
             </div>
         </div>
 </section>
+
 @endsection

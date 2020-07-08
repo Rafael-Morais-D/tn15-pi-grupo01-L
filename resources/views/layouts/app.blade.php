@@ -163,7 +163,6 @@
                 </div>
             </div>
         </header>
-
         <main class="py-0">
             @yield('content')
         </main>
@@ -172,7 +171,7 @@
                 <div class="d-flex flex-row flex-wrap justify-content-center mt-3">
                     <div class="d-block col-12">
                         <!-- REDES SOCIAIS -->
-                        <div class="col-12 mb-5 text-center">
+                        <div class="col-12 mb-4 text-center">
                             <div style="font-size: 1.1rem;">
                             <a href="https://www.facebook.com/bakeandgo.coffeeshop/" target="_blank" title="Curta nossa página no Facebook" class="fb-ic ">
                                 <i class="fab fa-facebook-f fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
@@ -222,7 +221,6 @@
                 </div>
             </div>
         </footer>
-        
         <!-- MODAL DE POLITICA DE PRIVACIDADE -->
         <div class="modal fade" id="politicasPriv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-info-leg">
@@ -240,7 +238,6 @@
             </div>
         </div>
         </div>
-        
         <!-- MODAL DE TERMOS DE USO -->
         <div class="modal fade" id="termosDeUso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-info-leg">
@@ -258,11 +255,9 @@
             </div>
         </div>
         </div>
-        
         <!-- ANIMACAO FADE UP - JS SCRIPTS -->
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>AOS.init();</script>
-        
+        <script>AOS.init();</script> 
     </div>
 </body>
 </html>

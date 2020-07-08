@@ -1,6 +1,7 @@
 @extends('layouts.adm')
 
 @section('content')
+
 <section class="container py-5 mt-5 adm-pag">
     <h2 class="mb-0">Histórico de Pedidos</h2>
     <div class="table-responsive">
@@ -83,4 +84,5 @@
                     </tbody>
                 </table>
                 </section>
+                
 @endsection

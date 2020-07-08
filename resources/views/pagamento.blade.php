@@ -2,24 +2,22 @@
 
 @section('content')
 
-        <main class="container-fluid py-5 mt-5">
-            <header class="topo-pagina" id="topoCarrinho">
-                <h2 class="py-4 text-center">Pagamento</h2>
-            </header>
-            <section class="container">
-
-            <form class="col-12 mb-3" id="pagamentoForm" action="#" method="#">
-
-                <!-- DADOS DO PEDIDO -->
-                <div class="card card-body mb-3">
-                    <h3 class="col-12 text-center text-info py-3 text-dark">Dados do pedido</h3>
-                    <p class="mb-3 text-center">Confira abaixo as informações do seu pedido</p>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col" colspan="2">Produto</th>
-                                <th scope="col" class="d-none d-md-table-cell">Preço Unitário</th>
-                            </tr>
+<section class="container-fluid py-5 mt-5">
+    <div class="topo-pagina" id="topoCarrinho">
+        <h2 class="py-4 text-center">Pagamento</h2>
+    </div>
+    <section class="container">
+        <form class="col-12 mb-3" id="pagamentoForm" action="#" method="#">
+            <!-- DADOS DO PEDIDO -->
+            <div class="card card-body mb-3">
+                <h3 class="col-12 text-center text-info py-3 text-dark">Dados do pedido</h3>
+                <p class="mb-3 text-center">Confira abaixo as informações do seu pedido</p>    
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" colspan="2">Produto</th>
+                            <th scope="col" class="d-none d-md-table-cell">Preço Unitário</th>
+                        </tr>
                         </thead>
                         <tbody>
                             <tr>
@@ -67,7 +65,6 @@
                         </tbody>
                     </table>
                 </div>
-
                 <!-- ENDEREÇO DE COBRANÇA -->
                 <div class="card card-body mb-3">
                     <h3 class="col-12 text-center text-info py-3 text-dark">Endereço de entrega</h3>
@@ -140,7 +137,6 @@
                         </div>
                     </fieldset>
                 </div>
-
                 <!-- DADOS DE PAGAMENTO -->
                 <div class="card card-body mb-3">
                     <h3 class="col-12 text-center text-info py-3 text-dark">Dados de pagamento</h3>
@@ -168,7 +164,7 @@
                 </div>
                 <button type="submit" class="btn btn-info float-right col-lg-3 mt-3 mb-5" form="pagamentoForm">Finalizar Compra</button>
             </form>
-            </section>
-        </main>
+        </section>
+    </section>
 
 @endsection

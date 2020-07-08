@@ -1,4 +1,4 @@
-* {
+table* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -334,6 +334,16 @@ i.fa-plus-circle:hover::before {
 .table thead th {
   vertical-align: middle;
   border-bottom: 2px solid #dee2e6;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
 }
 
 @font-face {
