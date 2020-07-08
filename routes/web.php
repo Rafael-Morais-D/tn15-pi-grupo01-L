@@ -33,19 +33,6 @@ Route::get('/contato', function() {
     return view('contato');
 });
 
-Route::get('/historico', function() {
-    return view('historico');
-});
-
-Route::get('/meuspedidos', function() {
-    return view('meuspedidos');
-});
-
-Route::get('/minhaconta', function() {
-    return view('minhaconta');
-});
-
-
 Route::get('/pagamento', function() {
     return view('pagamento');
 });
@@ -56,6 +43,7 @@ Route::get('/erro', function() {
 
 Route::get('/quem-somos', function() {
     return view('quem-somos');
+});
 
 // PÁGINAS ADMINISTRATIVAS
 
@@ -92,7 +80,3 @@ Route::get('/user-minha-conta', function () {
 Route::get('/user-meus-pedidos', function () {
     return view('user-meus-pedidos');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

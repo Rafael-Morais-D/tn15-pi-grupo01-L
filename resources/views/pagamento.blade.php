@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
 
@@ -8,7 +8,7 @@
             </header>
             <section class="container">
 
-            <form class="col-12 mb-3" id="pagamentoForm" action="index.php" method="post">
+            <form class="col-12 mb-3" id="pagamentoForm" action="#" method="#">
 
                 <!-- DADOS DO PEDIDO -->
                 <div class="card card-body mb-3">

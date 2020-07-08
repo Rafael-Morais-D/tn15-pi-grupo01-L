@@ -4,7 +4,7 @@
 <section class="container minha-conta py-5 mt-5 adm-pag">
     <div class="d-flex justify-content-between align-items-center link-continuar">
         <h2 class="mb-0">Minha Conta</h2>
-        <a href="index.php">Continuar comprando</a>
+        <a href="/">Continuar comprando</a>
     </div>
     <hr class="accent my-4">
     <h3 class="mb-4 text-center">Olá Exemplilson da Silva 1</h3>
@@ -35,7 +35,7 @@
                                 <input class="form-control input-lg" value="exemplison1@email.com.br" readonly name="email" type="text">
                             </div>
                             <div class="col-12 text-center mt-4">
-                                <a href="admEdicaoUsuario.php" class="btn btn-primary btn-minha-conta text-center">Editar meu perfil</a>
+                                <a href="/user-edicao-usuario" class="btn btn-primary btn-minha-conta text-center">Editar meu perfil</a>
                             </div>
                         </fieldset>
                     </div>

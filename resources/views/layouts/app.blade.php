@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Bake & Go') }}</title>
->>>>>>> 444667be92f58ee35f447362b8c2e3d7fa696fa8
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +23,7 @@
     <link rel="prerender" href="{{ asset('css/style.css') }}">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -78,7 +77,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bake & Go">
     <meta name="twitter:description" content="Bake & Go, a sua padaria online.">
-    <meta name="twitter:image" content=".assets/img/01_bakeandgo_home.jpg">
+    <meta name="twitter:image" content="{{ asset("img/01_bakeandgo_home.jpg") }}">
     <meta name="keywords" content="Bake & Go, padaria, café, coffee shop, pão artesanal, pão italiano, pão de queijo, cheesecake, donuts">
     <meta property="og:type" content="website">
     <meta name="application-name" content="Bake & Go">
@@ -88,48 +87,48 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="msapplication-TileColor" content="#faf8f3">
     <meta name="theme-color" content="#ffffff">
-    <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#000000">
-    <!--[if IE]><link rel="shortcut icon" href="./assets/favicon/favicon.ico"><![endif]-->
-    <meta name="msapplication-TileImage" content="./assets/favicon/bakeandgo-150x150.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="./assets/favicon/bakeandgo-512x512.png">
-    <link rel="icon" sizes="192x192" href="./assets/favicon/bakeandgo-192x192.png">
-    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="./assets/favicon/bakeandgo-180x180.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/bakeandgo-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/bakeandgo-16x16.png">
+    <link rel="mask-icon" href="{{ asset("favicon/safari-pinned-tab.svg") }}" color="#000000">
+    <!--[if IE]><link rel="shortcut icon" href="{{ asset("favicon/favicon.ico") }}"><![endif]-->
+    <meta name="msapplication-TileImage" content="{{ asset("favicon/bakeandgo-150x150.png") }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset("favicon/bakeandgo-512x512.png") }}">
+    <link rel="icon" sizes="192x192" href="./assets/favicon/bakeandgo-192x192.png") }}">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ asset("favicon/bakeandgo-180x180.png") }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset("favicon/bakeandgo-32x32.png") }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset("favicon/bakeandgo-16x16.png") }}">
 </head>
 <body>
     <div id="app">
         <header>
             <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-                <a class="navbar-brand" href="index.php"><img class="logo-header" src="{{ asset("img/bakeandgo_logo_02_black.png") }}" alt="Logo Bake & Go"></a>
+                <a class="navbar-brand" href="/"><img class="logo-header" src="{{ asset("img/bakeandgo_logo_02_black.png") }}" alt="Logo Bake & Go"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav text-center ml-md-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.php">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="quem-somos.php">Quem somos</a>
+                            <a class="nav-link" href="/quem-somos">Quem somos</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                                 <div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Pães e Bolos</a>
-                                    <a class="dropdown-item" href="#">Frios</a>
-                                    <a class="dropdown-item" href="#">Lanches e Salgados</a>
-                                    <a class="dropdown-item" href="#">Mercearia</a>
+                                    <a class="dropdown-item" href="/produtos">Pães e Bolos</a>
+                                    <a class="dropdown-item" href="/produtos">Frios</a>
+                                    <a class="dropdown-item" href="/produtos">Lanches e Salgados</a>
+                                    <a class="dropdown-item" href="/produtos">Mercearia</a>
                                 </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contato.php">Contato</a>
+                            <a class="nav-link" href="/contato">Contato</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link-login btn btn-primary col-12 text mb-3 mb-md-1 ml-md-1 px-md-3" href="#" data-toggle="modal" data-target="#btnLogin">Login</a>
                         </li>
                         <li>
-                        <a class="nav-link btn btn-primary mb-3 mb-md-1 ml-md-3 px-md-3" href="cesta-de-compras.php"><i class="ic-basket fa fa-shopping-basket" aria-hidden="true"></i></a>
+                        <a class="nav-link btn btn-primary mb-3 mb-md-1 ml-md-3 px-md-3" href="/cesta-compras"><i class="ic-basket fa fa-shopping-basket" aria-hidden="true"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -156,7 +155,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <p class="pt-3">Novo por aqui? <a href="cadastro.php" class="d-inline-block">Cadastre-se agora!</a></p>
+                        <p class="pt-3">Novo por aqui? <a href="/cadastro" class="d-inline-block">Cadastre-se agora!</a></p>
                         <button type="button" class="btn btn-primary mb-0" data-dismiss="modal" style="width:130px;">Fechar</button>
                         <button type="submit" class="btn btn-primary mb-0" data-dismiss="modal">Login</button>
                     </div>
@@ -193,22 +192,22 @@
                         <!-- REDIRECIONAMENTOS -->
                         <ul>
                             <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase home-footer">
-                                <a href="index.php" title="Página Inicial">Home</a>
+                                <a href="/" title="Página Inicial">Home</a>
                             </li>
                             <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase qs-footer">
-                                <a href="quem-somos.php" title="Conheça nossa história">Quem somos</a>
+                                <a href="/quem-somos" title="Conheça nossa história">Quem somos</a>
                             </li>
                             <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase">
-                                <a href="#" title="Conheça nossos produtos">Menu</a>
+                                <a href="/produtos" title="Conheça nossos produtos">Menu</a>
                             </li>
                             <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase">
-                                <a href="contato.php" title="Entre em contato">Contato</a>
+                                <a href="/contato" title="Entre em contato">Contato</a>
                             </li>    
                         </ul>            
                     </div>
                     <div class="col-12 text-center mb-5">
                         <!-- LOGO -->
-                        <img class="logo-footer" src="{{ asset("img/bakeandgo_logo_01_white.svg") }}" alt="Logo Bake & Go">
+                        <img class="logo-footer" src="{{ asset("img/bakeandgo_logo_01_white.png") }}" alt="Logo Bake & Go">
                     </div>
                     <div class="col-12 d-flex flex-row flex-wrap justify-content-center justify-content-md-between px-1">
                         <!-- INFORMAÇÕES LEGAIS -->
@@ -262,8 +261,7 @@
         <!-- JS SCRIPTS -->
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>AOS.init();</script>
-
->>>>>>> 444667be92f58ee35f447362b8c2e3d7fa696fa8
+        
     </div>
 </body>
 </html>

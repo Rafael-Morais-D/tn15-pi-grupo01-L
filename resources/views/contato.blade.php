@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
 
@@ -8,7 +8,7 @@
 
             <!-- CAMPO DE MENSAGEM -->
             <section class="col-12 col-md-6 mx-auto p-0 mt-4 mt-md-0 mensagem">
-                <form action="contato.php" method="post" class="container-fluid px-0">
+                <form action="/contato" method="post" class="container-fluid px-0">
                     <div class="form-cadastro">
                         <div class="card card-body mensagem mr-md-2">
                             <h3 class="text-center mb-4 mx-auto sliding-u-l-r-l">Fale conosco</h3>

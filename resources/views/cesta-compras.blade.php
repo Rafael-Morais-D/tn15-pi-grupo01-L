@@ -1,4 +1,4 @@
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
 
@@ -8,7 +8,7 @@
             </header>
             <section class="container">
                 <div class="row-cesta mr-2 ml-2">
-                    <form class="col-12 mb-3 link-continuar" id="carrinhoForm" action="pagamento.php" method="post">
+                    <form class="col-12 mb-3 link-continuar" id="carrinhoForm" action="/pagamento" method="#">
                         <p class="mb-5 text-center">Confira abaixo os produtos selecionados, clique em Finalizar Compra ou <a href="">continue comprando</a></p>
                         <table class="table">
                             <thead>
