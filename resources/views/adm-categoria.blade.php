@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="container py-5 mt-5 adm-pag">
+<section class="container py-5 mt-5 px-md-0 adm-pag">
     <div class="d-flex flex-wrap justify-content-between align-items-center">
         <h2 class="col-12 col-md-6 mb-0 px-0">Categorias</h2>
         <p class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Adicionar uma categoria <a href="#" data-toggle="modal" data-target="#modalAdd"><i class="far fa-plus-circle text-dark"></i></a></p>
@@ -28,14 +28,20 @@
                         </a>
                     </td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modal">
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <i class="fas fa-eye mr-2"></i>
-                        <i class="fas fa-pencil mr-2"></i>
-                        <i class="fas fa-trash-alt"></i>
+                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                            <i class="fas fa-eye mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalCategoria">
+                            <i class="fas fa-pencil-alt mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                            <i class="fas fa-trash-alt text-dark"></i>
+                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -47,14 +53,20 @@
                         </a>
                     </td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modal">
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <i class="fas fa-eye mr-2"></i>
-                        <i class="fas fa-pencil mr-2"></i>
-                        <i class="fas fa-trash-alt"></i>
+                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                            <i class="fas fa-eye mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalCategoria">
+                            <i class="fas fa-pencil-alt mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                            <i class="fas fa-trash-alt text-dark"></i>
+                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -66,14 +78,20 @@
                         </a>
                     </td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modal">
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <i class="fas fa-eye mr-2"></i>
-                        <i class="fas fa-pencil mr-2"></i>
-                        <i class="fas fa-trash-alt"></i>
+                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                            <i class="fas fa-eye mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalCategoria">
+                            <i class="fas fa-pencil-alt mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                            <i class="fas fa-trash-alt text-dark"></i>
+                        </a>
                     </td>
                 </tr>
             </tbody>
@@ -112,8 +130,32 @@
             </div>
         </div>
         </div>
+        <!-- Modal - Conteúdo categoria -->
+        <div class="modal fade" id="modalCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ID - 000</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header text-center">
+                              Categoria
+                            </div>
+                            <div class="card-body">
+                              <p class="card-text">Categoria genérica</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Modal - Excluir categoria -->
-        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalDel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="container py-5 mt-5 adm-pag">
+<section class="container py-5 mt-5 px-md-0 adm-pag">
     <div class="d-flex flex-wrap justify-content-between align-items-center">
         <h2 class="col-12 col-md-6 mb-0 px-0">Produtos</h2>
         <p class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Adicionar um produto <a href="#" data-toggle="modal" data-target="#modalAdd"><i class="far fa-plus-circle text-dark"></i></a></p>
@@ -16,6 +16,7 @@
                     <th scope="col" class="d-none d-md-table-cell">Produto</th>
                     <th scope="col" class="d-none d-md-table-cell">Descrição</th>
                     <th scope="col" class="d-none d-md-table-cell">Preço</th>
+                    <th scope="col" class="d-none d-md-table-cell">Unidade de medida</th>
                     <th scope="col" class="d-none d-md-table-cell">Categoria</th>
                     <th scope="col" class="d-none d-md-table-cell">Editar</th>
                     <th scope="col" class="d-none d-md-table-cell">Excluir</th>
@@ -27,11 +28,12 @@
                     <td scope="row">001</td>
                     <td scope="row" class="d-none d-md-table-cell">PAO-ITA</td>
                     <td scope="row" class="d-none d-md-table-cell">Pão Italiano</td>
-                    <td scope="row" class="d-none d-md-table-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero corrupti. Rerum, earum? Facilis nulla dicta, fugit laboriosam, dolor voluptas natus eum esse, dolores officia illum quibusdam inventore.</td>
-                    <td scope="row" class="d-none d-md-table-cell">12</td>
+                    <td scope="row" class="d-none d-md-table-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero.</td>
+                    <td scope="row" class="d-none d-md-table-cell">12,00</td>
+                    <td scope="row" class="d-none d-md-table-cell">g</td>
                     <td scope="row" class="d-none d-md-table-cell">Pães</td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalAddProduto">
+                        <a href="#" data-toggle="modal" data-target="#modalEdit">
                             <i class="fas fa-pencil-alt text-dark"></i>
                         </a>
                     </td>
@@ -41,20 +43,27 @@
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <i class="fas fa-eye mr-2"></i>
-                        <i class="fas fa-pencil mr-2"></i>
-                        <i class="fas fa-trash-alt"></i>
+                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                            <i class="fas fa-eye mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalEdit">
+                            <i class="fas fa-pencil-alt mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modal">
+                            <i class="fas fa-trash-alt text-dark"></i>
+                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">002</td>
                     <td scope="row" class="d-none d-md-table-cell">BL-CHOCO</td>
                     <td scope="row" class="d-none d-md-table-cell">Bolo de Chocolate</td>
-                    <td scope="row" class="d-none d-md-table-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero corrupti. Rerum, earum? Facilis nulla dicta, fugit laboriosam, dolor voluptas natus eum esse, dolores officia illum quibusdam inventore.</td>
-                    <td scope="row" class="d-none d-md-table-cell">25</td>
+                    <td scope="row" class="d-none d-md-table-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero.</td>
+                    <td scope="row" class="d-none d-md-table-cell">25,00</td>
+                    <td scope="row" class="d-none d-md-table-cell">Unidade</td>
                     <td scope="row" class="d-none d-md-table-cell">Bolos</td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalAddProduto">
+                        <a href="#" data-toggle="modal" data-target="#modalEdit">
                             <i class="fas fa-pencil-alt text-dark"></i>
                         </a>
                     </td>
@@ -64,16 +73,86 @@
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <i class="fas fa-eye mr-2"></i>
-                        <i class="fas fa-pencil mr-2"></i>
-                        <i class="fas fa-trash-alt"></i>
+                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                            <i class="fas fa-eye mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalEdit">
+                            <i class="fas fa-pencil-alt mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modal">
+                            <i class="fas fa-trash-alt text-dark"></i>
+                        </a>
                     </td>
                 </tr>
 
             </tbody>
         </table>
+        <!-- Modal - Conteúdo produto -->
+        <div class="modal fade" id="modalCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ID - 000</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header text-center">
+                              REF
+                            </div>
+                            <div class="card-body">
+                              <p class="card-text">CAT-NOME</p>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header text-center">
+                                Produto
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Produto genérico</p>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header text-center">
+                                Descrição
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero.</p>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header text-center">
+                                Preço
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">25,00</p>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header text-center">
+                                Unidade de medida
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">g</p>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header text-center">
+                                Categoria
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">ID Categoria</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Modal - Editar produto -->
-        <div class="modal fade" id="modalAddProduto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

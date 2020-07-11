@@ -506,7 +506,7 @@ nav.nav-adm a {
 }
 
 nav.nav-cliente {
-  top: 73.17px!important;
+  top: 59.17px!important;
   z-index: 1050;
   max-width: 45vw!important;
   border-radius: 0 0 20px 20px;
@@ -644,6 +644,10 @@ nav.nav-cliente a {
   }
 
   nav.nav-adm {
+    top: 73.14px!important;
+  }
+
+  nav.nav-cliente {
     top: 73.14px!important;
   }
   

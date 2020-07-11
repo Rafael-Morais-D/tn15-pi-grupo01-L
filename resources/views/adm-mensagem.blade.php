@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="container email-mensagem py-5 mt-5 adm-pag">
+<section class="container email-mensagem py-5 mt-5 px-md-0 adm-pag">
     <h2 class="mb-0">Mensagens</h2>
     <div class="table-responsive">
         <table class="table table-bordered table-hover text-center mt-4">
@@ -27,14 +27,17 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem. Vestibulum ac convallis orci, ultricies suscipit orci. Nam lobortis in ligula ac pellentesque. Cras aliquam tempor diam, a feugiat sapien porttitor sed. Curabitur ut tortor accumsan, aliquam arcu nec, finibus tellus. Vivamus blandit ornare odio molestie pulvinar. Sed non purus nulla. Phasellus in odio molestie, molestie ipsum a, feugiat massa.</P>
                     </td>
                     <td scope="row" class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modal">
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <i class="fas fa-eye mr-2"></i>
-                        <i class="fas fa-pencil mr-2"></i>
-                        <i class="fas fa-trash-alt"></i>
+                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                            <i class="fas fa-eye mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                            <i class="fas fa-trash-alt text-dark"></i>
+                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -46,14 +49,17 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante.</P>
                     </td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modal">
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <i class="fas fa-eye mr-2"></i>
-                        <i class="fas fa-pencil mr-2"></i>
-                        <i class="fas fa-trash-alt"></i>
+                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                            <i class="fas fa-eye mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                            <i class="fas fa-trash-alt text-dark"></i>
+                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -66,20 +72,63 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem.</P>
                     </td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modal">
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <i class="fas fa-eye mr-2"></i>
-                        <i class="fas fa-pencil mr-2"></i>
-                        <i class="fas fa-trash-alt"></i>
+                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                            <i class="fas fa-eye mr-2 text-dark"></i>
+                        </a>
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                            <i class="fas fa-trash-alt text-dark"></i>
+                        </a>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <!-- Modal - Conteúdo mensagem -->
+        <div class="modal fade" id="modalCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ID - 000</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card">
+                            <div class="card-header text-center">
+                              Nome Completo
+                            </div>
+                            <div class="card-body">
+                              <p class="card-text">Exemplilson da Silva X</p>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header text-center">
+                                Email
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">exemplilson@email.com.br</p>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header text-center">
+                                Mensagem
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Modal - Excluir mensagem -->
-        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalDel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
