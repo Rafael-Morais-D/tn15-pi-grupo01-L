@@ -9,44 +9,60 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Nome Completo</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">CPF</th>
-                    <th scope="col">Excluir</th>
+                    <th scope="col" class="d-none d-md-table-cell">Nome Completo</th>
+                    <th scope="col" class="d-none d-md-table-cell">Email</th>
+                    <th scope="col" class="d-none d-md-table-cell">CPF</th>
+                    <th scope="col" class="d-none d-md-table-cell">Excluir</th>
+                    <th scope="col" class="d-md-none d-table-cell">Opções</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td scope="row">001</td>
-                    <td scope="row">Exemplilson da Silva 1</td>
-                    <td scope="row">exemplison1@email.com.br</td>
-                    <td scope="row">111.222.333-44</td>
-                    <td>
+                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 1</td>
+                    <td scope="row" class="d-none d-md-table-cell">exemplison1@email.com.br</td>
+                    <td scope="row" class="d-none d-md-table-cell">111.222.333-44</td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modal">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
+                    </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <i class="fas fa-eye mr-2"></i>
+                        <i class="fas fa-pencil mr-2"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">002</td>
-                    <td scope="row">Exemplilson da Silva 2</td>
-                    <td scope="row">exemplison2@email.com.br</td>
-                    <td scope="row">111.222.333-45</td>
-                    <td>
+                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 2</td>
+                    <td scope="row" class="d-none d-md-table-cell">exemplison2@email.com.br</td>
+                    <td scope="row" class="d-none d-md-table-cell">111.222.333-45</td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modal">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <i class="fas fa-eye mr-2"></i>
+                        <i class="fas fa-pencil mr-2"></i>
+                        <i class="fas fa-trash-alt"></i>
+                    </td>
                 </tr>
                 <tr>
                     <td scope="row">003</td>
-                    <td scope="row">Exemplilson da Silva 3</td>
-                    <td scope="row">exemplison3@email.com.br</td>
-                    <td scope="row">111.222.333-46</td>
-                    <td>
+                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 3</td>
+                    <td scope="row" class="d-none d-md-table-cell">exemplison3@email.com.br</td>
+                    <td scope="row" class="d-none d-md-table-cell">111.222.333-46</td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modal">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
+                    </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <i class="fas fa-eye mr-2"></i>
+                        <i class="fas fa-pencil mr-2"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
             </tbody>

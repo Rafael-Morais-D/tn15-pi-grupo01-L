@@ -3,61 +3,77 @@
 @section('content')
 
 <section class="container py-5 mt-5 adm-pag">
-    <div class="d-flex justify-content-between align-items-center">
-        <h2 class="mb-0">Categorias</h2>
-        <p>Adicionar uma categoria <a href="#" data-toggle="modal" data-target="#modalAdd"><i class="far fa-plus-circle text-dark"></i></a></p>
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <h2 class="col-12 col-md-6 mb-0 px-0">Categorias</h2>
+        <p class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Adicionar uma categoria <a href="#" data-toggle="modal" data-target="#modalAdd"><i class="far fa-plus-circle text-dark"></i></a></p>
     </div>
     <div class="table-responsive mt-4">
         <table class="table table-bordered table-hover text-center">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Excluir</th>
+                    <th scope="col" class="d-none d-md-table-cell">Categoria</th>
+                    <th scope="col" class="d-none d-md-table-cell">Editar</th>
+                    <th scope="col" class="d-none d-md-table-cell">Excluir</th>
+                    <th scope="col" class="d-md-none d-table-cell">Opções</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td scope="row">001</td>
-                    <td scope="row">Pães</td>
-                    <td>
+                    <td scope="row" class="d-none d-md-table-cell">Pães</td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalCategoria">
                             <i class="fas fa-pencil-alt text-dark"></i>
                         </a>
                     </td>
-                    <td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modal">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
+                    </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <i class="fas fa-eye mr-2"></i>
+                        <i class="fas fa-pencil mr-2"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">002</td>
-                    <td scope="row">Bolos</td>
-                    <td>
+                    <td scope="row" class="d-none d-md-table-cell">Bolos</td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalCategoria">
                             <i class="fas fa-pencil-alt text-dark"></i>
                         </a>
                     </td>
-                    <td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modal">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
+                    </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <i class="fas fa-eye mr-2"></i>
+                        <i class="fas fa-pencil mr-2"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
                 <tr>
                     <td scope="row">003</td>
-                    <td scope="row">Salgados</td>
-                    <td>
+                    <td scope="row" class="d-none d-md-table-cell">Salgados</td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalCategoria">
                             <i class="fas fa-pencil-alt text-dark"></i>
                         </a>
                     </td>
-                    <td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modal">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
+                    </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <i class="fas fa-eye mr-2"></i>
+                        <i class="fas fa-pencil mr-2"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
             </tbody>

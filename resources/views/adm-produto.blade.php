@@ -3,56 +3,70 @@
 @section('content')
 
 <section class="container py-5 mt-5 adm-pag">
-    <div class="d-flex justify-content-between align-items-center">
-        <h2 class="mb-0">Produtos</h2>
-        <p>Adicionar um produto <a href="#" data-toggle="modal" data-target="#modalAdd"><i class="far fa-plus-circle text-dark"></i></a></p>
+    <div class="d-flex flex-wrap justify-content-between align-items-center">
+        <h2 class="col-12 col-md-6 mb-0 px-0">Produtos</h2>
+        <p class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Adicionar um produto <a href="#" data-toggle="modal" data-target="#modalAdd"><i class="far fa-plus-circle text-dark"></i></a></p>
     </div>
     <div class="table-responsive mt-4">
         <table class="table table-bordered table-hover text-center">
             <thead>
                 <tr>
-                    <th scope="col">REF</th>
-                    <th scope="col">Produto</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Preço</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Excluir</th>
+                    <th scope="col">ID</th>
+                    <th scope="col" class="d-none d-md-table-cell">REF</th>
+                    <th scope="col" class="d-none d-md-table-cell">Produto</th>
+                    <th scope="col" class="d-none d-md-table-cell">Descrição</th>
+                    <th scope="col" class="d-none d-md-table-cell">Preço</th>
+                    <th scope="col" class="d-none d-md-table-cell">Categoria</th>
+                    <th scope="col" class="d-none d-md-table-cell">Editar</th>
+                    <th scope="col" class="d-none d-md-table-cell">Excluir</th>
+                    <th scope="col" class="d-md-none d-table-cell">Opções</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td scope="row">001PAOITA</td>
-                    <td scope="row">Pão Italiano</td>
-                    <td scope="row">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero corrupti. Rerum, earum? Facilis nulla dicta, fugit laboriosam, dolor voluptas natus eum esse, dolores officia illum quibusdam inventore.</td>
-                    <td scope="row">12</td>
-                    <td scope="row">Pães</td>
-                    <td>
+                    <td scope="row">001</td>
+                    <td scope="row" class="d-none d-md-table-cell">PAO-ITA</td>
+                    <td scope="row" class="d-none d-md-table-cell">Pão Italiano</td>
+                    <td scope="row" class="d-none d-md-table-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero corrupti. Rerum, earum? Facilis nulla dicta, fugit laboriosam, dolor voluptas natus eum esse, dolores officia illum quibusdam inventore.</td>
+                    <td scope="row" class="d-none d-md-table-cell">12</td>
+                    <td scope="row" class="d-none d-md-table-cell">Pães</td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalAddProduto">
                             <i class="fas fa-pencil-alt text-dark"></i>
                         </a>
                     </td>
-                    <td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modal">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
+                    </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <i class="fas fa-eye mr-2"></i>
+                        <i class="fas fa-pencil mr-2"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
                 <tr>
-                    <td scope="row">002BLCHOCO</td>
-                    <td scope="row">Bolo de Chocolate</td>
-                    <td scope="row">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero corrupti. Rerum, earum? Facilis nulla dicta, fugit laboriosam, dolor voluptas natus eum esse, dolores officia illum quibusdam inventore.</td>
-                    <td scope="row">25</td>
-                    <td scope="row">Bolos</td>
-                    <td>
+                    <td scope="row">002</td>
+                    <td scope="row" class="d-none d-md-table-cell">BL-CHOCO</td>
+                    <td scope="row" class="d-none d-md-table-cell">Bolo de Chocolate</td>
+                    <td scope="row" class="d-none d-md-table-cell">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam voluptatibus iusto vero corrupti. Rerum, earum? Facilis nulla dicta, fugit laboriosam, dolor voluptas natus eum esse, dolores officia illum quibusdam inventore.</td>
+                    <td scope="row" class="d-none d-md-table-cell">25</td>
+                    <td scope="row" class="d-none d-md-table-cell">Bolos</td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalAddProduto">
                             <i class="fas fa-pencil-alt text-dark"></i>
                         </a>
                     </td>
-                    <td>
+                    <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modal">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
+                    </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <i class="fas fa-eye mr-2"></i>
+                        <i class="fas fa-pencil mr-2"></i>
+                        <i class="fas fa-trash-alt"></i>
                     </td>
                 </tr>
 
@@ -182,7 +196,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputREF">REF</label>
-                            <input type="text" class="form-control text-uppercase" placeholder="001NOME"
+                            <input type="text" class="form-control text-uppercase" placeholder="CAT-NOME"
                                 aria-describedby="adicionarREF" id="inputREF" name="inputREF"
                                 required>
                         </div>
