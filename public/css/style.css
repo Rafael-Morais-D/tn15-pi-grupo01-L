@@ -707,3 +707,9 @@ nav.nav-cliente a {
     flex-direction: column;
     }
 }
+
+@media (max-width: 768px) {
+  main {
+    min-height: calc(100vh - 369px);
+  }
+}
