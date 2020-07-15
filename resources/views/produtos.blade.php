@@ -10,13 +10,25 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="{{ asset('img/produtos/slide2.png') }}" alt="Pão rústico" class='tales'>
+                <img class="d-block w-100" src="{{ asset('img/produtos/slide1.png') }}" alt="Pão rústico" class='tales'>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Título 1</h5>
+                    <p>Subtítulo 1</p>
+                </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/produtos/slide1.png') }}" alt="Mesa de Pães" class='tales'>
+                <img class="d-block w-100" src="{{ asset('img/produtos/slide2.png') }}" alt="Mesa de Pães" class='tales'>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Título 2</h5>
+                    <p>Subtítulo 2</p>
+                </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{ asset('img/produtos/pao/pao2.jpg') }}" alt="Massa de Pão" class='tales'>
+                <img class="d-block w-100" src="{{ asset('img/produtos/slide3.png') }}" alt="Massa de Pão" class='tales'>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Título 3</h5>
+                    <p>Subtítulo 3</p>
+                </div>
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselpao" role="button" data-slide="prev">
