@@ -7,8 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Usuario extends Model
 {
     protected $table = 'usuarios';
+    protected $fillable = ['nomeCompleto', 'CPF', 'RG', 'email', 'senha', 'telefone', 'CEP', 'endNum', 'endComp'];
 
-    protected $fillable = [
-        'nomeCompleto', 'CPF', 'RG', 'email', 'senha', 'telefone', 'CEP', 'endNum', 'endComp'
-    ];
+    public function setNomeAttribute($value){
+        $this->attributes['nome'] = $value;
+
+    }
 }
