@@ -21,7 +21,7 @@ class CreateUsuariosTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('senha', 200);
             $table->string('telefone', 50);
-            $table->integer('CEP', 8);
+            $table->string('CEP', 8);
             $table->string('endNum', 11);
             $table->string('endComp', 200);
             $table->timestamps();
