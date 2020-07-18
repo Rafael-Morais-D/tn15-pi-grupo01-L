@@ -10,6 +10,6 @@ class Mensagem extends Model
     protected $fillable = ['nome', 'email', 'mensagem'];
 
     public function setNomeAttribute($value){
-        $this->attributes['mensagem']
+        $this->attributes['mensagem'];
     }
 }
