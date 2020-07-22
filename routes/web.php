@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,26 +46,47 @@ Route::get('/quem-somos', function() {
     return view('quem-somos');
 });
 
-// PÁGINAS ADMINISTRATIVAS
 
-Route::get('/adm-usuario', function () {
-    return view('adm-usuario');
+//CONTROLLERS
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+// ACESSO AS PÁGINAS ADMINISTRATIVAS - LOGIN E LOGOUT
+
+Route::get('/admin', 'AuthController@formLogin')->name('admin');
+Route::get('/admin/login', 'AuthController@showLoginForm')->name('admin.login');
+Route::post('/admin/login/do', 'AuthController@login')->name('admin.login.do');
+Route::get('/admin/logout', 'AuthController@logout')->name('admin.logout');
+
+// LISTANDO USUARIOS
+
+Route::get('/admin/adm-usuario', 'UsuariosController@listAllUsers')->name('usuarios');
+
+
+// CATEGORIAS
+
+Route::get('/admin/adm-categoria', function () {
+    return view('admin/adm-categoria');
 });
 
-Route::get('/adm-categoria', function () {
-    return view('adm-categoria');
+// PRODUTOS
+
+Route::get('/admin/adm-produto', function () {
+    return view('admin/adm-produto');
 });
 
-Route::get('/adm-produto', function () {
-    return view('adm-produto');
+// MENSAGENS
+
+Route::get('/admin/adm-mensagem', function () {
+    return view('admin/adm-mensagem');
 });
 
-Route::get('/adm-mensagem', function () {
-    return view('adm-mensagem');
-});
+// HISTORICO DE PEDIDOS
 
-Route::get('/adm-historico-pedidos', function () {
-    return view('adm-historico-pedidos');
+Route::get('/admin/adm-historico-pedidos', function () {
+    return view('admin/adm-historico-pedidos');
 });
 
 // PÁGINAS DE USUÁRIO
@@ -80,3 +102,11 @@ Route::get('/user-minha-conta', function () {
 Route::get('/user-meus-pedidos', function () {
     return view('user-meus-pedidos');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

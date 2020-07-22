@@ -169,19 +169,19 @@
         <div class="collapse navbar-collapse" id="admNav">
             <ul class="navbar-nav text-center m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/adm-usuario">Usuários</a>
+                    <a class="nav-link" href="/admin/adm-usuario">Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/adm-categoria">Categorias</a>
+                    <a class="nav-link" href="/admin/adm-categoria">Categorias</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/adm-produto">Produtos</a>
+                    <a class="nav-link" href="/admin/adm-produto">Produtos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/adm-mensagem">Mensagens</a>
+                    <a class="nav-link" href="/admin/adm-mensagem">Mensagens</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/adm-historico-pedidos">Histórico de Pedidos</a>
+                    <a class="nav-link" href="/admin/adm-historico-pedidos">Histórico de Pedidos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn btn-adm mb-0 ml-1" title="Header Administrativo" data-toggle="modal" data-target="#btnSair">Sair</a>
@@ -204,9 +204,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
-                        <a href="#">
-                            <button type="button" class="btn btn-danger mb-0">Sair</button>
+                        <a href="{{ route('admin.logout') }}">
+                            <button type="submit" action="{{ route('admin.logout') }}" class="btn btn-danger mb-0">Sair</button>
                         </a>
+                        @csrf
                     </div>
                 </div>
             </div>
