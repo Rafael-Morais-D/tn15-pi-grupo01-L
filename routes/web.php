@@ -64,12 +64,12 @@ Route::get('/admin/logout', 'AuthController@logout')->name('admin.logout');
 
 Route::get('/admin/adm-usuario', 'UsuariosController@listAllUsers')->name('usuarios');
 
-
 // CATEGORIAS
 
-Route::get('/admin/adm-categoria', function () {
-    return view('admin/adm-categoria');
-});
+Route::get('/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');;
+Route::post('/adm-categoria', 'CategoriasController@create');
+Route::put('/adm-categoria/{id}', 'CategoriasController@update');
+Route::delete('/adm-categoria/{id}', 'CategoriasController@delete');
 
 // PRODUTOS
 
