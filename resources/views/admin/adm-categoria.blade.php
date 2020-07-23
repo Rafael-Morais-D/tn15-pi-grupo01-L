@@ -60,7 +60,7 @@
                                     <div class="modal-header">
                                         <h5 class="modal-title">Editar categoria</h5>
                                     </div>
-                                    <form action="/adm-categoria/{{$categoria->id}}" method="POST" class="container">
+                                    <form action="/admin/adm-categoria/{{$categoria->id}}" method="POST" class="container">
                                         @csrf
                                         {{ method_field('PUT') }}
                                         
@@ -125,7 +125,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
-                                        <form action="/adm-categoria/{{$categoria->id}}" method="POST">
+                                        <form action="/admin/adm-categoria/{{$categoria->id}}" method="POST">
                                             @csrf
                                             {{ method_field('DELETE') }}
                                             <button id="excluir-categoria" type="submit" class="btn btn-danger">Excluir</a>
@@ -151,7 +151,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title">Adicionar categoria</h5>
                     </div>
-                    <form action="/adm-categoria" method="POST" class="container">
+                    <form action="/admin/adm-categoria" method="POST" class="container">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-12">
