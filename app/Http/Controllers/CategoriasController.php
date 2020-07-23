@@ -14,7 +14,7 @@ class CategoriasController extends Controller
         $categorias = Categoria::paginate(10);
     
         if ($categorias) {
-            return view('/adm-categoria')->with('categorias', $categorias);
+            return view('/admin/adm-categoria')->with('categorias', $categorias);
         }
     }
 
