@@ -28,7 +28,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->route('admin');
         }
-        return redirect()->back()->withInput()->withErrors(['Ops, apenas funcionários da Bake & Go tem acesso a esta página!']);
+        return redirect()->back()->withInput()->withErrors(['Oops, apenas funcionários da Bake & Go tem acesso a esta página!']);
     }
 
     public function logout() {

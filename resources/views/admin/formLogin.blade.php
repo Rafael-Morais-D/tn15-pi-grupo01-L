@@ -10,6 +10,17 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.login.do') }}">
                         @csrf
+                        <div class="form-group d-flex justify-content-center">
+                            <div class="col-md-8">
+                            @if ($errors->all())
+                                @foreach($errors->all() as $error)
+                                <div class="alert alert-danger" role="alert">
+                                    {{ $error }}
+                            </div>
+                                @endforeach
+                            @endif
+                            </div>
+                        </div>
                         <div class="form-group d-flex justify-content-center py-2">
                             <div class="col-md-8">
                                 <input id="email" type="email" class="form-control" name="email" required autocomplete="email" placeholder="E-mail" autofocus>
