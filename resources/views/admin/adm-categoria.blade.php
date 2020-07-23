@@ -5,7 +5,7 @@
 <section class="container py-5 mt-5 px-md-0 adm-pag">
     <div class="d-flex flex-wrap justify-content-between align-items-center">
         <h2 class="col-12 col-md-6 mb-0 px-0">Categorias</h2>
-        <a href="#" data-toggle="modal" data-target="#modalAdd"><p class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Adicionar uma categoria <i class="far fa-plus-circle text-dark"></i></a></p>
+        <p class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Adicionar uma categoria <a href="#" data-toggle="modal" data-target="#modalAdd"><i class="far fa-plus-circle text-dark"></i></a></p>
     </div>
     @if($categorias->isEmpty())
         <section class="row mx-2">

@@ -1,4 +1,4 @@
-@extends('layouts.erro')
+@extends('layouts.admlogin')
 
 @section('content')
 
@@ -6,7 +6,7 @@
     <div>
         <div class="col-lg-6 mx-auto">
             <div class="card">
-                <div class="card text-center bg-light py-3">{{ __('Acesso ao Painel Administrativo') }}</div>
+                <div class="card text-center bg-light py-3">{{ __('Painel Administrativo') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('admin.login.do') }}">
                         @csrf

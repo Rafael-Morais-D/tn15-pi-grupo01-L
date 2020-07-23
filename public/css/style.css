@@ -192,6 +192,30 @@ section.btn {
   border: 1px solid #000;
 }
 
+.btn-primary {
+  border-radius: 20px;
+  background: #faf8f3;
+  border: 1px solid #000;
+  color: #000;
+  min-width: 82px;
+}
+
+.btn-primary:hover {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+}
+
+button.btn.btn-secondary {
+  margin-right: 0.5rem;
+}
+
 .hvr-icon-basket {
   display: inline-block;
   vertical-align: middle;
@@ -250,14 +274,14 @@ i.fa-plus-circle:hover::before {
   }
 }
 
-.menuProdutos h3 {
+.menu-produtos h3 {
   font-family: 'GTAmerica-ExtendedMedium', 'Courier New', Courier, monospace;
   font-size: 0.9em;
   letter-spacing: 0.1em;
 }
 
 .menuProdutos span, label, select {
-  font-size: 0.85em;
+  font-size: 1em;
 }
 
 #section-counter {
@@ -370,6 +394,10 @@ ul {
   font-style: normal;
 }
 
+h3, .h3 {
+  font-size: 1.1em;
+}
+
 .minha-conta h3 {
   font-size: 1.2em;
 }
@@ -475,8 +503,31 @@ img.logo-footer {
   border-top: 1px solid #e9ecef;
 }
 
+.modal-login a:hover {
+  color: #8f793c;
+}
+
+.modal-login p {
+  margin-bottom: 0;
+}
+
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #dee2e6;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+}
+
 .modal-footer a {
   color: #8f793c;
+}
+
+.modal-footer > * {
+  margin: 0;
 }
 
 .modal-info-leg {
@@ -613,7 +664,7 @@ nav.nav-cliente a {
   align-items: center;
   padding: .375rem .75rem;
   margin-bottom: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.5;
   color: #000;

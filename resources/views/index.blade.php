@@ -37,7 +37,7 @@
         </div>
       </section>
       <!-- Menu -->
-      <section class="menuProdutos">
+      <section class="menu-produtos">
         <div class="container">
           <div class="row-menu">
             <div class="col-lg-10 mx-auto col-12 text-center mb-3">
