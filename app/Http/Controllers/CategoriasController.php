@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Categoria;
+use Illuminate\Support\Facades\Auth;
 
 class CategoriasController extends Controller
 {
     public function tabela() {
         
+        if(Auth::check() === true) {
         $categorias = Categoria::all();
-        
         $categorias = Categoria::paginate(10);
-    
-        if ($categorias) {
-            return view('/admin/adm-categoria')->with('categorias', $categorias);
+        return view('/admin/adm-categoria')->with('categorias', $categorias);
         }
+        return redirect()->route('admin.login');
     }
 
     public function create(Request $request) {

@@ -102,7 +102,3 @@ Route::get('/user-minha-conta', function () {
 Route::get('/user-meus-pedidos', function () {
     return view('user-meus-pedidos');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
