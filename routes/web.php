@@ -66,10 +66,10 @@ Route::get('/admin/adm-usuario', 'UsuariosController@listAllUsers')->name('usuar
 
 // CATEGORIAS
 
-Route::get('/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');;
-Route::post('/adm-categoria', 'CategoriasController@create');
-Route::put('/adm-categoria/{id}', 'CategoriasController@update');
-Route::delete('/adm-categoria/{id}', 'CategoriasController@delete');
+Route::get('/admin/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');;
+Route::post('/admin/adm-categoria', 'CategoriasController@create');
+Route::put('/admin/adm-categoria/{id}', 'CategoriasController@update');
+Route::delete('/admin/adm-categoria/{id}', 'CategoriasController@delete');
 
 // PRODUTOS
 
