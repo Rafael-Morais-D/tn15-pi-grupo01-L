@@ -51,9 +51,10 @@ Route::get('/adm-usuario', function () {
     return view('adm-usuario');
 });
 
-Route::get('/adm-categoria', function () {
-    return view('adm-categoria');
-});
+Route::get('/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');;
+Route::post('/adm-categoria', 'CategoriasController@create');
+Route::put('/adm-categoria/{id}', 'CategoriasController@update');
+Route::delete('/adm-categoria/{id}', 'CategoriasController@delete');
 
 Route::get('/adm-produto', function () {
     return view('adm-produto');
