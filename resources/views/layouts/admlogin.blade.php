@@ -106,7 +106,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav text-center ml-md-auto">
                         <li class="nav-item">
-                            <a>Acesso Restrito <i class="fas fa-user-lock"></i></a>
+                            <p class="admin-login mb-0">Acesso Restrito <i class="fas fa-user-lock"></i></p>
                         </li>
                 </div>
             </nav>
