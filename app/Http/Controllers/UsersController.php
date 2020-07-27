@@ -67,12 +67,13 @@ class UsersController extends Controller
             return view('cadastro');
         }
     }
+    
 
     // PÁGINA DE EDIÇÃO DE USUÁRIO
-    public function editUser() {
-        $user = Usuario::find();
-        if($user) {
-            return view('user-edicao-usuario')->with('user', $user);
+    public function editUser($id) {
+        $users = Usuario::find($id);
+        if($users) {
+            return view('user-edicao-usuario')->with('users', $users);
         }
     }
 
@@ -105,25 +106,16 @@ class UsersController extends Controller
 
         $user->update();
 
-        if(Auth::user()->admin!=1) {
-            return view('user-edicao-usuario')->with([
-                'user'=> $user,
-                'success'=>'Usuário alterado com sucesso!'
-            ]);
+        if ($user) {
+            return redirect()->route('user-edicao-usuario', ['success' => 'Cadastro atualizado com sucesso!']);
         } 
         return redirect()->route('user-edicao-usuario');
     }
 
     // DELETANDO USUÁRIOS
     public function deleteUser($id) {
-
         $user = Usuario::find($id);
-
         if($user->delete()) {
-
-            $users = DB::table('usuarios');
-            $users = $users->paginate(10);
-            
             return redirect()->route('admin.adm-usuario', ['success' => 'Usuário excluído com sucesso!']);
 
         }

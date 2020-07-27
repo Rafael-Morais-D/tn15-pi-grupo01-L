@@ -13,7 +13,7 @@ class AuthController extends Controller
 
         if(Auth::check() === true) {
             $users = Usuario::all();
-            return view('admin.adm-usuario')->with('users', $users);
+            return view('admin.adm-usuario')->with('usuarios', $users);
         }
         return redirect()->route('admin.login');
     }

@@ -4,6 +4,13 @@
 
 <section class="container py-5 mt-5 px-md-0 adm-pag">
     <h2 class="mb-0">Usuários</h2>
+    @if($users->isEmpty())
+        <section class="row mx-2">
+            <div class="col-12">
+                <h3 class="text-center">Parece que ainda não temos nenhum usuário!</h3>
+            </div>
+        </section>
+    @endif
     <div class="table-responsive">
         <table class="table table-bordered table-hover text-center mt-4">
             <thead>
@@ -30,7 +37,7 @@
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->uf }}</td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->email }}</td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalDel{{ $user->id }}">
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
@@ -38,7 +45,7 @@
                         <a href="#" data-toggle="modal" data-target="#modalCont">
                             <i class="fas fa-eye mr-2 text-dark"></i>
                         </a>
-                        <a href="#" data-toggle="modal" data-target="#modalDel{{ $user->id }}">
+                        <a href="#" data-toggle="modal" data-target="#modalDel">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
@@ -47,7 +54,7 @@
             </tbody>
         </table>
         <!-- Modal - Conteúdo usuário -->
-        <div class="modal fade" id="modalCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalCont{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -65,18 +72,26 @@
                         </div>
                         <div class="card mt-3">
                             <div class="card-header text-center">
-                                CPF
+                                Endereço
                             </div>
                             <div class="card-body">
-                                <p class="card-text">{{ $user->cpf }}</p>
+                                <p class="card-text">{{ $user->endereco }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
                             <div class="card-header text-center">
-                                RG
+                                CEP
                             </div>
                             <div class="card-body">
-                                <p class="card-text">{{ $user->rg }}</p>
+                                <p class="card-text">{{ $user->cep }}</p>
+                            </div>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="card-header text-center">
+                                UF
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{ $user->uf }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -87,22 +102,7 @@
                                 <p class="card-text">{{ $user->email }}</p>
                             </div>
                         </div>
-                        <div class="card mt-3">
-                            <div class="card-header text-center">
-                                Senha
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">{{ $user->password }}</p>
-                            </div>
-                        </div>
-                        <div class="card mt-3">
-                            <div class="card-header text-center">
-                                Telefone
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">{{ $user->telefone }}</p>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">OK</button>

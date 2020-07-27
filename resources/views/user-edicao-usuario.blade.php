@@ -2,14 +2,13 @@
 
 @section('content')
 
-<!-- Form - Cadastro -->
 <div class="container-fluid py-5 mt-5">
     <div class="form-cadastro">
         <div class="col-lg-6 mx-auto">
             <div class="card card-body">
                 <h3 class="text-center mb-4">Editar meu perfil</h3>
                 <fieldset>
-                    <form action="/user-edicao-usuario/{{ $user->id }}" method="post" id="formCadastro" enctype="multipart/form-data">     
+                    <form action="/user-edicao-usuario/{{ $user->id }}" method="POST">     
                         @csrf
                         {{ method_field('PUT')}}
                     <div class="form-group has-error">
@@ -79,5 +78,12 @@
         </div>
     </div>
 </div>
+
+@if(!empty(Request::get('success')))
+    <div class="alert alert-success text-center col-md-12">
+
+        {{ Request::get('success') }}
+    </div>
+@endif
 
 @endsection

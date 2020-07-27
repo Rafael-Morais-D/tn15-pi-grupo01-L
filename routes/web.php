@@ -55,12 +55,12 @@ Route::get('/admin/login', 'AuthController@showLoginForm')->name('admin.login');
 Route::post('/admin/login/do', 'AuthController@login')->name('admin.login.do');
 Route::get('/admin/logout', 'AuthController@logout')->name('admin.logout');
 
-// LISTANDO USUARIOS
-Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('usuarios');
-
 // CADASTRO DE USUÁRIOS
 Route::get('/cadastro', 'UsersController@createPage')->name('cadastro');
 Route::post('/cadastro', 'UsersController@createUser');
+
+// LISTANDO USUARIOS
+Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('usuarios');
 
 // EDITAR USUÁRIOS
 Route::get('/user-edicao-usuario/{id}', 'UsersController@editUser');
