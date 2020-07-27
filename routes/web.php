@@ -67,7 +67,7 @@ Route::get('/user-edicao-usuario/{id}', 'UsersController@editUser');
 Route::put('/user-edicao-usuario/{id}', 'UsersController@updateUser');
 
 // DELETANDO USUÁRIO
-Route::delete('/admin/remove/{id}', 'UsersController@deleteUser');
+Route::delete('/admin/adm-usuario/{id}', 'UsersController@deleteUser');
 
 
 Route::get('/user-minha-conta', function () {
