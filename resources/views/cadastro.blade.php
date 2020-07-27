@@ -9,18 +9,21 @@
             <div class="card card-body">
                 <h3 class="text-center mb-4">Criar uma conta</h3>
                 <fieldset>
+                    <form method="POST" action="{{ route('cadastro') }}">
+                    @csrf
+                    {{ method_field('POST') }}
                     <div class="form-group has-error">
-                        <input class="form-control input-lg text-capitalize" placeholder="Nome Completo" name="nome" type="text">
+                        <input type="text" class="form-control{{$errors->has('inputNome') ? ' is-invalid':''}} input-lg text-capitalize" placeholder="Nome Completo" aria-describedby="nomeCadastroHelp" id="inputNome" name="inputNome" value="{{ old('inputNome') }}" required>
                     </div>
                     <div class="form-group has-error">
-                        <input type="text" class="form-control text-capitalize" placeholder="Endereço" aria-describedby="enderecoHelp" id="inputEndereco" name="inputEndereco" required>
+                        <input type="text" class="form-control{{$errors->has('inputEndereco') ? ' is-invalid':''}} text-capitalize" placeholder="Endereço" aria-describedby="enderecoHelp" id="inputEndereco" name="inputEndereco" value="{{ old('inputEndereco') }}" required>
                     </div>
                     <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <input type="text" class="form-control" placeholder="CEP" name="inputCep" required>
+                        <div class="form-group{{$errors->has('inputCep') ? ' is-invalid':''}} col-md-3">
+                            <input type="text" class="form-control" placeholder="CEP" name="inputCep" value="{{ old('inputCep') }}" required>
                         </div>
                         <div class="form-group col-md-7">
-                            <input type="text" class="form-control text-capitalize" placeholder="Cidade" name="inputCidade" required>
+                            <input type="text" class="form-control{{$errors->has('inputCidade') ? ' is-invalid':''}} text-capitalize" placeholder="Cidade"name="inputCidade" value="{{ old('inputCidade') }}" required>
                         </div>
                         <div class="form-group col-md-2">
                             <select class="form-control" name="inputUF" id="inputUF" required>
@@ -56,29 +59,36 @@
                         </div>
                     </div>
                     <div class="form-group has-error">
-                        <input class="form-control input-lg" placeholder="Email" name="email" type="text">
+                        <input type="text" class="form-control{{$errors->has('inputEmail') ? ' is-invalid':''}} input-lg" placeholder="Email" aria-describedby="emailHelp" id="inputEmail" name="inputEmail" value="{{ old('inputEmail') }}" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <input type="password" name="inputSenha" class="form-control" placeholder="Senha" aria-describedby="senhaHelp" id="inputSenha" required> 
+                            <input type="password" name="inputSenha" class="form-control{{$errors->has('inputSenha') ? ' is-invalid':''}}" placeholder="Senha" aria-describedby="senhaHelp" id="inputSenha" required>
+                            <div class="invalid-feedback">{{ $errors->first('inputSenha') }}</div>
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="password" class="form-control" placeholder="Confirma senha" aria-describedby="ConfirmaHelp" id="inputConfirma" name="inputConfirma" required>
+                            <input type="password" class="form-control{{$errors->has('inputConfirma') ? ' is-invalid':''}}" placeholder="Confirma senha" aria-describedby="ConfirmaHelp" id="inputConfirma" name="inputConfirma" required>
+                            <div class="invalid-feedback">{{ $errors->first('inputConfirma') }}</div>
                         </div>
                     </div>
                     <div class="checkbox">
                         <label class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox">
+                            <input type="checkbox" class="custom-control-input" required>
                             <span class="custom-control-label d-inline-block">Estou de acordo com os <a data-toggle="modal" href="#termosDeUso">Termos de Uso.</a></span>
                         </label>
                     </div>
                     <div class="col-12 text-center mt-4">
-                        <input class="btn btn-primary text-center" value="Cadastrar" type="submit">
+                        <input class="btn btn-primary text-center" value="{{ __('Cadastro') }}" type="submit">
                     </div>
                 </fieldset>
             </div>
         </div>
     </div>
 </div>
+@if(!empty(Request::get('success')))
+<div class="alert alert-success text-center col-md-12">
+    {{ Request::get('success') }}
+</div>
+@endif
 
 @endsection

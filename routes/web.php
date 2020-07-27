@@ -1,5 +1,6 @@
 <?php
 
+use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,10 +21,6 @@ Route::get('/', function () {
 
 Route::get('/produtos', function() {
     return view('produtos');
-});
-
-Route::get('/cadastro', function() {
-    return view('cadastro');
 });
 
 Route::get('/cesta-compras', function() {
@@ -48,52 +45,30 @@ Route::get('/quem-somos', function() {
 
 
 //CONTROLLERS
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
 // ACESSO AS PÁGINAS ADMINISTRATIVAS - LOGIN E LOGOUT
-
 Route::get('/admin', 'AuthController@formLogin')->name('admin');
 Route::get('/admin/login', 'AuthController@showLoginForm')->name('admin.login');
 Route::post('/admin/login/do', 'AuthController@login')->name('admin.login.do');
 Route::get('/admin/logout', 'AuthController@logout')->name('admin.logout');
 
 // LISTANDO USUARIOS
+Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('usuarios');
 
-Route::get('/admin/adm-usuario', 'UsuariosController@listAllUsers')->name('usuarios');
+// CADASTRO DE USUÁRIOS
+Route::get('/cadastro', 'UsersController@createPage')->name('cadastro');
+Route::post('/cadastro', 'UsersController@createUser');
 
-// CATEGORIAS
+// EDITAR USUÁRIOS
+Route::get('/user-edicao-usuario/{id}', 'UsersController@editUser');
+Route::put('/user-edicao-usuario/{id}', 'UsersController@updateUser');
 
-Route::get('/admin/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');;
-Route::post('/admin/adm-categoria', 'CategoriasController@create');
-Route::put('/admin/adm-categoria/{id}', 'CategoriasController@update');
-Route::delete('/admin/adm-categoria/{id}', 'CategoriasController@delete');
+// DELETANDO USUÁRIO
+Route::delete('/admin/remove/{id}', 'UsersController@deleteUser');
 
-// PRODUTOS
-
-Route::get('/admin/adm-produto', function () {
-    return view('admin/adm-produto');
-});
-
-// MENSAGENS
-
-Route::get('/admin/adm-mensagem', function () {
-    return view('admin/adm-mensagem');
-});
-
-// HISTORICO DE PEDIDOS
-
-Route::get('/admin/adm-historico-pedidos', function () {
-    return view('admin/adm-historico-pedidos');
-});
-
-// PÁGINAS DE USUÁRIO
-
-Route::get('/user-edicao-usuario', function () {
-    return view('user-edicao-usuario');
-});
 
 Route::get('/user-minha-conta', function () {
     return view('user-minha-conta');
@@ -101,4 +76,27 @@ Route::get('/user-minha-conta', function () {
 
 Route::get('/user-meus-pedidos', function () {
     return view('user-meus-pedidos');
+});
+
+
+
+// CATEGORIAS
+Route::get('/admin/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');;
+Route::post('/admin/adm-categoria', 'CategoriasController@create');
+Route::put('/admin/adm-categoria/{id}', 'CategoriasController@update');
+Route::delete('/admin/adm-categoria/{id}', 'CategoriasController@delete');
+
+// PRODUTOS
+Route::get('/admin/adm-produto', function () {
+    return view('admin/adm-produto');
+});
+
+// MENSAGENS
+Route::get('/admin/adm-mensagem', function () {
+    return view('admin/adm-mensagem');
+});
+
+// HISTORICO DE PEDIDOS
+Route::get('/admin/adm-historico-pedidos', function () {
+    return view('admin/adm-historico-pedidos');
 });

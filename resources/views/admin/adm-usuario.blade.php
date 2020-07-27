@@ -9,27 +9,28 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col" class="d-none d-md-table-cell">Nome Completo</th>
-                    <th scope="col" class="d-none d-md-table-cell">CPF</th>
-                    <th scope="col" class="d-none d-md-table-cell">RG</th>
+                    <th scope="col" class="d-none d-md-table-cell">Nome</th>
+                    <th scope="col" class="d-none d-md-table-cell">Endereço</th>
+                    <th scope="col" class="d-none d-md-table-cell">CEP</th>
+                    <th scope="col" class="d-none d-md-table-cell">Cidade</th>
+                    <th scope="col" class="d-none d-md-table-cell">UF</th>
                     <th scope="col" class="d-none d-md-table-cell">Email</th>
-                    <th scope="col" class="d-none d-md-table-cell">Senha</th>
-                    <th scope="col" class="d-none d-md-table-cell">Telefone</th>
                     <th scope="col" class="d-none d-md-table-cell">Excluir</th>
                     <th scope="col" class="d-md-none d-table-cell">Opções</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($users as $user)
                 <tr>
-                    <td scope="row">001</td>
-                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 1</td>
-                    <td scope="row" class="d-none d-md-table-cell">111.222.333-44</td>
-                    <td scope="row" class="d-none d-md-table-cell">11.222.333-4</td>
-                    <td scope="row" class="d-none d-md-table-cell">exemplison1@email.com.br</td>
-                    <td scope="row" class="d-none d-md-table-cell">*********</td>
-                    <td scope="row" class="d-none d-md-table-cell">(11)99999-0000</td>
+                    <td scope="row">{{ $user->id }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">{{ $user->nome }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">{{ $user->endereco }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">{{ $user->cep }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">{{ $user->cidade }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">{{ $user->uf }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">{{ $user->email }}</td>
                     <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                        <a href="#" data-toggle="modal" data-target="#modalDel{{ $user->id }}">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
@@ -37,55 +38,12 @@
                         <a href="#" data-toggle="modal" data-target="#modalCont">
                             <i class="fas fa-eye mr-2 text-dark"></i>
                         </a>
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                        <a href="#" data-toggle="modal" data-target="#modalDel{{ $user->id }}">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
                 </tr>
-                <tr>
-                    <td scope="row">002</td>
-                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 2</td>
-                    <td scope="row" class="d-none d-md-table-cell">111.222.333-45</td>
-                    <td scope="row" class="d-none d-md-table-cell">11.222.333-5</td>
-                    <td scope="row" class="d-none d-md-table-cell">exemplison2@email.com.br</td>
-                    <td scope="row" class="d-none d-md-table-cell">*********</td>
-                    <td scope="row" class="d-none d-md-table-cell">(11)99999-2222</td>
-                    <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
-                            <i class="fas fa-trash-alt text-dark"></i>
-                        </a>
-                    </td>
-                    <td scope="col" class="d-md-none d-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalCont">
-                            <i class="fas fa-eye mr-2 text-dark"></i>
-                        </a>
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
-                            <i class="fas fa-trash-alt text-dark"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">003</td>
-                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 3</td>
-                    <td scope="row" class="d-none d-md-table-cell">111.222.333-46</td>
-                    <td scope="row" class="d-none d-md-table-cell">11.222.333-6</td>
-                    <td scope="row" class="d-none d-md-table-cell">exemplison3@email.com.br</td>
-                    <td scope="row" class="d-none d-md-table-cell">*********</td>
-                    <td scope="row" class="d-none d-md-table-cell">(11)99999-3333</td>
-                    <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
-                            <i class="fas fa-trash-alt text-dark"></i>
-                        </a>
-                    </td>
-                    <td scope="col" class="d-md-none d-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalCont">
-                            <i class="fas fa-eye mr-2 text-dark"></i>
-                        </a>
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
-                            <i class="fas fa-trash-alt text-dark"></i>
-                        </a>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
         <!-- Modal - Conteúdo usuário -->
@@ -94,7 +52,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">ID - 000</h5>
+                        <h5 class="modal-title">ID - {{ $user->id }}</h5>
                     </div>
                     <div class="modal-body">
                         <div class="card">
@@ -102,7 +60,7 @@
                               Nome Completo
                             </div>
                             <div class="card-body">
-                              <p class="card-text">Exemplilson da Silva X</p>
+                              <p class="card-text">{{ $user->nome }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -110,7 +68,7 @@
                                 CPF
                             </div>
                             <div class="card-body">
-                                <p class="card-text">111.222.333-44</p>
+                                <p class="card-text">{{ $user->cpf }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -118,7 +76,7 @@
                                 RG
                             </div>
                             <div class="card-body">
-                                <p class="card-text">11.222.333-44</p>
+                                <p class="card-text">{{ $user->rg }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -126,7 +84,7 @@
                                 Email
                             </div>
                             <div class="card-body">
-                                <p class="card-text">exemplilson@email.com.br</p>
+                                <p class="card-text">{{ $user->email }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -134,7 +92,7 @@
                                 Senha
                             </div>
                             <div class="card-body">
-                                <p class="card-text">*********</p>
+                                <p class="card-text">{{ $user->password }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -142,7 +100,7 @@
                                 Telefone
                             </div>
                             <div class="card-body">
-                                <p class="card-text">(11)99999-0000</p>
+                                <p class="card-text">{{ $user->telefone }}</p>
                             </div>
                         </div>
                     </div>
@@ -153,7 +111,7 @@
             </div>
         </div>
         <!-- Modal - Excluir usuário -->
-        <div class="modal fade" id="modalDel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalDel{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -163,15 +121,27 @@
                     <div class="modal-body">
                         <p>Deseja realmente excluir este usuário?</p>
                     </div>
+                    <div class="modal-body text-left">
+                        <p>ID: {{ $user->id }}</p>
+                        <p>Nome: {{ $user->nome }}</p>
+                        <p>Email: {{ $user->email }}</p>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
-                        <a href="#">
-                            <button type="button" class="btn btn-danger mb-0">Excluir</button>
+                        <form action="/admin/adm-usuario/{{$user->id}}" method="POST">
+                            @csrf
+                            {{ method_field('DELETE') }}
+                            <button id="delete-contact" type="submit" class="btn btn-danger mb-0">Excluir</button>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+        @if(!empty(Request::get('success')))
+        <div class="alert alert-success text-center col-md-12">
+            {{ Request::get('success') }}
+        </div>
+    @endif
 </section>
 
 @endsection
