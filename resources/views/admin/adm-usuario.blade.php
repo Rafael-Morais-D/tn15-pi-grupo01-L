@@ -70,43 +70,43 @@
                                 <h5 class="modal-title" id="modalEditLabel">Editar usuário - ID {{ $user->id }}</h5>
                             </div>
                             <form action="/admin/adm-usuario/{{$user->id}}" method="POST" class="container">
-                                @csrf
                                 {{ method_field('PUT') }}
+                                @csrf
                                 <form class="container">
                                     <div class="modal-body">
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="inputNome">Nome Completo</label>
-                                                <input type="text" name="inputNome" value="{{ old('inputNome') }}" class="form-control{{$errors->has('inputNome') ? ' is-invalid':''}}" id="inputNome" placeholder="{{$user->nome}}">
+                                                <input type="text" name="inputNome" value="{{$user->nome}}" class="form-control" id="inputNome" placeholder="{{$user->nome}}" required>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputCPF">CPF</label>
-                                                <input type="number" name="inputCPF" value="{{ old('inputCPF') }}" class="form-control{{$errors->has('inputCPF') ? ' is-invalid':''}}" id="inputCPF" placeholder="{{$user->cpf}}" aria-describedby="CPFCadastroHelp">
+                                                <input type="number" name="inputCPF" value="{{$user->cpf}}" class="form-control" id="inputCPF" placeholder="{{$user->cpf}}" readonly aria-describedby="CPFCadastroHelp">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputRG">RG</label>                                        
-                                                <input type="number" name="inputRG" value="{{ old('inputRG') }}" class="form-control{{$errors->has('inputRG') ? ' is-invalid':''}}" id="inputRG" placeholder="{{$user->rg}}" aria-describedby="RGCadastroHelp">
+                                                <input type="number" name="inputRG" value="{{$user->rg}}" class="form-control" id="inputRG" placeholder="{{$user->rg}}" readonly aria-describedby="RGCadastroHelp">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEndereco">Endereço</label>
-                                            <input type="text" name="inputEndereco" value="{{ old('inputEndereco') }}" class="form-control{{$errors->has('inputEndereco') ? ' is-invalid':''}}" id="inputEndereco" placeholder="{{$user->endereco}}">
+                                            <input type="text" name="inputEndereco" value="{{$user->endereco}}" class="form-control" id="inputEndereco" placeholder="{{$user->endereco}}" required>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-3">
                                                 <label for="inputCep">CEP</label>
-                                                <input type="text" name="inputCep" value="{{ old('inputCep') }}" class="form-control{{$errors->has('inputCep') ? ' is-invalid':''}}" id="inputCep" placeholder="{{$user->cep}}">
+                                                <input type="text" name="inputCep" value="{{$user->cep}}" class="form-control" id="inputCep" placeholder="{{$user->cep}}" required>
                                             </div>
                                             <div class="form-group col-md-7">
                                                 <label for="inputCidade">Cidade</label>
-                                                <input type="text" name="inputCidade" value="{{ old('inputCidade') }}" class="form-control{{$errors->has('inputCidade') ? ' is-invalid':''}}" id="inputCidade" placeholder="{{$user->cidade}}">
+                                                <input type="text" name="inputCidade" value="{{$user->cidade}}" class="form-control" id="inputCidade" placeholder="{{$user->cidade}}" required>
                                             </div>
                                             <div class="form-group col-md-2">
                                                 <label for="inputUF">UF</label>
-                                                <select name="inputUF" value="{{ old('inputUF') }}" class="form-control{{$errors->has('inputUF') ? ' is-invalid':''}}" id="inputUF" placeholder="{{$user->uf}}">
-                                                    <option disabled="" selected="">UF</option>
+                                                <select name="inputUF" value="{{$user->uf}}" class="form-control" id="inputUF" placeholder="{{$user->uf}}" required>
+                                                    <option disabled="">UF</option>
                                                     <option value="AC">AC</option>
                                                     <option value="AL">AL</option>
                                                     <option value="AM">AM</option>
@@ -139,17 +139,17 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="inputEmail">Email</label>
-                                            <input type="email" name="inputEmail" value="{{ old('inputEmail') }}" class="form-control{{$errors->has('inputEmail') ? ' is-invalid':''}}" id="inputEmail" placeholder="{{$user->email}}">
+                                            <input type="email" name="inputEmail" value="{{$user->email}}" class="form-control" id="inputEmail" placeholder="{{$user->email}}" required>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputSenha">Nova senha</label>
-                                                <input type="password" name="inputSenha" value="{{ old('inputSenha') }}" class="form-control{{$errors->has('inputSenha') ? ' is-invalid':''}}" id="inputSenha" placeholder="Nova senha" aria-describedby="senhaHelp">
+                                                <input type="password" name="inputSenha" value="{{ old('inputSenha') }}" class="form-control" id="inputSenha" placeholder="Nova senha" aria-describedby="senhaHelp">
                                                 <div class="invalid-feedback">{{ $errors->first('inputSenha') }}</div> 
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputConfirma">Confirmar nova senha</label>
-                                                <input type="password" name="inputSenha" value="{{ old('inputSenha') }}" class="form-control{{$errors->has('inputConfirma') ? ' is-invalid':''}}" id="inputConfirma" placeholder="Confirmar nova senha" aria-describedby="ConfirmaHelp">
+                                                <input type="password" name="inputSenha" value="{{ old('inputSenha') }}" class="form-control" id="inputConfirma" placeholder="Confirmar nova senha" aria-describedby="ConfirmaHelp">
                                                 <div class="invalid-feedback">{{ $errors->first('inputConfirma') }}</div>
                                             </div>
                                         </div>
@@ -254,7 +254,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
-                                    <form action="/admin/remove/{{ $user->id }}" method="POST">
+                                    <form action="/admin/adm-usuario/{{ $user->id }}" method="POST">
                                         @csrf
                                         {{ method_field('DELETE') }}
                                         <button id="delete-contact" type="submit" class="btn btn-danger mb-0">Excluir</button>

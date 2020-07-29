@@ -63,7 +63,7 @@ Route::post('/cadastro', 'UsersController@createUser');
 Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuario');
 // Route::get('/admin/adm-usuario/{id}', 'UsersController@editUser');
 Route::put('/admin/adm-usuario/{id}', 'UsersController@updateUser');
-Route::delete('/admin/remove/{id}', 'UsersController@deleteUser');
+Route::delete('/admin/adm-usuario/{id}', 'UsersController@deleteUser');
 
 
 // CATEGORIAS
