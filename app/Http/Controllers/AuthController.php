@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -10,7 +12,8 @@ class AuthController extends Controller
     public function formLogin() {
 
         if(Auth::check() === true) {
-            return view('admin.adm-usuario');
+            $users = Usuario::all();
+            return view('admin.adm-usuario')->with('users', $users);
         }
         return redirect()->route('admin.login');
     }

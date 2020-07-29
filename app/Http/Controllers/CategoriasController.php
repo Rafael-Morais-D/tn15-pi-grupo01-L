@@ -47,7 +47,7 @@ class CategoriasController extends Controller
 
         $categoria->update();
 
-        return redirect()->route('adm-categoria', ['success' => 'Categoria alterada com sucesso']);
+        return redirect()->route('adm-categoria', ['success' => 'Categoria alterada com sucesso!']);
     }
 
     public function delete($id) {
@@ -56,7 +56,7 @@ class CategoriasController extends Controller
 
         if($categoria->delete()){
 
-            return redirect()->route('adm-categoria', ['success' => 'Categoria excluída com sucesso']);
+            return redirect()->route('adm-categoria', ['success' => 'Categoria excluída com sucesso!']);
 
         };
     }

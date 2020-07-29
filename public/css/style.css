@@ -28,6 +28,11 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #8f793c;
+  text-decoration: none;
+}
+
 nav.navbar {
   background-color: #faf8f3!important;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
@@ -250,15 +255,19 @@ button.btn.btn-secondary {
 
 i.fa-pencil-alt:hover::before {
   color: #8f793c;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 i.fa-trash-alt:hover::before {
   color: #8f793c;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 i.fa-plus-circle:hover::before {
   color: #8f793c;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
+}
+i.fa-eye:hover::before {
+  color: #8f793c;
+  transition: all ease-in-out 0.2s;
 }
 
 .catProdutos h3 {
@@ -346,7 +355,7 @@ i.fa-plus-circle:hover::before {
 
 .ic-basket:hover {
   color: #8f793c;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 
 .table { 
@@ -442,25 +451,25 @@ h3, .h3 {
 
 .footer-link a:hover {
   color: rgb(212, 156, 2)!important;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 
 .fb-ic:hover i::before {
   color: rgb(212, 156, 2)!important;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 
 .tw-ic:hover i::before {
   color: rgb(212, 156, 2)!important;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 .ins-ic:hover i::before {
   color: rgb(212, 156, 2)!important;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 .wa-ic:hover i::before {
   color: rgb(212, 156, 2)!important;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 
 .checkbox a {
