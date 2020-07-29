@@ -60,28 +60,14 @@ Route::get('/cadastro', 'UsersController@createPage')->name('cadastro');
 Route::post('/cadastro', 'UsersController@createUser');
 
 // LISTANDO USUARIOS
-Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuarios.listAll');
-
-// EDITAR USUÁRIOS
-Route::get('/user-edicao-usuario/{id}', 'UsersController@editUser')->name('user-edicao-usuario');
-Route::put('/user-edicao-usuario/{id}', 'UsersController@updateUser')->name('user-edicao-usuario');
-
-// DELETANDO USUÁRIO
+Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuario');
+// Route::get('/admin/adm-usuario/{id}', 'UsersController@editUser');
+Route::put('/admin/adm-usuario/{id}', 'UsersController@updateUser');
 Route::delete('/admin/remove/{id}', 'UsersController@deleteUser');
 
 
-Route::get('/user-minha-conta', function () {
-    return view('user-minha-conta');
-});
-
-Route::get('/user-meus-pedidos', function () {
-    return view('user-meus-pedidos');
-});
-
-
-
 // CATEGORIAS
-Route::get('/admin/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');;
+Route::get('/admin/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');
 Route::post('/admin/adm-categoria', 'CategoriasController@create');
 Route::put('/admin/adm-categoria/{id}', 'CategoriasController@update');
 Route::delete('/admin/adm-categoria/{id}', 'CategoriasController@delete');
@@ -99,4 +85,13 @@ Route::get('/admin/adm-mensagem', function () {
 // HISTORICO DE PEDIDOS
 Route::get('/admin/adm-historico-pedidos', function () {
     return view('admin/adm-historico-pedidos');
+});
+
+
+Route::get('/user-minha-conta', function () {
+    return view('user-minha-conta');
+});
+
+Route::get('/user-meus-pedidos', function () {
+    return view('user-meus-pedidos');
 });

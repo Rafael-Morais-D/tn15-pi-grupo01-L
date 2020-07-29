@@ -14,7 +14,6 @@ class UsersController extends Controller
     // LISTANDO USUÁRIOS
     public function listAllUsers() {
 
-        $users = new Usuario;
         if(Auth::check() === true) {
             $users = Usuario::all();
             $users = Usuario::paginate(10);
@@ -34,12 +33,9 @@ class UsersController extends Controller
     public function createUser(Request $request) {
 
         $request->validate([
-
             'inputSenha'=> 'required|min:6',
             'inputConfirma'=> 'required|same:inputSenha|min:6',
         ]);
-
-        $password = $request->inputSenha;
 
         $user = new Usuario;
 
@@ -60,16 +56,15 @@ class UsersController extends Controller
             return redirect()->route('cadastro', ['success' => 'Cadastro criado com sucesso!']);
         }
     }
-    
 
     // PÁGINA DE EDIÇÃO DE USUÁRIO
-    public function editUser($id) {
-        $users = Usuario::find($id);
+    // public function editUser($id) {
+    //     $users = Usuario::find($id);
         
-        if($users) {
-            return view('user-edicao-usuario')->with('users', $users);
-        }
-    }
+    //     if($users) {
+    //         return view('user-edicao-usuario')->with('users', $users);
+    //     }
+    // }
 
     // EDITANDO USUÁRIO
     public function updateUser(Request $request, $id) {
@@ -82,7 +77,7 @@ class UsersController extends Controller
         $user->cidade = $request->inputCidade;
         $user->uf = $request->inputUF;
         $user->email = $request->inputEmail;
-        $user->password = $request->inputSenha;
+        $user->password = Hash::make($request->inputSenha);
 
         if(filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
             $user->email = $request->inputEmail;
@@ -100,16 +95,16 @@ class UsersController extends Controller
 
         $user->update();
 
-        if ($user) {
-        return redirect()->route('usuarios.listAll')->with('success', 'Cadastro atualizado com sucesso!');
-        }
+        return redirect()->route('adm-usuario', ['success' => 'Usuário alterado com sucesso!']);
     }
 
     // DELETANDO USUÁRIOS
     public function deleteUser($id) {
+
         $user = Usuario::find($id);
+
         if($user->delete()) {
-            return redirect()->route('usuarios.listAll', ['success' => 'Usuário excluído com sucesso!']);
+            return redirect()->route('adm-usuario', ['success' => 'Usuário excluído com sucesso!']);
 
         }
     }
