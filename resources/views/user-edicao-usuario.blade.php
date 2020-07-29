@@ -27,33 +27,32 @@
                         <div class="form-group col-md-2">
                             <select class="form-control" name="inputUF" id="inputUF" required>
                                 <option disabled="" selected="">UF</option>
-                                <option value="AC"{{$user->uf=='AC' ? 'selected':''}}>AC</option>
-                                <option value="AL"{{$user->uf=='AL' ? 'selected':''}}>AL</option>
-                                <option value="AM"{{$user->uf=='AM' ? 'selected':''}}>AM</option>
-                                <option value="AP"{{$user->uf=='AP' ? 'selected':''}}>AP</option>
-                                <option value="BA"{{$user->uf=='BA' ? 'selected':''}}>BA</option>
-                                <option value="CE"{{$user->uf=='CE' ? 'selected':''}}>CE</option>
-                                <option value="DF"{{$user->uf=='DF' ? 'selected':''}}>DF</option>
-                                <option value="ES"{{$user->uf=='ES' ? 'selected':''}}>ES</option>
-                                <option value="GO"{{$user->uf=='GO' ? 'selected':''}}>GO</option>
-                                <option value="MA"{{$user->uf=='MA' ? 'selected':''}}>MA</option>
-                                <option value="MG"{{$user->uf=='MG' ? 'selected':''}}>MG</option>
-                                <option value="MS"{{$user->uf=='MS' ? 'selected':''}}>MS</option>
-                                <option value="MT"{{$user->uf=='MT' ? 'selected':''}}>MT</option>
-                                <option value="PA"{{$user->uf=='PA' ? 'selected':''}}>PA</option>
-                                <option value="PB"{{$user->uf=='PB' ? 'selected':''}}>PB</option>
-                                <option value="PE"{{$user->uf=='PE' ? 'selected':''}}>PE</option>
-                                <option value="PI"{{$user->uf=='PI' ? 'selected':''}}>PI</option>
-                                <option value="PR"{{$user->uf=='PR' ? 'selected':''}}>PR</option>
-                                <option value="RJ"{{$user->uf=='RJ' ? 'selected':''}}>RJ</option>
-                                <option value="RN"{{$user->uf=='RN' ? 'selected':''}}>RN</option>
-                                <option value="RO"{{$user->uf=='RO' ? 'selected':''}}>RO</option>
-                                <option value="RR"{{$user->uf=='RR' ? 'selected':''}}>RR</option>
-                                <option value="RS"{{$user->uf=='RS' ? 'selected':''}}>RS</option>
-                                <option value="SC"{{$user->uf=='SC' ? 'selected':''}}>SC</option>
-                                <option value="SE"{{$user->uf=='SE' ? 'selected':''}}>SE</option>
-                                <option value="SP"{{$user->uf=='SP' ? 'selected':''}}>SP</option>
-                                <option value="TO"{{$user->uf=='TO' ? 'selected':''}}>TO</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MG">MG</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MT">MT</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="PR">PR</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="RS">RS</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SP">SP</option>                                        <option value="TO">TO</option>
                             </select>
                         </div>
                     </div>

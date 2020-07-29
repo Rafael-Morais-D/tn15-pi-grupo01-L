@@ -7,8 +7,8 @@
         <h2 class="col-12 col-md-6 mb-0 px-0">Minha Conta</h2>
         <a href="/" class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Continuar comprando</a>
     </div>
-    <hr class="accent my-4">
-    <h3 class="mb-4 text-center">Olá Exemplilson da Silva 1</h3>
+    <hr class="accent my-4">   
+    <h3 class="mb-4 text-center">Olá</h3>
     <div class="form-cadastro">
         <div class="col-lg-7 mx-auto">
             <div class="card card-body">

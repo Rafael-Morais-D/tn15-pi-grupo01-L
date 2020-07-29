@@ -60,14 +60,14 @@ Route::get('/cadastro', 'UsersController@createPage')->name('cadastro');
 Route::post('/cadastro', 'UsersController@createUser');
 
 // LISTANDO USUARIOS
-Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('usuarios');
+Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuarios.listAll');
 
 // EDITAR USUÁRIOS
-Route::get('/user-edicao-usuario/{id}', 'UsersController@editUser');
-Route::put('/user-edicao-usuario/{id}', 'UsersController@updateUser');
+Route::get('/user-edicao-usuario/{id}', 'UsersController@editUser')->name('user-edicao-usuario');
+Route::put('/user-edicao-usuario/{id}', 'UsersController@updateUser')->name('user-edicao-usuario');
 
 // DELETANDO USUÁRIO
-Route::delete('/admin/adm-usuario/{id}', 'UsersController@deleteUser');
+Route::delete('/admin/remove/{id}', 'UsersController@deleteUser');
 
 
 Route::get('/user-minha-conta', function () {
