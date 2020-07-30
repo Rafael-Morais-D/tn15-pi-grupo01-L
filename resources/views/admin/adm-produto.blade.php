@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Adm. Produto
+@endsection
+
 <section class="container py-5 mt-5 px-md-0 adm-pag">
     <div class="d-flex flex-wrap justify-content-between align-items-center">
         <h2 class="col-12 col-md-6 mb-0 px-0">Produtos</h2>

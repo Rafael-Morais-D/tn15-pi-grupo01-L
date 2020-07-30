@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+@section('title')
+    Bake & Go
+@endsection
+
 <section class="banner">
     <div class="container d-flex h-100 align-items-center">
       <div class="mx-auto text-center">

@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Quem Somos
+@endsection
+
 <section class="jumbotron quem-somos-banner">
     <h2>Quem somos</h2>
 </section>

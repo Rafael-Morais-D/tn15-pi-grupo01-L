@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Meus Pedidos
+@endsection
+
 <section class="container py-5 mt-5 px-md adm-pag">
     <h2 class="mb-0">Meus Pedidos</h2>
     <div class="table-responsive">

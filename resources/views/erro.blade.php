@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | 404
+@endsection
+
 <section class="error">
     <div class="container d-flex h-100 align-items-center">
         <div class="mx-auto text-center animated animatedFadeInUp fadeInUp">

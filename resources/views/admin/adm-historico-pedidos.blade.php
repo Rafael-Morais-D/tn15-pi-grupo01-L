@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Adm. Histórico de Pedidos
+@endsection
+
 <section class="container py-5 mt-5 px-md-0 adm-pag">
     <h2 class="mb-0">Histórico de Pedidos</h2>
     <div class="table-responsive">
