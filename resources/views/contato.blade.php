@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Contato
+@endsection
+
 <section class="container py-4">
     <h2 class="text-center mt-5">Contato</h2>
     <div class="row my-0 mx-3 mt-md-5">

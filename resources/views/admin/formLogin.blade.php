@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Login Adm.
+@endsection
+
 <div class="container-fluid py-5 mt-5">
     <div>
         <div class="col-lg-6 mx-auto">

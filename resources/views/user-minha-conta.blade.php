@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Minha Conta
+@endsection
+
 <section class="container minha-conta py-5 mt-5 adm-pag">
     <div class="d-flex flex-wrap justify-content-between align-items-center link-continuar">
         <h2 class="col-12 col-md-6 mb-0 px-0">Minha Conta</h2>

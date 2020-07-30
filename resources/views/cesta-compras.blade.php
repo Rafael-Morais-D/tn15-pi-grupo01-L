@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Cesta de Compras
+@endsection
+
 <section class="container-fluid py-5 mt-5">
     <div class="topo-pagina" id="topoCarrinho">
         <h2 class="col-12 text-center py-4">Cesta de Compras</h2>

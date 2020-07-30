@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Cadastro
+@endsection
+
 <!-- Form - Cadastro -->
 <div class="container-fluid py-5 mt-5">
     <div class="form-cadastro">

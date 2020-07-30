@@ -2,6 +2,10 @@
 
 @section('content')
 
+@section('title')
+    Bake & Go | Menu
+@endsection
+
     <div id="carouselpao" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselpao" data-slide-to="0" class="active"></li>
