@@ -73,9 +73,10 @@ Route::put('/admin/adm-categoria/{id}', 'CategoriasController@update');
 Route::delete('/admin/adm-categoria/{id}', 'CategoriasController@delete');
 
 // PRODUTOS
-Route::get('/admin/adm-produto', function () {
-    return view('admin/adm-produto');
-});
+Route::get('/admin/adm-produto', 'ProdutosController@tabela')->name('adm-produto');
+Route::post('/admin/adm-produto', 'ProdutosController@create');
+Route::put('/admin/adm-produto/{id}', 'ProdutosController@update');
+Route::delete('/admin/adm-produto/{id}', 'ProdutosController@delete');
 
 // MENSAGENS
 Route::get('/admin/adm-mensagem', function () {

@@ -31,7 +31,7 @@
                             <td scope="row">{{ $categoria->id }}</td>
                             <td scope="row" class="d-none d-md-table-cell">{{ $categoria->categoria }}</td>
                             <td class="d-none d-md-table-cell">
-                                <a href="#" data-toggle="modal" data-target="#modalCategoria{{$categoria->id}}">
+                                <a href="#" data-toggle="modal" data-target="#modalEdit{{$categoria->id}}">
                                     <i class="fas fa-pencil-alt text-dark"></i>
                                 </a>
                             </td>
@@ -44,7 +44,7 @@
                                 <a href="#" data-toggle="modal" data-target="#modalCont{{$categoria->id}}">
                                     <i class="fas fa-eye mr-2 text-dark"></i>
                                 </a>
-                                <a href="#" data-toggle="modal" data-target="#modalCategoria{{$categoria->id}}">
+                                <a href="#" data-toggle="modal" data-target="#modalEdit{{$categoria->id}}">
                                     <i class="fas fa-pencil-alt mr-2 text-dark"></i>
                                 </a>
                                 <a href="#" data-toggle="modal" data-target="#modalDel{{$categoria->id}}">
@@ -54,7 +54,7 @@
                         </tr>
 
                         <!-- Modal - Editar categoria -->
-                        <div class="modal fade" id="modalCategoria{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modalEdit{{$categoria->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content col-12">
                                     <div class="modal-header">
