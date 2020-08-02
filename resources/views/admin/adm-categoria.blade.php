@@ -5,7 +5,7 @@
 <section class="container py-5 mt-5 px-md-0 adm-pag">
     <div class="d-flex flex-wrap justify-content-between align-items-center">
         <h2 class="col-12 col-md-6 mb-0 px-0">Categorias</h2>
-        <p class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Adicionar uma categoria <a href="#" data-toggle="modal" data-target="#modalAdd"><i class="far fa-plus-circle text-dark"></i></a></p>
+        <a href="#" class="text-dark" data-toggle="modal" data-target="#modalAdd"><p class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Adicionar uma categoria <i class="far fa-plus-circle text-dark"></i></a></p>
     </div>
     @if($categorias->isEmpty())
         <section class="row mx-2">
@@ -153,10 +153,11 @@
                     </div>
                     <form action="/admin/adm-categoria" method="POST" class="container">
                         @csrf
+                        {{ method_field('POST') }}
                         <div class="form-row">
                             <div class="form-group col-12">
-                                <label for="inputCategoria">Categoria</label>
-                                <input type="text" name="categoria"  value="{{ old('categoria') }}" class="form-control {{$errors->has('categoria') ? ' is-invalid':''}}" id="inputCategoria">
+                                <label class="mt-2" for="inputCategoria">Categoria</label>
+                                <input type="text" name="categoria" value="{{ old('categoria') }}" class="form-control {{$errors->has('categoria') ? ' is-invalid':''}}" id="inputCategoria">
                             </div>
                         </div>
                         <div class="modal-footer pr-0">
