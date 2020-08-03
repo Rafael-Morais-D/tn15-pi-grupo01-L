@@ -119,7 +119,7 @@
                                                 Categoria
                                             </div>
                                             <div class="card-body">
-                                                <p class="card-text">{{ $categoria->categoria[$produto->categoria_id] }}</p>
+                                                <p class="card-text"></p>
                                             </div>
                                         </div>
                                     </div>
@@ -206,9 +206,11 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
-                                        <a href="#">
-                                            <button type="button" class="btn btn-danger mb-0">Excluir</button>
-                                        </a>
+                                        <form action="/admin/adm-produto/{{$produto->id}}" method="POST">
+                                            @csrf
+                                            {{ method_field('DELETE') }}
+                                            <button id="excluir-produto" type="submit" class="btn btn-danger">Excluir</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -243,8 +245,8 @@
                         <div class="form-group col-md-6">
                             <label for="uploadImg">Imagem</label>
                             <div class="custom-file">
-                                <input type="file" name="image" class="custom-file-input" id="customFileLang" lang="pt">
-                                <label class="custom-file-label" for="customFileLang">Escolher imagem</label>
+                                <input type="file" name="image"  value="{{ old('image') }}" class="form-control{{$errors->has('image') ? ' is-invalid':''}}" id="image" lang="pt">
+                                <label class="custom-file-label" for="image">Escolher imagem</label>
                             </div>
                         </div>
                     </div>
@@ -294,6 +296,12 @@
             </div>
         </div>
     </div>
+
+    @if(!empty(Request::get('success')))
+        <div class="alert alert-success text-center col-md-12">
+            {{ Request::get('success') }}
+        </div>
+    @endif
 
 </section>
 

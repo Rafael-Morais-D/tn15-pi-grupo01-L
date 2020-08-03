@@ -128,7 +128,7 @@
                                         <form action="/admin/adm-categoria/{{$categoria->id}}" method="POST">
                                             @csrf
                                             {{ method_field('DELETE') }}
-                                            <button id="excluir-categoria" type="submit" class="btn btn-danger">Excluir</a>
+                                            <button id="excluir-categoria" type="submit" class="btn btn-danger">Excluir</button>
                                         </form>
                                     </div>
                                 </div>
