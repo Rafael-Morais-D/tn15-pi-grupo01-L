@@ -1,18 +1,18 @@
-@extends('layouts.admlogin')
+@extends('layouts.app')
 
 @section('content')
 
 @section('title')
-    Bake & Go | Login Adm.
+    Bake & Go | Login 
 @endsection
 
 <div class="container-fluid py-5 mt-5">
     <div>
         <div class="col-lg-6 mx-auto">
             <div class="card">
-                <div class="card text-center bg-light py-3">{{ __('Painel Administrativo') }}</div>
+                <div class="card text-center bg-light py-3">{{ __('Acesso do Usuário') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.login.do') }}">
+                    <form method="POST" action="{{ route('user.login.do') }}">
                         @csrf
                         <div class="form-group d-flex justify-content-center">
                             <div class="col-md-8">

@@ -18,9 +18,9 @@
             <div class="card card-body">
                 <h3 class="text-center mb-4">Criar uma conta</h3>
                 <fieldset>
-                    <form method="POST" action="{{ route('cadastro') }}">
-                    @csrf
+                    <form action="cadastro" method="POST" id="formCadastro">
                     {{ method_field('POST') }}
+                    @csrf
                     <div class="form-group has-error">
                         <label for="inputNome">Nome Completo</label> 
                         <input type="text" class="form-control{{$errors->has('inputNome') ? ' is-invalid':''}} input-lg text-capitalize" placeholder="Insira seu nome completo" aria-describedby="nomeCadastroHelp" id="inputNome" name="inputNome" value="{{ old('inputNome') }}" required>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group col-md-7">
                             <label for="inputCidade">Cidade</label>
-                            <input type="text" class="form-control{{$errors->has('inputCidade') ? ' is-invalid':''}} text-capitalize" placeholder="Cidade"name="inputCidade" value="{{ old('inputCidade') }}" required>
+                            <input type="text" class="form-control{{$errors->has('inputCidade') ? ' is-invalid':''}} text-capitalize" placeholder="Cidade" name="inputCidade" value="{{ old('inputCidade') }}" required>
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputUF">UF</label>
@@ -89,7 +89,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputSenha">Senha</label>
-                            <input type="password" name="inputSenha" class="form-control{{$errors->has('inputSenha') ? ' is-invalid':''}}" placeholder="Senha" aria-describedby="senhaHelp" id="inputSenha" required>
+                            <input type="password" class="form-control{{$errors->has('inputSenha') ? ' is-invalid':''}}" placeholder="Senha" aria-describedby="senhaHelp" id="inputSenha" name="inputSenha" required>
                             <div class="invalid-feedback">{{ $errors->first('inputSenha') }}</div>
                         </div>
                         <div class="form-group col-md-6">
@@ -105,8 +105,9 @@
                         </label>
                     </div>
                     <div class="col-12 text-center mt-4">
-                        <input class="btn btn-primary text-center" value="{{ __('Cadastro') }}" type="submit">
+                        <input type="submit" class="btn btn-primary text-center" value="Cadastrar">
                     </div>
+                    </form>
                 </fieldset>
             </div>
         </div>

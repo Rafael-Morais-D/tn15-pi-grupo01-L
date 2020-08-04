@@ -170,10 +170,10 @@
         <div class="collapse navbar-collapse" id="admNav">
             <ul class="navbar-nav text-center m-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/user-minha-conta">Minha Conta</a>
+                    <a class="nav-link" href="/user/minha-conta">Minha Conta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/user-meus-pedidos">Meus Pedidos</a>
+                    <a class="nav-link" href="/user/meus-pedidos">Meus Pedidos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link btn btn-adm mb-0 ml-1" title="Header Administrativo" data-toggle="modal" data-target="#btnSair">Sair</a>
@@ -196,8 +196,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
-                        <a href="#">
-                            <button type="button" class="btn btn-danger mb-0">Sair</button>
+                        <a href="{{ route('user.logout') }}">
+                            <button type="submit" action="{{ route('user.logout') }}" class="btn btn-danger mb-0">Sair</button>
                         </a>
                     </div>
                 </div>
