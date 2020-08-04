@@ -20,6 +20,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col" class="d-none d-md-table-cell">Admin</th>
                     <th scope="col" class="d-none d-md-table-cell">Nome</th>
                     <th scope="col" class="d-none d-md-table-cell">CPF</th>
                     <th scope="col" class="d-none d-md-table-cell">Endereço</th>
@@ -36,6 +37,19 @@
                 @foreach ($users as $user)
                 <tr>
                     <td scope="row">{{ $user->id }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">
+                        <form action="/admin/toggleAdmin/{{$user->id}}" method="post">
+                            @csrf
+                            {{ method_field('PUT')}} 
+                            @if($user->admin==null||$user->admin==0)
+                            <input type="hidden" name="admin" value='1'>
+                            <button type='submit' class="btn btn-danger btn-sm">Tornar Admin</button>
+                            @else
+                            <input type="hidden" name="admin" value='0'>
+                            <button type="submit" class="btn btn-success btn-sm">Admin</button>
+                            @endif
+                        </form>
+                    </td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->nome }}</td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->cpf }}</td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->endereco }}</td>
@@ -74,8 +88,8 @@
                                 <h5 class="modal-title" id="modalEditLabel">Editar usuário - ID {{ $user->id }}</h5>
                             </div>
                             <form action="/admin/adm-usuario/{{$user->id}}" method="POST" class="container">
-                                {{ method_field('PUT') }}
                                 @csrf
+                                {{ method_field('PUT') }}
                                 <form class="container">
                                     <div class="modal-body">
                                         <div class="form-row">

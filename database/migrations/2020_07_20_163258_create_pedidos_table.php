@@ -17,8 +17,8 @@ class CreatePedidosTable extends Migration
             $table->id();
             //$table->dateTime('created_at', 0);
             //primary key from the "users" table
-            $table->unsignedBigInteger('id_usuario');
-            $table->foreign('id_usuario')->references('id')->on('usuarios');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
             //chave primária da tabela de produtos
             $table->unsignedBigInteger('id_produto'); 
             $table->foreign('id_produto')->references('id')->on('produtos');

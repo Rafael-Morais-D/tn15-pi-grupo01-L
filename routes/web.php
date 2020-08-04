@@ -15,10 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 Route::get('/produtos', function() {
     return view('produtos');
 });
@@ -44,27 +40,58 @@ Route::get('/quem-somos', function() {
 });
 
 
-//CONTROLLERS
+/*
+|--------------------------------------------------------------------------
+| CONTROLLERS - NAVEGAÇÃO DO SITE
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/', 'NavigateController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
+
+// ACESSO DE USÁRIOS
+Route::get('/user/minha-conta/', 'NavigateController@minhaConta')->name('user.minha-conta');
+Route::put('/user/minha-conta/{id}', 'NavigateController@update');
+Route::get('/user/meus-pedidos', 'NavigateController@meusPedidos')->name('user.meus-pedidos');
+
+// ACESSO AS PÁGINAS DE USUÁRIO - LOGIN E LOGOUT
+Route::get('/user', 'NavigateController@loginForm')->name('user');
+Route::get('/user/login', 'NavigateController@loginDirect')->name('user.login');
+Route::post('/user/login/do', 'NavigateController@login')->name('user.login.do');
+Route::get('/user/logout', 'NavigateController@logoutUser')->name('user.logout');
 
 Auth::routes();
 
+/*
+|--------------------------------------------------------------------------
+| ACESSO ADMINISTRATIVO
+|--------------------------------------------------------------------------
+*/
+
 // ACESSO AS PÁGINAS ADMINISTRATIVAS - LOGIN E LOGOUT
-Route::get('/admin', 'AuthController@formLogin')->name('admin');
+Route::get('/admin', 'AuthController@manager')->name('admin');
 Route::get('/admin/login', 'AuthController@showLoginForm')->name('admin.login');
 Route::post('/admin/login/do', 'AuthController@login')->name('admin.login.do');
 Route::get('/admin/logout', 'AuthController@logout')->name('admin.logout');
+// TORNAR USUÁRIO ADMINISTRADOR
+Route::put('/admin/toggleAdmin/{id}', 'AuthController@toggleAdmin');
+
+/*
+|--------------------------------------------------------------------------
+| ACESSO DO USUÁRIO
+|--------------------------------------------------------------------------
+*/
 
 // CADASTRO DE USUÁRIOS
 Route::get('/cadastro', 'UsersController@createPage')->name('cadastro');
 Route::post('/cadastro', 'UsersController@createUser');
-
-// LISTANDO USUARIOS
-Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuario');
-// Route::get('/admin/adm-usuario/{id}', 'UsersController@editUser');
-Route::put('/admin/adm-usuario/{id}', 'UsersController@updateUser');
+// LISTANDO USUÁRIOS
+Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuario.listAll');
+// EDITANDO USUÁRIO
+Route::get('/user/editar-usuario/{id}', 'UsersController@editUser');
+Route::put('/user/editar-usuario/{id}', 'UsersController@updateUser');
+// DELETANDO USUÁRIO
 Route::delete('/admin/adm-usuario/{id}', 'UsersController@deleteUser');
-
 
 // CATEGORIAS
 Route::get('/admin/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');
@@ -87,11 +114,6 @@ Route::get('/admin/adm-historico-pedidos', function () {
     return view('admin/adm-historico-pedidos');
 });
 
+Auth::routes();
 
-Route::get('/user-minha-conta', function () {
-    return view('user-minha-conta');
-});
-
-Route::get('/user-meus-pedidos', function () {
-    return view('user-meus-pedidos');
-});
+Route::get('/home', 'HomeController@index')->name('home');
