@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Produto;
 use App\Categoria;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use PhpOption\Option;
 
 class ProdutosController extends Controller
@@ -13,7 +14,10 @@ class ProdutosController extends Controller
     public function tabela() {
         
         if(Auth::check() === true) {
-            $categorias = Categoria::all();
+            $categorias = DB::table('categorias')
+                            ->join('produtos', 'categorias.id', '=', 'produtos.categoria_id')
+                            ->select('categorias.categoria')
+                            ->get();
 
             $produtos = Produto::all();
             $produtos = Produto::paginate(10);
@@ -22,7 +26,6 @@ class ProdutosController extends Controller
         return redirect()->route('admin.login');
     }
 
-    /* */
     public function create(Request $request) {
 
         $request->validate([
@@ -55,7 +58,7 @@ class ProdutosController extends Controller
 
         $produto->ref = $request->ref;
         $produto->nome = $request->nome;
-        $produto->image = $pathRelative;
+        $produto->imagem = $pathRelative;
         $produto->descricao = $request->descricao;
         $produto->preco = $request->preco;
         $produto->unidadeMedida = $request->unidadeMedida;
@@ -89,7 +92,7 @@ class ProdutosController extends Controller
 
         if($categoria->delete()){
 
-            return redirect()->route('adm-categoria', ['success' => 'Categoria excluída com sucesso!']);
+            return redirect()->route('adm-produto', ['success' => 'Produto excluído com sucesso!']);
 
         };
     }

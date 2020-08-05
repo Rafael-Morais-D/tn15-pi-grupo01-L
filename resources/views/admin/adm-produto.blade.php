@@ -41,7 +41,7 @@
                             <td scope="row" class="d-none d-md-table-cell">{{ $produto->descricao }}</td>
                             <td scope="row" class="d-none d-md-table-cell">{{ $produto->preco }}</td>
                             <td scope="row" class="d-none d-md-table-cell">{{ $produto->unidadeMedida }}</td>
-                            <td scope="row" class="d-none d-md-table-cell">{{ $produto->categoria_id }}</td>
+                            <td scope="row" class="d-none d-md-table-cell">{{ $categorias }}</td>
                             <td class="d-none d-md-table-cell">
                                 <a href="#" data-toggle="modal" data-target="#modalEdit{{ $produto->id }}">
                                     <i class="fas fa-pencil-alt text-dark"></i>
@@ -238,15 +238,13 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputNomeProduto">Produto</label>
-                            <input type="text" class="form-control text-capitalize" placeholder="Nome do produto"
-                                aria-describedby="adicionarProdutoHelp" id="inputNomeProduto" name="nome"
-                                required>
+                            <input type="text" class="form-control text-capitalize" placeholder="Nome do produto" aria-describedby="adicionarProdutoHelp" id="inputNomeProduto" name="nome" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="uploadImg">Imagem</label>
                             <div class="custom-file">
-                                <input type="file" name="image"  value="{{ old('image') }}" class="form-control{{$errors->has('image') ? ' is-invalid':''}}" id="image" lang="pt">
-                                <label class="custom-file-label" for="image">Escolher imagem</label>
+                                <input type="file" name="image" value="{{ old('image') }}" class="form-control" id="image">
+                                <label class="custom-file-label" for="image">{{ $produto->imagem }}</label>
                             </div>
                         </div>
                     </div>
@@ -255,37 +253,29 @@
                             <label for="inputCategoria">Categoria</label>
                             <select name="categoria_id" class="custom-select">
                                 @foreach ($categorias as $categoria)
-                                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option> 
+                                    <option>{{ $categoria->categoria }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputPreco">Preço</label>
-                            <input type="number" class="form-control" placeholder="Preço do produto"
-                                aria-describedby="adicionarProdutoHelp" id="inputPreco" name="preco"
-                                required>
+                            <input type="number" class="form-control" placeholder="Preço do produto" aria-describedby="adicionarProdutoHelp" id="inputPreco" name="preco" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputREF">REF</label>
-                            <input type="text" class="form-control text-uppercase" placeholder="CAT-NOME"
-                                aria-describedby="adicionarREF" id="inputREF" name="ref"
-                                required>
+                            <input type="text" class="form-control text-uppercase" placeholder="CAT-NOME" aria-describedby="adicionarREF" id="inputREF" name="ref" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputUnidadeMedida">Unidade de medida</label>
-                            <input type="text" class="form-control" placeholder="Unidade de medida do produto"
-                                aria-describedby="adicionarUnidadeMedida" id="inputUnidadeMedida" name="unidadeMedida"
-                                required>
+                            <input type="text" class="form-control" placeholder="Unidade de medida do produto" aria-describedby="adicionarUnidadeMedida" id="inputUnidadeMedida" name="unidadeMedida" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="inputDescricao">Descrição</label>
-                            <textarea class="form-control" placeholder="Descrição do produto"
-                                aria-describedby="adicionarDescricao" id="inputDescricao" name="descricao"
-                                required></textarea>
+                            <textarea class="form-control" placeholder="Descrição do produto" aria-describedby="adicionarDescricao" id="inputDescricao" name="descricao" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer pr-0">
