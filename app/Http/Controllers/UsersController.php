@@ -18,6 +18,13 @@ class UsersController extends Controller
     public function createUser(Request $request) {
 
         $request->validate([
+            // 'inputNome' => 'required',
+            // 'inputCPF' => 'required',
+            // 'inputRG' => 'required',
+            // 'inputEndereco' => 'required',
+            // 'inputCEP' => 'required',
+            // 'inputCidade' => 'required',
+            // 'inputUF' => 'required',
             'inputSenha'=> 'required|min:6',
             'inputConfirma'=> 'required|same:inputSenha|min:6'
         ]);
@@ -55,7 +62,7 @@ class UsersController extends Controller
     public function listAllUsers() {
 
         if(Auth::check()===true){
-            if(Auth::user()->admin!=1) {
+            if(Auth::user()->admin==1) {
                 $users = DB::table('users');
                 $users = $users->paginate(10);
         
@@ -66,58 +73,58 @@ class UsersController extends Controller
     }
 
     // EDITANDO USUÁRIOS
-    public function editUser($id) {
-        $user = User::find($id);
+    // public function editUser($id) {
+    //     $users = User::find($id);
 
-        if($user){
-            return view('user.editar-usuario')->with(['user'=>$user]);
-        }
-    }
+    //     if($users) {
+    //         return view('user.minha-conta')->with('users', $users);
+    //     }
+    // }
 
-    public function updateUser(Request $request, $id){
+    // public function updateUser(Request $request, $id) {
 
-        $user = User::find($id);
+    //     $user = User::find($id);
 
-        $user->nome = $request->inputNome;
-        $user->cpf = $request->inputCPF;
-        $user->rg = $request->inputRG;
-        $user->endereco = $request->inputEndereco;
-        $user->cep = $request->inputCep;
-        $user->uf = $request->inputUF;
-        $user->cidade = $request->inputCidade;
+    //     $user->nome = $request->inputNome;
+    //     $user->cpf = $request->inputCPF;
+    //     $user->rg = $request->inputRG;
+    //     $user->endereco = $request->inputEndereco;
+    //     $user->cep = $request->inputCep;
+    //     $user->uf = $request->inputUF;
+    //     $user->cidade = $request->inputCidade;
 
-        if(filter_var($request->email, FILTER_VALIDATE_EMAIL)){
-            $user->email = $request->inputEmail;
-        }
+    //     if(filter_var($request->email, FILTER_VALIDATE_EMAIL)){
+    //         $user->email = $request->inputEmail;
+    //     }
 
-        if(!empty($request->inputSenha)){
-            $request->validate([
+    //     if(!empty($request->inputSenha)) {
+    //         $request->validate([
 
-                'inputSenha'=> 'min:6',
-                'inputConfirma'=> 'same:inputSenha|min:6'
-            ]);
+    //             'inputSenha'=> 'min:6',
+    //             'inputConfirma'=> 'same:inputSenha|min:6'
+    //         ]);
 
-            $user->password = Hash::make($request->inputSenha);
-        }
-        $user->update();
+    //         $user->password = Hash::make($request->inputSenha);
+    //     }
+    //     $user->update();
 
-        if(Auth::user()->admin!=1){
-            return view('user.editar-usuario')->with([
-                'user'=> $user,
-                'success'=>'Usuário alterado com sucesso!'
-            ]);
+    //     if(Auth::user()->admin!=1) {
+    //         return view('user.editar-usuario')->with([
+    //             'user'=> $user,
+    //             'success'=>'Usuário alterado com sucesso!'
+    //         ]);
 
-        } 
-        return redirect()->route('adm-usuario.listAll')->with('success', 'Usuário alterado com sucesso!');
-    }
+    //     } 
+    //     return redirect()->route('user.minha-conta')->with('success', 'Usuário alterado com sucesso!');
+    // }
 
     // DELETANDO USUÁRIOS
-    public function deleteUser($id){
+    public function deleteUser($id) {
         $user = User::find($id);
 
-        if($user->delete()){
+        if($user->delete()) {
                
-            return redirect()->route('adm-usuario.listAll')->with('success', 'Usuário excluído com sucesso!');
+            return redirect()->route('adm-usuario', ['success' => 'Usuário excluído com sucesso!']);
 
         }
     }  

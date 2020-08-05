@@ -12,7 +12,7 @@
             <div class="card card-body">
                 <h3 class="text-center mb-4">Editar meu perfil</h3>
                 <fieldset>
-                    <form action="/user-edicao-usuario/{{ $user->id }}" method="POST">     
+                    <form action="/user/editar-usuario/{{ $user->id }}" method="POST">     
                         @csrf
                         {{ method_field('PUT')}}
                     <div class="form-group has-error">

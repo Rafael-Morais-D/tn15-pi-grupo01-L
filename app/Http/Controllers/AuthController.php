@@ -38,9 +38,11 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('adm-usuario.listAll');
-        }
-        return redirect()->back()->withInput()->withErrors(['email'=>'Oops, apenas funcionários da Bake & Go tem acesso a esta página.']);
+            if(Auth::user()->admin==1) {
+                return redirect()->route('adm-usuario');
+                }
+            }
+            return redirect()->back()->withInput()->withErrors(['email'=>'Oops, apenas funcionários da Bake & Go tem acesso a esta página.']);
     }
 
     // LOGOUT ADMINISTRATIVO
@@ -56,6 +58,6 @@ class AuthController extends Controller
         $user->admin = $request->admin;
         $user->update();
 
-        return redirect()->route('adm-usuario.listAll');
+        return redirect()->route('adm-usuario');
     }
 }
