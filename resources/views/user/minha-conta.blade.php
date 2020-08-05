@@ -12,47 +12,53 @@
         <a href="/" class="col-12 col-md-6 mt-3 mt-md-0 px-0 text-md-right">Continuar comprando</a>
     </div>
     <hr class="accent my-4">
-    @foreach ($users as $user)
-    <h3 class="mb-4 text-center">Olá, {{ Auth::user()->nome }}.</h3>
+    {{-- <form action="/user/minha-conta" method="GET" class="container">
+        @csrf --}}
+    <h3 class="mb-4 text-center">Olá, {{ auth()->user()->nome }}.</h3>
     <div class="form-cadastro">
         <div class="col-lg-7 mx-auto">
             <div class="card card-body">
                 <fieldset>
                     <div class="form-group has-error">
-                        <input class="form-control input-lg" value="{{ Auth::user()->nome }}" readonly name="nome" type="text">
+                        <label for="inputNome">Nome Completo</label>
+                        <input class="form-control input-lg" value="{{ auth()->user()->nome }}" readonly name="nome" type="text">
                     </div>
                     <div class="form-group has-error">
-                        <input type="text" class="form-control" value="{{ Auth::user()->endereco }}" readonly aria-describedby="enderecoHelp" id="inputEndereco" name="inputEndereco" required>
+                        <label for="inputEmail">Email</label>
+                        <input type="text" class="form-control" value="{{ auth()->user()->endereco }}" readonly aria-describedby="enderecoHelp" id="inputEndereco" name="inputEndereco">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-3">
-                            <input type="text" class="form-control" placeholder="{{ Auth::user()->cep }}" readonly name="inputCep" required>
+                            <label for="inputCEP">CEP</label>
+                            <input type="text" class="form-control" value="{{ auth()->user()->cep }}" readonly name="inputCep">
                         </div>
                         <div class="form-group col-md-7">
-                            <input type="text" class="form-control" placeholder="{{ Auth::user()->cidade }}" readonly name="inputCidade" required>
+                            <label for="inputCidade">Cidade</label>
+                            <input type="text" class="form-control" value="{{ auth()->user()->cidade }}" readonly name="inputCidade">
                         </div>
                         <div class="form-group col-md-2">
-                            <select class="form-control" name="inputUF" id="{{ Auth::user()->uf }}" readonly required>
-                                <option value="SP" readonly>SP</option>
-                            </select>
+                            <label for="inputUF">UF</label>
+                            <input type="text" class="form-control" value="{{ auth()->user()->uf }}" readonly name="inputUF">
                         </div>
                     </div>
                     <div class="form-group has-error">
-                        <input class="form-control input-lg" value="{{ Auth::user()->email }}" readonly name="email" type="text">
+                        <label for="inputEmail">Email</label>
+                        <input class="form-control input-lg" value="{{ auth()->user()->email }}" readonly name="email" type="text">
                     </div>
                     <div class="col-12 text-center mt-4">
-                        <a href="#" data-toggle="modal" data-target="#modalEdit{{ Auth::user()->id }}">
+                        <a href="#" data-toggle="modal" data-target="#modalEdit{{ auth()->user()->id }}">
                             <button class="btn btn-primary btn-minha-conta text-center">Editar meu perfil</button></a>
                     </div>
+                </form>
 
                     <!-- Modal - Editar usuário -->
-                    <div class="modal fade text-left" id="modalEdit{{ Auth::user()->id }}" role="dialog" tabindex="-1"  aria-labelledby="modalEditLabel" aria-hidden="true">
+                    <div class="modal fade text-left" id="modalEdit{{ auth()->user()->id }}" role="dialog" tabindex="-1"  aria-labelledby="modalEditLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalEditLabel">Editar usuário - ID {{ Auth::user()->id }}</h5>
+                                    <h5 class="modal-title" id="modalEditLabel">Editar usuário - ID {{ auth()->user()->id }}</h5>
                                 </div>
-                                <form action="/user/minha-conta/{{$user->id}}" method="POST" class="container">
+                                <form action="/user/minha-conta/{{ auth()->user()->id }}" method="POST" class="container">
                                     {{ method_field('PUT') }}
                                     @csrf
                                     <form class="container">
@@ -60,35 +66,35 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label for="inputNome">Nome Completo</label>
-                                                    <input type="text" name="inputNome" value="{{$user->nome}}" class="form-control" id="inputNome" placeholder="{{$user->nome}}" required>
+                                                    <input type="text" name="inputNome" value="{{ auth()->user()->nome }}" class="form-control" id="inputNome" required>
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="inputCPF">CPF</label>
-                                                    <input type="number" name="inputCPF" value="{{$user->cpf}}" class="form-control" id="inputCPF" placeholder="{{$user->cpf}}" readonly aria-describedby="CPFCadastroHelp">
+                                                    <input type="number" name="inputCPF" value="{{ auth()->user()->cpf }}" class="form-control" id="inputCPF" readonly aria-describedby="CPFCadastroHelp">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="inputRG">RG</label>                                        
-                                                    <input type="number" name="inputRG" value="{{$user->rg}}" class="form-control" id="inputRG" placeholder="{{$user->rg}}" readonly aria-describedby="RGCadastroHelp">
+                                                    <input type="number" name="inputRG" value="{{ auth()->user()->rg }}" class="form-control" id="inputRG" readonly aria-describedby="RGCadastroHelp">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputEndereco">Endereço</label>
-                                                <input type="text" name="inputEndereco" value="{{$user->endereco}}" class="form-control" id="inputEndereco" placeholder="{{$user->endereco}}" required>
+                                                <input type="text" name="inputEndereco" value="{{ auth()->user()->endereco }}" class="form-control" id="inputEndereco" required>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-3">
                                                     <label for="inputCep">CEP</label>
-                                                    <input type="text" name="inputCep" value="{{$user->cep}}" class="form-control" id="inputCep" placeholder="{{$user->cep}}" required>
+                                                    <input type="text" name="inputCep" value="{{ auth()->user()->cep }}" class="form-control" id="inputCep" required>
                                                 </div>
                                                 <div class="form-group col-md-7">
                                                     <label for="inputCidade">Cidade</label>
-                                                    <input type="text" name="inputCidade" value="{{$user->cidade}}" class="form-control" id="inputCidade" placeholder="{{$user->cidade}}" required>
+                                                    <input type="text" name="inputCidade" value="{{ auth()->user()->cidade }}" class="form-control" id="inputCidade" required>
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label for="inputUF">UF</label>
-                                                    <select name="inputUF" value="{{$user->uf}}" class="form-control" id="inputUF" placeholder="{{$user->uf}}" required>
+                                                    <select name="inputUF" value="{{ auth()->user()->uf }}" class="form-control" id="inputUF" required>
                                                         <option disabled="">UF</option>
                                                         <option value="AC">AC</option>
                                                         <option value="AL">AL</option>
@@ -122,7 +128,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="inputEmail">Email</label>
-                                                <input type="email" name="inputEmail" value="{{$user->email}}" class="form-control" id="inputEmail" placeholder="{{$user->email}}" required>
+                                                <input type="email" name="inputEmail" value="{{ auth()->user()->email }}" class="form-control" id="inputEmail" required>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
@@ -153,7 +159,6 @@
                     {{ Request::get('success') }}
                 </div>
             @endif
-        @endforeach
     </section>
 
 @endsection

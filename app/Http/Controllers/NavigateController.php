@@ -46,10 +46,8 @@ class NavigateController extends Controller
 
     public function minhaConta() {
         if(Auth::check()===true) {
-            $users = User::all();
-            return view('user.minha-conta')->with('users', $users);
+        return view('user.minha-conta');
         }
-        return redirect()->route('user.login');
     }
 
     public function meusPedidos(){

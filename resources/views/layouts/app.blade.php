@@ -141,122 +141,137 @@
                         <h5 class="modal-title text-dark" id="staticBackdropLabel">Login</h5>
                     </div>
                     <div class="modal-body text-dark">
-                        <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">@</span>
+                        <form method="POST" action="{{ route('user.login.do') }}">
+                            @csrf
+                            <div class="form-group d-flex justify-content-center">
+                                <div class="col-md-8">
+                                @if ($errors->all())
+                                    @foreach($errors->all() as $error)
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ $error }}
+                                    </div>
+                                    @endforeach
+                                @endif
+                            </div>
                         </div>
-                        <input type="email" class="form-control" placeholder="Email" aria-label="Login" aria-describedby="basic-addon1">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                            </div>
+                            <input type="email" class="form-control" placeholder="Email" aria-label="Login" aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-1">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">*</span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1">*</span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Senha" aria-label="Senha" aria-describedby="basic-addon1">
                         </div>
                     </div>
                     <div class="modal-login">
                         <p class="pt-0">Novo por aqui? <a href="/cadastro" class="d-inline-block">Cadastre-se agora!</a></p>
                         <button type="button" class="btn btn-primary mb-0 mr-2" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary mb-0" data-dismiss="modal">Login</button>
+                        <button type="submit" class="btn btn-primary mb-0" data-dismiss="modal">{{ __('Login') }}</button>
                     </div>
                 </div>
             </div>
-        </header>
-        <main class="py-0">
-            @yield('content')
-        </main>
-        <footer class="page-footer container-fluid mt-5 mb-0 mx-0 pt-2 px-0 fixed-bottom">
-            <div class="mx-0 p-2 pb-5 p-md-5">
-                <div class="d-flex flex-row flex-wrap justify-content-center mt-3">
-                    <div class="d-block col-12">
-                        <!-- REDES SOCIAIS -->
-                        <div class="col-12 mb-4 text-center">
-                            <div style="font-size: 1.1rem;">
-                            <a href="https://www.facebook.com/bakeandgo.coffeeshop/" target="_blank" title="Curta nossa página no Facebook" class="fb-ic ">
-                                <i class="fab fa-facebook-f fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
-                            </a>
-                            <a href="https://twitter.com/bakeandgoshop" target="_blank" title="Siga nosso perfil no Twitter" class="tw-ic ">
-                                <i class="fab fa-twitter fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
-                            </a>
-                            <a href="https://www.instagram.com/bakeandgo.coffeeshop/" target="_blank" title="Siga nosso perfil no Instagram" class="ins-ic">
-                                <i class="fab fa-instagram fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
-                            </a>
-                            <a href="#" target="_blank" title="Envie uma mensagem no WhatsApp" class="wa-ic">
-                                <i class="fab fa-whatsapp fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
-                            </a>
+        </form>
+            </div>
+            </header>
+            <main class="py-0">
+                @yield('content')
+            </main>
+            <footer class="page-footer container-fluid mt-5 mb-0 mx-0 pt-2 px-0 fixed-bottom">
+                <div class="mx-0 p-2 pb-5 p-md-5">
+                    <div class="d-flex flex-row flex-wrap justify-content-center mt-3">
+                        <div class="d-block col-12">
+                            <!-- REDES SOCIAIS -->
+                            <div class="col-12 mb-4 text-center">
+                                <div style="font-size: 1.1rem;">
+                                <a href="https://www.facebook.com/bakeandgo.coffeeshop/" target="_blank" title="Curta nossa página no Facebook" class="fb-ic ">
+                                    <i class="fab fa-facebook-f fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
+                                </a>
+                                <a href="https://twitter.com/bakeandgoshop" target="_blank" title="Siga nosso perfil no Twitter" class="tw-ic ">
+                                    <i class="fab fa-twitter fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
+                                </a>
+                                <a href="https://www.instagram.com/bakeandgo.coffeeshop/" target="_blank" title="Siga nosso perfil no Instagram" class="ins-ic">
+                                    <i class="fab fa-instagram fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
+                                </a>
+                                <a href="#" target="_blank" title="Envie uma mensagem no WhatsApp" class="wa-ic">
+                                    <i class="fab fa-whatsapp fa-lg text-white mr-2 ml-2 mr-md-3 ml-md-3"> </i>
+                                </a>
+                            </div>
+                            </div>
                         </div>
+                        <div class="col-12 mb-4 text-center footer-link">
+                            <!-- REDIRECIONAMENTOS -->
+                            <ul>
+                                <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase home-footer">
+                                    <a href="/" title="Página Inicial">Home</a>
+                                </li>
+                                <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase qs-footer">
+                                    <a href="/quem-somos" title="Conheça nossa história">Quem somos</a>
+                                </li>
+                                <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase">
+                                    <a href="/produtos" title="Conheça nossos produtos">Menu</a>
+                                </li>
+                                <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase">
+                                    <a href="/contato" title="Entre em contato">Contato</a>
+                                </li>    
+                            </ul>            
                         </div>
-                    </div>
-                    <div class="col-12 mb-4 text-center footer-link">
-                        <!-- REDIRECIONAMENTOS -->
-                        <ul>
-                            <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase home-footer">
-                                <a href="/" title="Página Inicial">Home</a>
-                            </li>
-                            <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase qs-footer">
-                                <a href="/quem-somos" title="Conheça nossa história">Quem somos</a>
-                            </li>
-                            <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase">
-                                <a href="/produtos" title="Conheça nossos produtos">Menu</a>
-                            </li>
-                            <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase">
-                                <a href="/contato" title="Entre em contato">Contato</a>
-                            </li>    
-                        </ul>            
-                    </div>
-                    <div class="col-12 text-center mb-5">
-                        <!-- LOGO -->
-                        <img class="logo-footer" src="{{ asset("img/bakeandgo_logo_01_white.png") }}" alt="Logo Bake & Go">
-                    </div>
-                    <div class="col-12 d-flex flex-row flex-wrap justify-content-center justify-content-md-between px-1">
-                        <!-- INFORMAÇÕES LEGAIS -->
-                        <div class="d-inline text-center mr-sm-2 text-white">
-                            &copy; 2020 Bake & Go | CNPJ 01.012.012/0001-99
+                        <div class="col-12 text-center mb-5">
+                            <!-- LOGO -->
+                            <img class="logo-footer" src="{{ asset("img/bakeandgo_logo_01_white.png") }}" alt="Logo Bake & Go">
                         </div>
-                        <div class="d-inline text-center ml-sm-2 text-white footer-link">
-                            <a href="#" title="Políticas de Privacidade" data-toggle="modal" data-target="#politicasPriv">Políticas de Privacidade</a> | <a href="#" title="Termos de Uso" data-toggle="modal" data-target="#termosDeUso">Termos de Uso</a>
+                        <div class="col-12 d-flex flex-row flex-wrap justify-content-center justify-content-md-between px-1">
+                            <!-- INFORMAÇÕES LEGAIS -->
+                            <div class="d-inline text-center mr-sm-2 text-white">
+                                &copy; 2020 Bake & Go | CNPJ 01.012.012/0001-99
+                            </div>
+                            <div class="d-inline text-center ml-sm-2 text-white footer-link">
+                                <a href="#" title="Políticas de Privacidade" data-toggle="modal" data-target="#politicasPriv">Políticas de Privacidade</a> | <a href="#" title="Termos de Uso" data-toggle="modal" data-target="#termosDeUso">Termos de Uso</a>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </footer>
+            <!-- MODAL DE POLITICA DE PRIVACIDADE -->
+            <div class="modal fade" id="politicasPriv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-info-leg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="staticBackdropLabel">Políticas de Privacidade</h5>
+                </div>
+                <div class="modal-body text-dark">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem. Vestibulum ac convallis orci, ultricies suscipit orci. Nam lobortis in ligula ac pellentesque. Cras aliquam tempor diam, a feugiat sapien porttitor sed. Curabitur ut tortor accumsan, aliquam arcu nec, finibus tellus. Vivamus blandit ornare odio molestie pulvinar. Sed non purus nulla. Phasellus in odio molestie, molestie ipsum a, feugiat massa.</P>
+                <p>Vivamus volutpat nulla vel felis imperdiet laoreet. Fusce vel suscipit sem. Cras facilisis vitae diam eu mollis. Curabitur non pretium quam. Curabitur suscipit rutrum risus eu vulputate. Mauris ultrices bibendum est, at rhoncus nunc vulputate eu. Sed consectetur, velit vel scelerisque accumsan, eros metus feugiat quam, nec pellentesque ipsum nisi eu mi. Aenean gravida neque id velit sodales dignissim. Ut imperdiet mattis neque vel consequat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eu nisi lorem. Quisque ut blandit lectus. Phasellus magna neque, dignissim eget urna in, feugiat viverra dolor. Sed luctus non dui sit.</P>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">Entendi</button>
+                </div>
+                </div>
             </div>
-        </footer>
-        <!-- MODAL DE POLITICA DE PRIVACIDADE -->
-        <div class="modal fade" id="politicasPriv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-info-leg">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-dark" id="staticBackdropLabel">Políticas de Privacidade</h5>
             </div>
-            <div class="modal-body text-dark">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem. Vestibulum ac convallis orci, ultricies suscipit orci. Nam lobortis in ligula ac pellentesque. Cras aliquam tempor diam, a feugiat sapien porttitor sed. Curabitur ut tortor accumsan, aliquam arcu nec, finibus tellus. Vivamus blandit ornare odio molestie pulvinar. Sed non purus nulla. Phasellus in odio molestie, molestie ipsum a, feugiat massa.</P>
-            <p>Vivamus volutpat nulla vel felis imperdiet laoreet. Fusce vel suscipit sem. Cras facilisis vitae diam eu mollis. Curabitur non pretium quam. Curabitur suscipit rutrum risus eu vulputate. Mauris ultrices bibendum est, at rhoncus nunc vulputate eu. Sed consectetur, velit vel scelerisque accumsan, eros metus feugiat quam, nec pellentesque ipsum nisi eu mi. Aenean gravida neque id velit sodales dignissim. Ut imperdiet mattis neque vel consequat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eu nisi lorem. Quisque ut blandit lectus. Phasellus magna neque, dignissim eget urna in, feugiat viverra dolor. Sed luctus non dui sit.</P>
+            <!-- MODAL DE TERMOS DE USO -->
+            <div class="modal fade" id="termosDeUso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-info-leg">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="staticBackdropLabel">Termos de uso</h5>
+                </div>
+                <div class="modal-body text-dark">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem. Vestibulum ac convallis orci, ultricies suscipit orci. Nam lobortis in ligula ac pellentesque. Cras aliquam tempor diam, a feugiat sapien porttitor sed. Curabitur ut tortor accumsan, aliquam arcu nec, finibus tellus. Vivamus blandit ornare odio molestie pulvinar. Sed non purus nulla. Phasellus in odio molestie, molestie ipsum a, feugiat massa.</P>
+                <p>Vivamus volu tpat nulla vel felis imperdiet laoreet. Fusce vel suscipit sem. Cras facilisis vitae diam eu mollis. Curabitur non pretium quam. Curabitur suscipit rutrum risus eu vulputate. Mauris ultrices bibendum est, at rhoncus nunc vulputate eu. Sed consectetur, velit vel scelerisque accumsan, eros metus feugiat quam, nec pellentesque ipsum nisi eu mi. Aenean gravida neque id velit sodales dignissim. Ut imperdiet mattis neque vel consequat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eu nisi lorem. Quisque ut blandit lectus. Phasellus magna neque, dignissim eget urna in, feugiat viverra dolor. Sed luctus non dui sit.</P>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">Entendi</button>
+                </div>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">Entendi</button>
             </div>
-            </div>
+            <!-- ANIMACAO FADE UP - JS SCRIPTS -->
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script>AOS.init();</script> 
         </div>
-        </div>
-        <!-- MODAL DE TERMOS DE USO -->
-        <div class="modal fade" id="termosDeUso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-info-leg">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title text-dark" id="staticBackdropLabel">Termos de uso</h5>
-            </div>
-            <div class="modal-body text-dark">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem. Vestibulum ac convallis orci, ultricies suscipit orci. Nam lobortis in ligula ac pellentesque. Cras aliquam tempor diam, a feugiat sapien porttitor sed. Curabitur ut tortor accumsan, aliquam arcu nec, finibus tellus. Vivamus blandit ornare odio molestie pulvinar. Sed non purus nulla. Phasellus in odio molestie, molestie ipsum a, feugiat massa.</P>
-            <p>Vivamus volu tpat nulla vel felis imperdiet laoreet. Fusce vel suscipit sem. Cras facilisis vitae diam eu mollis. Curabitur non pretium quam. Curabitur suscipit rutrum risus eu vulputate. Mauris ultrices bibendum est, at rhoncus nunc vulputate eu. Sed consectetur, velit vel scelerisque accumsan, eros metus feugiat quam, nec pellentesque ipsum nisi eu mi. Aenean gravida neque id velit sodales dignissim. Ut imperdiet mattis neque vel consequat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras eu nisi lorem. Quisque ut blandit lectus. Phasellus magna neque, dignissim eget urna in, feugiat viverra dolor. Sed luctus non dui sit.</P>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">Entendi</button>
-            </div>
-            </div>
-        </div>
-        </div>
-        <!-- ANIMACAO FADE UP - JS SCRIPTS -->
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>AOS.init();</script> 
-    </div>
-</body>
+    </body>
 </html>

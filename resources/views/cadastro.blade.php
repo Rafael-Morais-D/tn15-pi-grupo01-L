@@ -23,12 +23,12 @@
                     @csrf
                     <div class="form-group has-error">
                         <label for="inputNome">Nome Completo</label> 
-                        <input type="text" class="form-control{{$errors->has('inputNome') ? ' is-invalid':''}} input-lg text-capitalize" placeholder="Insira seu nome completo" aria-describedby="nomeCadastroHelp" id="inputNome" name="inputNome" value="{{ old('inputNome') }}" required>
+                        <input type="text" class="form-control{{$errors->has('inputNome') ? ' is-invalid':''}} input-lg text-capitalize" placeholder="Insira seu nome completo"  aria-describedby="nomeCadastroHelp" id="inputNome" name="inputNome" value="{{ old('inputNome') }}" oninvalid="Preencha o seu nome completo" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="inputCPF">CPF</label>
-                            <input type="number" class="form-control{{$errors->has('inputCPF') ? ' is-invalid':''}}" placeholder="Insira seu CPF" aria-describedby="CPFCadastroHelp" id="inputCPF" name="inputCPF" value="{{ old('inputCPF') }}" required>
+                            <input type="number" class="form-control{{$errors->has('inputCPF') ? ' is-invalid':''}}" placeholder="Insira seu CPF" aria-describedby="CPFCadastroHelp"  id="inputCPF" name="inputCPF" value="{{ old('inputCPF') }}" required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputRG">RG</label>                                        
@@ -40,9 +40,9 @@
                         <input type="text" class="form-control{{$errors->has('inputEndereco') ? ' is-invalid':''}} text-capitalize" placeholder="Endereço" aria-describedby="enderecoHelp" id="inputEndereco" name="inputEndereco" value="{{ old('inputEndereco') }}" required>
                     </div>
                     <div class="form-row">
-                        <div class="form-group{{$errors->has('inputCep') ? ' is-invalid':''}} col-md-3">
+                        <div class="form-group col-md-3">
                             <label for="inputCep">CEP</label>
-                            <input type="text" class="form-control" placeholder="00000-000" name="inputCep" value="{{ old('inputCep') }}" required>
+                            <input type="text" class="form-control{{$errors->has('inputCep') ? ' is-invalid':''}}" placeholder="00000-000" name="inputCep" value="{{ old('inputCep') }}" required>
                         </div>
                         <div class="form-group col-md-7">
                             <label for="inputCidade">Cidade</label>
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label for="inputUF">UF</label>
-                            <select class="form-control" name="inputUF" id="inputUF" required>
+                            <select class="form-control{{$errors->has('inputuf') ? ' is-invalid':''}}" name="inputUF" id="inputUF" required>
                                 <option disabled="" selected="">UF</option>
                                 <option value="AC">AC</option>
                                 <option value="AL">AL</option>

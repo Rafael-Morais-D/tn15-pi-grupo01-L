@@ -50,8 +50,8 @@ Route::get('/', 'NavigateController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
 
 // ACESSO DE USÁRIOS
-Route::get('/user/minha-conta/', 'NavigateController@minhaConta')->name('user.minha-conta');
-Route::put('/user/minha-conta/{id}', 'NavigateController@update');
+Route::get('/user/minha-conta', 'NavigateController@minhaConta')->name('user.minha-conta')->middleware('auth');
+Route::put('/user/minha-conta/{id}', 'NavigateController@update')->name('user.update');
 Route::get('/user/meus-pedidos', 'NavigateController@meusPedidos')->name('user.meus-pedidos');
 
 // ACESSO AS PÁGINAS DE USUÁRIO - LOGIN E LOGOUT
@@ -86,10 +86,10 @@ Route::put('/admin/toggleAdmin/{id}', 'AuthController@toggleAdmin');
 Route::get('/cadastro', 'UsersController@createPage')->name('cadastro');
 Route::post('/cadastro', 'UsersController@createUser');
 // LISTANDO USUÁRIOS
-Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuario.listAll');
+Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuario');
 // EDITANDO USUÁRIO
-Route::get('/user/editar-usuario/{id}', 'UsersController@editUser');
-Route::put('/user/editar-usuario/{id}', 'UsersController@updateUser');
+// Route::get('/user/editar-usuario/{id}', 'UsersController@editUser');
+// Route::put('/user/editar-usuario/{id}', 'UsersController@updateUser');
 // DELETANDO USUÁRIO
 Route::delete('/admin/adm-usuario/{id}', 'UsersController@deleteUser');
 

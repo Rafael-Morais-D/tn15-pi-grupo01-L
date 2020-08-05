@@ -28,7 +28,7 @@
                     <th scope="col" class="d-none d-md-table-cell">Cidade</th>
                     <th scope="col" class="d-none d-md-table-cell">UF</th>
                     <th scope="col" class="d-none d-md-table-cell">Email</th>
-                    <th scope="col" class="d-none d-md-table-cell">Editar</th>
+                    {{-- <th scope="col" class="d-none d-md-table-cell">Editar</th> --}}
                     <th scope="col" class="d-none d-md-table-cell">Excluir</th>
                     <th scope="col" class="d-md-none d-table-cell">Opções</th>
                 </tr>
@@ -57,11 +57,11 @@
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->cidade }}</td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->uf }}</td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->email }}</td>
-                    <td class="d-none d-md-table-cell">
+                    {{-- <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalEdit{{ $user->id }}">
                             <i class="fas fa-pencil-alt text-dark"></i>
                         </a>
-                    </td>
+                    </td> --}}
                     <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalDel{{ $user->id }}">
                             <i class="fas fa-trash-alt text-dark"></i>
@@ -71,9 +71,9 @@
                         <a href="#" data-toggle="modal" data-target="#modalConteudo{{ $user->id }}">
                             <i class="fas fa-eye mr-2 text-dark"></i>
                         </a>
-                        <a href="#" data-toggle="modal" data-target="#modalEdit{{ $user->id }}">
+                        {{-- <a href="#" data-toggle="modal" data-target="#modalEdit{{ $user->id }}">
                             <i class="fas fa-pencil-alt mr-2 text-dark"></i>
-                        </a>
+                        </a> --}}
                         <a href="#" data-toggle="modal" data-target="#modalDel{{ $user->id }}">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
@@ -81,7 +81,7 @@
                 </tr>
 
                 <!-- Modal - Editar usuário -->
-                <div class="modal fade text-left" id="modalEdit{{ $user->id }}" role="dialog" tabindex="-1"  aria-labelledby="modalEditLabel" aria-hidden="true">
+                {{-- <div class="modal fade text-left" id="modalEdit{{ $user->id }}" role="dialog" tabindex="-1"  aria-labelledby="modalEditLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -178,7 +178,7 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <!-- Modal - Conteúdo usuário -->
                     <div class="modal fade" id="modalConteudo{{ $user->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -275,7 +275,8 @@
                                     <form action="/admin/adm-usuario/{{ $user->id }}" method="POST">
                                         @csrf
                                         {{ method_field('DELETE') }}
-                                        <button id="delete-contact" type="submit" class="btn btn-danger mb-0">Excluir</button>
+                                        <button id="excluir-usuario" type="submit" class="btn btn-danger mb-0">Excluir</button>
+                                    </form>
                                     </a>
                                 </div>
                             </div>
@@ -284,11 +285,12 @@
                     @endforeach
                 </tbody>
             </table>
+            
             @if(!empty(Request::get('success')))
-                <div class="alert alert-success text-center col-md-12">
-                    {{ Request::get('success') }}
-                </div>
-            @endif
+            <div class="alert alert-success text-center col-md-12">
+                {{ Request::get('success') }}
+            </div>
+    @endif
         </section>
 
 @endsection

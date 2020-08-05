@@ -11,11 +11,13 @@ class CategoriasController extends Controller
     public function tabela() {
         
         if(Auth::check() === true) {
-        $categorias = Categoria::all();
-        $categorias = Categoria::paginate(10);
-        return view('/admin/adm-categoria')->with('categorias', $categorias);
+            if(Auth::user()->admin==1) {
+            $categorias = Categoria::all();
+            $categorias = Categoria::paginate(10);
+            return view('/admin/adm-categoria')->with('categorias', $categorias);
+            }
+            return redirect()->route('admin.login');
         }
-        return redirect()->route('admin.login');
     }
 
     public function create(Request $request) {
