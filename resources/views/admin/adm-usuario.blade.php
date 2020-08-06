@@ -285,15 +285,16 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="d-flex justify-content-center mt-4">
+            {{-- <div class="d-flex justify-content-center mt-4">
                 {{ $users->links() }}
-            </div>
+            </div> --}}
+        </div>
             
             @if(!empty(Request::get('success')))
             <div class="alert alert-success text-center col-md-12">
                 {{ Request::get('success') }}
             </div>
-    @endif
+            @endif
         </section>
 
 @endsection

@@ -125,7 +125,7 @@
                             <a class="nav-link" href="/contato">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-login btn btn-primary col-12 text mb-3 mb-md-1 ml-md-1 px-md-3" href="#" data-toggle="modal" data-target="#btnLogin">Login</a>
+                            <a class="nav-link link-login btn btn-primary col-12 text mb-3 mb-md-1 ml-md-1 px-md-3" href="/user/login" data-target="#btnLogin">Login</a>
                         </li>
                         <li>
                         <a class="nav-link btn btn-primary mb-3 mb-md-1 ml-md-3 px-md-3" href="/cesta-compras"><i class="ic-basket fa fa-shopping-basket" aria-hidden="true"></i></a>
@@ -134,7 +134,7 @@
                 </div>
             </nav>
             <!-- MODAL LOGIN -->
-            <div class="modal fade" id="btnLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {{-- <div class="modal fade" id="btnLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -143,6 +143,7 @@
                     <div class="modal-body text-dark">
                         <form method="POST" action="{{ route('user.login.do') }}">
                             @csrf
+                            {{ method_field('POST')}} 
                             <div class="form-group d-flex justify-content-center">
                                 <div class="col-md-8">
                                 @if ($errors->all())
@@ -170,12 +171,12 @@
                     <div class="modal-login">
                         <p class="pt-0">Novo por aqui? <a href="/cadastro" class="d-inline-block">Cadastre-se agora!</a></p>
                         <button type="button" class="btn btn-primary mb-0 mr-2" data-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary mb-0" data-dismiss="modal">{{ __('Login') }}</button>
+                        <button type="submit" class="btn btn-primary mb-0">{{ __('Login') }}</button>
                     </div>
                 </div>
             </div>
         </form>
-            </div>
+            </div> --}}
             </header>
             <main class="py-0">
                 @yield('content')

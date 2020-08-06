@@ -125,7 +125,7 @@
                             <a class="nav-link" href="/contato">Contato</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-login btn btn-primary col-12 text mb-3 mb-md-1 ml-md-1 px-md-3" href="#" data-toggle="modal" data-target="#btnLogin">Login</a>
+                            <a class="nav-link link-login btn btn-primary col-12 text mb-3 mb-md-1 ml-md-1 px-md-3" href="/user/login" data-target="#btnLogin">Login</a>
                         </li>
                         <li>
                         <a class="nav-link btn btn-primary mb-3 mb-md-1 ml-md-3 px-md-3" href="/cesta-compras"><i class="ic-basket fa fa-shopping-basket" aria-hidden="true"></i></a>
@@ -134,7 +134,7 @@
                 </div>
             </nav>
             <!-- MODAL LOGIN -->
-            <div class="modal fade" id="btnLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {{-- <div class="modal fade" id="btnLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -161,6 +161,7 @@
                     </div>
                 </div>
             </div>
+        </div> --}}
         </header>
         <div class="h-adm-space"></div>
         <nav class="navbar navbar-expand-xl navbar-light fixed-top nav-cliente m-auto">

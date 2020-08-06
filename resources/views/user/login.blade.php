@@ -37,9 +37,10 @@
                         </div>
                         <div class="form-group d-flex justify-content-center">
                             <div class="col-md-8">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary text-center">
                                     {{ __('Login') }}
                                 </button>
+                                <p class="mt-3">Novo por aqui? <a href="/cadastro" class="d-inline-block">Cadastre-se agora!</a></p>
                             </div>
                         </div>
                     </form>
