@@ -15,19 +15,11 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            //$table->dateTime('created_at', 0);
-            //primary key from the "users" table
-            $table->unsignedBigInteger('id_user');
-            $table->foreign('id_user')->references('id')->on('users');
-            //chave primária da tabela de produtos
-            $table->unsignedBigInteger('id_produto'); 
-            $table->foreign('id_produto')->references('id')->on('produtos');
-            $table->string('status', 15);
-            $table->decimal('total', 8,2);
-            $table->string('pagStatus', 20);
+            $table->foreignId("user_id");
+            $table->enum('status', ['RE', 'PA', 'CA']);
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
-        
     }
 
     /**

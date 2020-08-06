@@ -22,6 +22,7 @@ class CreateProdutosTable extends Migration
             $table->string('unidadeMedida');
             $table->string('imagem', 100);
             $table->foreignId("categoria");
+            $table->enum('ativo', ['S', 'N'])->default('S');
             $table->timestamps();
         });
     }

@@ -19,9 +19,6 @@ Route::get('/produtos', function() {
     return view('produtos');
 });
 
-Route::get('/cesta-compras', function() {
-    return view('cesta-compras');
-});
 
 Route::get('/contato', function() {
     return view('contato');
@@ -61,6 +58,15 @@ Route::post('/user/login/do', 'NavigateController@login')->name('user.login.do')
 Route::get('/user/logout', 'NavigateController@logoutUser')->name('user.logout');
 
 Auth::routes();
+
+/*
+|--------------------------------------------------------------------------
+| CESTA DE COMPRAS
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/cesta-compras','CestaComprasController@index')->name('cesta-compras');
+
 
 /*
 |--------------------------------------------------------------------------
