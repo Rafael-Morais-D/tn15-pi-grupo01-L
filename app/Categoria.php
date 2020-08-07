@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Categoria extends Model
 {
@@ -11,5 +12,11 @@ class Categoria extends Model
 
     protected $table = 'categorias';
     protected $fillable = ['categoria'];
+
+    public function setTipoAttribute($value){
+        $this->attributes['categoria'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
+
+    }
 
 }
