@@ -151,14 +151,14 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputNome">Nome</label>
-                                                <input id="inputNome" class="form-control" name="nome" type="text" placeholder="Nome do produto" aria-describedby="adicionarProdutoHelp" required>
+                                                <input id="inputNome" class="form-control" name="nome" type="text" placeholder="Nome do produto" aria-describedby="adicionarProdutoHelp">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputImagem">Imagem</label>
-                                                <input id="inputImagem" class="form-control" name="imagem" type="text" placeholder="Imagem teste" aria-describedby="adicionarImagemHelp" required>
+                                                <input id="inputImagem" class="form-control" name="imagem" type="text" placeholder="Imagem teste" aria-describedby="adicionarImagemHelp">
                                                 {{-- <label for="uploadImg">Imagem</label>
                                                 <div class="custom-file">
-                                                    <input type="file" name="imagem" class="form-control" id="uploadImg" placeholder="Inserir imagem" aria-describedby="adicionarImagemHelp" required>
+                                                    <input type="file" name="imagem" class="form-control" id="uploadImg" placeholder="Inserir imagem" aria-describedby="adicionarImagemHelp">
                                                     <label class="custom-file-label" for="uploadImg">Escolher imagem</label>
                                                 </div> --}}
                                             </div>
@@ -166,12 +166,12 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputRef">REF</label>
-                                                <input id="inputRef" class="form-control text-uppercase" name="ref" type="text" placeholder="CAT-PRD" aria-describedby="adicionarRefHelp" required>
+                                                <input id="inputRef" class="form-control text-uppercase" name="ref" type="text" placeholder="CAT-PRD" aria-describedby="adicionarRefHelp">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputCategoria">Categoria</label>
-                                                <input id="inputCategoria" class="form-control" name="categoria_id" type="number" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp" required>
-                                                {{-- <select id="inputCategoria" name="categoria" class="custom-select" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp" required>
+                                                <input id="inputCategoria" class="form-control" name="categoria_id" type="number" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp">
+                                                {{-- <select id="inputCategoria" name="categoria" class="custom-select" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp">
                                                     @foreach ($categorias as $categoria)
                                                         <option>{{ $categoria->categoria }}</option>
                                                     @endforeach
@@ -181,17 +181,17 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputPreco">Preço</label>
-                                                <input id="inputPreco" class="form-control" name="preco" type="number" placeholder="Preço" aria-describedby="adicionarPrecoHelp" required>
+                                                <input id="inputPreco" class="form-control" name="preco" type="number" placeholder="Preço" aria-describedby="adicionarPrecoHelp">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputUnidadeMedida">Unidade de Medida</label>
-                                                <input id="inputUnidadeMedida" class="form-control" name="unidadeMedida" type="text" placeholder="Unidade de medida" aria-describedby="adicionarUnidadeMedidaHelp" required>
+                                                <input id="inputUnidadeMedida" class="form-control" name="unidadeMedida" type="text" placeholder="Unidade de medida" aria-describedby="adicionarUnidadeMedidaHelp">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="inputDescricao">Descrição</label>
-                                                <textarea id="inputDescricao" class="form-control" name="descricao" placeholder="Descrição do produto" aria-describedby="adicionarDescricaoHelp" required></textarea>
+                                                <textarea id="inputDescricao" class="form-control" name="descricao" placeholder="Descrição do produto" aria-describedby="adicionarDescricaoHelp"></textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer pr-0">
