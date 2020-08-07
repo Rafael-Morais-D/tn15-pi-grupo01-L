@@ -15,18 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/produtos', function() {
-    return view('produtos');
-});
-
 
 Route::get('/contato', function() {
     return view('contato');
 });
 
-Route::get('/pagamento', function() {
-    return view('pagamento');
-});
 
 Route::get('/erro', function() {
     return view('erro');
@@ -67,6 +60,19 @@ Auth::routes();
 
 Route::get('/cesta-compras','CestaComprasController@index')->name('cesta-compras');
 
+Route::get('/cesta-compras/adicionar', function(){
+    return redirect()->route('index');
+});
+Route::post('/cesta-compras/adicionar', 'CestaCompras@adicionar')->name('cesta-compras.adicionar');
+
+Route::delete('/cesta-compras/remover','CestaCompras@remover')->name('cesta-compras.remover');
+Route::post('/cesta-compras/removerItemSession','CestaCompras@removerItemSession')->name('cesta-compras.remover.ss');
+
+Route::get('converterPedido', 'CestaCompras@converterPedido')->name('converter.pedido');
+
+Route::get('finalizarCompra', 'CestaComprasController@compras')->name('pagina.finalizar');
+
+Route::post('compraFinalizada', 'CestaComprasController@concluir')->name('pedido.concluido');
 
 /*
 |--------------------------------------------------------------------------
@@ -91,21 +97,28 @@ Route::put('/admin/toggleAdmin/{id}', 'AuthController@toggleAdmin');
 // CADASTRO DE USUÁRIOS
 Route::get('/cadastro', 'UsersController@createPage')->name('cadastro');
 Route::post('/cadastro', 'UsersController@createUser');
-// LISTANDO USUÁRIOS
 Route::get('/admin/adm-usuario', 'UsersController@listAllUsers')->name('adm-usuario');
-// EDITANDO USUÁRIO
 // Route::get('/user/editar-usuario/{id}', 'UsersController@editUser');
 // Route::put('/user/editar-usuario/{id}', 'UsersController@updateUser');
-// DELETANDO USUÁRIO
 Route::delete('/admin/adm-usuario/{id}', 'UsersController@deleteUser');
 
-// CATEGORIAS
+/*
+|--------------------------------------------------------------------------
+| CATEGORIAS
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/admin/adm-categoria', 'CategoriasController@tabela')->name('adm-categoria');
 Route::post('/admin/adm-categoria', 'CategoriasController@create');
 Route::put('/admin/adm-categoria/{id}', 'CategoriasController@update');
 Route::delete('/admin/adm-categoria/{id}', 'CategoriasController@delete');
 
-// PRODUTOS
+/*
+|--------------------------------------------------------------------------
+| PRODUTOS
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/admin/adm-produto', 'ProdutosController@tabela')->name('adm-produto');
 Route::post('/admin/adm-produto', 'ProdutosController@create');
 Route::put('/admin/adm-produto/{id}', 'ProdutosController@update');
@@ -120,7 +133,3 @@ Route::get('/admin/adm-mensagem', function () {
 Route::get('/admin/adm-historico-pedidos', function () {
     return view('admin/adm-historico-pedidos');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

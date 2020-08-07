@@ -253,6 +253,10 @@ button.btn.btn-secondary {
   }
 }
 
+.fa-check-circle{
+  color: #8f793c;
+}
+
 i.fa-pencil-alt:hover::before {
   color: #8f793c;
   transition: all ease-in-out 0.2s;

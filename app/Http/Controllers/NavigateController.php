@@ -3,14 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Produto;
+use App\PedidoProduto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
 
 class NavigateController extends Controller
 {
     public function index() {
-        return view('index');
+        $produtos = Produto::paginate(6);
+        
+        $produtosMenu = DB::table('produtos')->latest()->take(4)->get();
+
+        if($produtos && $produtosMenu){
+            return view('index')->with([
+                'produtos'=> $produtos,  
+                'produtosMenu'=> $produtosMenu, 
+
+            ]);
+        }
     }
 
     // LOGIN DO USUÁRIO
