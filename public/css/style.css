@@ -252,6 +252,18 @@ button.btn.btn-secondary {
     transform: scale(1.5);
   }
 }
+.contador{
+  visibility: visible;
+  background-color: red;
+  color: white;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  font-size: 0.8em;
+  text-align: center;
+  right: 0;
+}
 
 .fa-check-circle{
   color: #8f793c;

@@ -65,7 +65,6 @@ class UsersController extends Controller
             if(Auth::user()->admin==1) {
                 $users = DB::table('users');
                 $users = $users->paginate(10);
-        
                 return view('admin.adm-usuario')->with('users', $users);
             }
         }

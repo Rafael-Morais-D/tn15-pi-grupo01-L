@@ -24,7 +24,6 @@ Route::get('/quem-somos', function() {
     return view('quem-somos');
 });
 
-
 /*
 |--------------------------------------------------------------------------
 | CONTROLLERS - NAVEGAÇÃO DO SITE

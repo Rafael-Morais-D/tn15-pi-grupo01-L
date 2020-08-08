@@ -26,7 +26,7 @@
                     <td scope="row">{{ $message->id }}</td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $message->nome }}</td>
                     <td scope="row" class="d-none d-md-table-cell">
-                    <a href="mailto:{{ $message->email }}" title="Resposta rápida">{{ $message->email }}</a>
+                        <a href="#" data-toggle="modal" data-target="#modalResp{{ $message->id }}">{{ $message->email }}</a>
 
                     </td>
                     <td scope="row" class="d-none d-md-table-cell">
@@ -86,6 +86,83 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Modal - Resposta rápida -->
+
+                <div class="modal fade text-left" id="modalResp{{ $message->id }}" role="dialog" tabindex="-1"  aria-labelledby="modalMessageLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+
+                        <div id="carouselModal{{$message->id}}" class="carousel slide carousel-fade" data-ride="carousel" data-interval="false">
+
+                            <div class="carousel-inner">
+
+                                <div class="carousel-item active" id="carrosselMessageItem">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalMessageLabel">Mensagem de {{ $message->nome }}</h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h5>Nome</h5>
+                                                    <p>{{ $message->nome }}</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h5>E-mail</h5>
+                                                    <p>{{ $message->email }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h5>Mensagem</h5>
+                                                    <p>{{ $message->mensagem }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center py-4">
+                                            <a href="#carouselModal{{$message->id}}" role="button" class="btn btn-primary" data-slide="next">Responder</a>
+
+                                        </div>
+                    
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item" id="carroselSendItem">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalSentLabel">Enviar mensagem para {{ $message->nome }}</h5>
+                                        </div>
+                                        <form method='post' action='/sendemail/send'>
+                                            <div class="modal-body">
+                                                @csrf
+                                                <input type="hidden" name="id" id="" value="{{$message->id}}">
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Destinatário:</label>
+                                                    <input type="text" readonly class="form-control" id="inputNome" name="inputNome" value="{{ $message->nome }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="recipient-name" class="col-form-label">Email:</label>
+                                                    <input type="email" readonly class="form-control" id="inputEmail" name="inputEmail" value="{{ $message->email }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="message-text" class="col-form-label">Mensagem:</label>
+                                                    <textarea class="form-control" id="message-text" rows="7" name="inputConteudo"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 text-center py-3 mt-0">
+                                                <button type="submit" class="btn btn-primary">Enviar</button>
+                                            </div>
+                                        </form>
+                    
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
 
                 <!-- Modal - Excluir mensagem -->
                 <div class="modal fade" id="modalDel{{ $message->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

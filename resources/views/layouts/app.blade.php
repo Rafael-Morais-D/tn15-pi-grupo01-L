@@ -129,6 +129,9 @@
                         </li>
                         <li>
                         <a class="nav-link btn btn-primary mb-3 mb-md-1 ml-md-3 px-md-3" href="/cesta-compras"><i class="ic-basket fa fa-shopping-basket" aria-hidden="true"></i></a>
+                        @if($itensCesta!=0)
+                            <small class="contador">{{$itensCesta}}</small>
+                        @endif
                         </li>
                     </ul>
                 </div>
@@ -273,6 +276,7 @@
             <!-- ANIMACAO FADE UP - JS SCRIPTS -->
             <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
             <script>AOS.init();</script> 
+            <script src="/js/contador.js"></script>
         </div>
     </body>
 </html>

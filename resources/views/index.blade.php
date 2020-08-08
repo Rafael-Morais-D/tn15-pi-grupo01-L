@@ -23,11 +23,12 @@
       {{-- @foreach ($produtos as $produto) --}}
       <div class="row" data-aos="fade-up" data-aos-duration="1500">
         <div class="col-lg-6 w-100 my-auto text-center text-lg-right">
-          <form action="{{route('cesta-compras.adicionar')}}" method="POST" id="formComprar">
-            @csrf
+          {{-- <form action="{{route('cesta-compras.adicionar')}}" method="POST" id="formComprar">
+            @csrf --}}
           <h2>Pão Italiano</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-          <button type="submit" class="btn hvr-icon-basket mb-4">Add a Cesta <i class="fa fa-shopping-basket hvr-icon"></i></button>
+          <a href="/cesta-compras">
+          <button type="submit" class="btn hvr-icon-basket mb-4">Add a Cesta <i class="fa fa-shopping-basket hvr-icon"></i></button></a>
         </div>
         <div class="col-lg-5 col-md mx-auto">
           <img class="img-fluid" src="{{ asset("img/03_bakeandgo.jpg") }}" alt="Conheça nosso pão artesanal, feito com fermetação natural.">
@@ -37,7 +38,8 @@
         <div class="col-lg-6 w-100 my-auto text-center text-lg-left">
           <h2>Bolo de Chocolate com frutas vermelhas</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-          <button type="submit" class="btn hvr-icon-basket mb-4">Add a Cesta <i class="fa fa-shopping-basket hvr-icon"></i></button>
+          <a href="/cesta-compras">
+          <button type="submit" class="btn hvr-icon-basket mb-4">Add a Cesta <i class="fa fa-shopping-basket hvr-icon"></i></button></a>
           </div>
           <div class="col-lg-5 col-md mx-auto order-lg-first">
             <img class="img-fluid" src="{{ asset("img/05_bakeandgo.jpg") }}" alt="Conheça nosso bolo de chocolate com frutas vermelhas.">
