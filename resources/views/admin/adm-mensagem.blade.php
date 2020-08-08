@@ -46,72 +46,72 @@
                         </a>
                     </td>
                 </tr>
+                <!-- Modal - Conteúdo mensagem -->
+                <div class="modal fade" id="modalCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">ID - {{ $message->id }}</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card">
+                                    <div class="card-header text-center">
+                                    Nome Completo
+                                    </div>
+                                    <div class="card-body">
+                                    <p class="card-text">{{ $message->nome }}</p>
+                                    </div>
+                                </div>
+                                <div class="card mt-3">
+                                    <div class="card-header text-center">
+                                        Email
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">{{ $message->email }}</p>
+                                    </div>
+                                </div>
+                                <div class="card mt-3">
+                                    <div class="card-header text-center">
+                                        Mensagem
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text">{{ $message->mensagem }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal - Excluir mensagem -->
+                <div class="modal fade" id="modalDel{{ $message->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Excluir mensagem</h5>
+                            </div>
+                            <div class="modal-body">
+                                <p>Deseja realmente excluir esta mensagem?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
+                                <form action="/admin/removeMessage/{{ $message->id }}" method="POST">
+                                @csrf
+                                {{ method_field('DELETE') }}
+                                <button type="submit" class="btn btn-danger mb-0">Excluir</button>
+                                </form>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </tbody>
             @endforeach
         </table>
-        <!-- Modal - Conteúdo mensagem -->
-        <div class="modal fade" id="modalCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">ID - {{ $message->id }}</h5>
-                    </div>
-                    <div class="modal-body">
-                        <div class="card">
-                            <div class="card-header text-center">
-                              Nome Completo
-                            </div>
-                            <div class="card-body">
-                              <p class="card-text">{{ $message->nome }}</p>
-                            </div>
-                        </div>
-                        <div class="card mt-3">
-                            <div class="card-header text-center">
-                                Email
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">{{ $message->email }}</p>
-                            </div>
-                        </div>
-                        <div class="card mt-3">
-                            <div class="card-header text-center">
-                                Mensagem
-                            </div>
-                            <div class="card-body">
-                                <p class="card-text">{{ $message->mensagem }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary mb-0" data-dismiss="modal">OK</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal - Excluir mensagem -->
-        <div class="modal fade" id="modalDel{{ $message->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Excluir mensagem</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Deseja realmente excluir esta mensagem?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
-                        <form action="/admin/removeMessage/{{ $message->id }}" method="POST">
-                        @csrf
-                        {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-danger mb-0">Excluir</button>
-                        </form>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="d-flex justify-content-center mt-4 link-mensagem">
             {{ $messages->links() }}
         </div>
