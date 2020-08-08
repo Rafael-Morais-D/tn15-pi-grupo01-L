@@ -375,7 +375,7 @@ i.fa-eye:hover::before {
 
 .page-item.active .page-link {
   z-index: 3;
-  color: #000;
+  color: #faf8f3;
   background-color: #8f793c;
   border-color: #8f793c;
 }
@@ -391,7 +391,7 @@ i.fa-eye:hover::before {
 }
 .page-link:hover {
   z-index: 2;
-  color: #000;
+  color: #faf8f3;
   text-decoration: none;
   background-color: #8f793c;
   border: 1px solid #8f793c;

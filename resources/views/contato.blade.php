@@ -16,19 +16,24 @@
                     <div class="card card-body mensagem mr-md-2">
                         <h3 class="text-center mb-4 mx-auto sliding-u-l-r-l">Fale conosco</h3>
                         <fieldset>
+                            <form action="/contato" method="POST" id="formContato">
+                            @csrf
+                            {{ method_field('POST') }}
                             <div class="form-group has-error">
-                                <input class="form-control input-lg text-capitalize" placeholder="Nome Completo" name="nome" type="text">
+                                <input class="form-control input-lg text-capitalize" placeholder="Nome Completo" name="inputNome" value="{{ old('inputNome') }}" required>
                             </div>
                             <div class="form-group has-error">
-                                <input class="form-control input-lg" placeholder="Email" name="email" type="text">
+                                <input type="email" class="form-control input-lg" placeholder="Email" name="inputEmail" value="{{ old('inputEmail') }}" required>
                             </div>
                             <div>
-                                <textarea class="form-control" placeholder="Escreva aqui sua mensagem" name="contatoTexto" id="contatoTexto" rows="7" aria-describedby="#contatoTextoHelp"></textarea>
+                                <textarea class="form-control{{$errors->has('inputMensagem') ? ' is-invalid':''}}" placeholder="Escreva aqui sua mensagem" name="inputMensagem" id="inputMensagem" rows="7" aria-describedby="#contatoTextoHelp" value="{{ old('inputMensagem') }}" required></textarea>
+                                <div class="invalid-feedback">{{ $errors->first('inputMensagem') }}</div>
                             </div>
                             <div class="col-12 text-center py-4">
-                                <input class="btn btn-primary" value="Enviar" type="submit">
+                                <input type="submit" class="btn btn-primary" value="Enviar">
                             </div>
-                            </fieldset>
+                            </form>
+                        </fieldset>
                     </div>
                 </div>
             </form>        
@@ -44,6 +49,12 @@
             </div>
         </section>
     </div>
+    
+    @if(!empty(Request::get('success')))
+    <div class="alert alert-success text-center col-md-12 mt-5">
+        {{ Request::get('success') }}
+    </div>
+    @endif
 </section>
 
 @endsection

@@ -21,17 +21,19 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($messages as $message)
                 <tr>
-                    <td scope="row">001</td>
-                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 1</td>
+                    <td scope="row">{{ $message->id }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">{{ $message->nome }}</td>
                     <td scope="row" class="d-none d-md-table-cell">
-                    <a href="mailto:exemplison1@email.com.br?subject=Dúvida%20sobre%20os%20pães" title="Resposta rápida">exemplison1@email.com.br</a>
+                    <a href="mailto:{{ $message->email }}" title="Resposta rápida">{{ $message->email }}</a>
+
                     </td>
                     <td scope="row" class="d-none d-md-table-cell">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem. Vestibulum ac convallis orci, ultricies suscipit orci. Nam lobortis in ligula ac pellentesque. Cras aliquam tempor diam, a feugiat sapien porttitor sed. Curabitur ut tortor accumsan, aliquam arcu nec, finibus tellus. Vivamus blandit ornare odio molestie pulvinar. Sed non purus nulla. Phasellus in odio molestie, molestie ipsum a, feugiat massa.</P>
+                        <p>{{ $message->mensagem }}</p>
                     </td>
                     <td scope="row" class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                        <a href="#" data-toggle="modal" data-target="#modalDel{{ $message->id }}">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
@@ -39,57 +41,13 @@
                         <a href="#" data-toggle="modal" data-target="#modalCont">
                             <i class="fas fa-eye mr-2 text-dark"></i>
                         </a>
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
-                            <i class="fas fa-trash-alt text-dark"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">002</td>
-                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 2</td>
-                    <td scope="row" class="d-none d-md-table-cell">
-                        <a href="mailto:exemplison2@email.com.br?subject=Dúvida%20sobre%20os%20pães" title="Resposta rápida">exemplison2@email.com.br</a></td>
-                    <td scope="row" class="d-none d-md-table-cell">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante.</P>
-                    </td>
-                    <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
-                            <i class="fas fa-trash-alt text-dark"></i>
-                        </a>
-                    </td>
-                    <td scope="col" class="d-md-none d-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalCont">
-                            <i class="fas fa-eye mr-2 text-dark"></i>
-                        </a>
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
-                            <i class="fas fa-trash-alt text-dark"></i>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td scope="row">003</td>
-                    <td scope="row" class="d-none d-md-table-cell">Exemplilson da Silva 3</td>
-                    <td scope="row" class="d-none d-md-table-cell">
-                        <a href="mailto:exemplison3@email.com.br?subject=Dúvida%20sobre%20os%20pães" title="Resposta rápida">exemplison3@email.com.br</a>
-                    </td>
-                    <td scope="row" class="d-none d-md-table-cell">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem.</P>
-                    </td>
-                    <td class="d-none d-md-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
-                            <i class="fas fa-trash-alt text-dark"></i>
-                        </a>
-                    </td>
-                    <td scope="col" class="d-md-none d-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalCont">
-                            <i class="fas fa-eye mr-2 text-dark"></i>
-                        </a>
-                        <a href="#" data-toggle="modal" data-target="#modalDel">
+                        <a href="#" data-toggle="modal" data-target="#modalDel{{ $message->id }}">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
                     </td>
                 </tr>
             </tbody>
+            @endforeach
         </table>
         <!-- Modal - Conteúdo mensagem -->
         <div class="modal fade" id="modalCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -97,7 +55,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">ID - 000</h5>
+                        <h5 class="modal-title">ID - {{ $message->id }}</h5>
                     </div>
                     <div class="modal-body">
                         <div class="card">
@@ -105,7 +63,7 @@
                               Nome Completo
                             </div>
                             <div class="card-body">
-                              <p class="card-text">Exemplilson da Silva X</p>
+                              <p class="card-text">{{ $message->nome }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -113,7 +71,7 @@
                                 Email
                             </div>
                             <div class="card-body">
-                                <p class="card-text">exemplilson@email.com.br</p>
+                                <p class="card-text">{{ $message->email }}</p>
                             </div>
                         </div>
                         <div class="card mt-3">
@@ -121,7 +79,7 @@
                                 Mensagem
                             </div>
                             <div class="card-body">
-                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris neque, vehicula et finibus a, euismod volutpat est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi et eros ante. Suspendisse consequat luctus libero et sollicitudin. Aenean tempor accumsan mollis. Duis lacinia, magna non fermentum aliquam, velit felis gravida urna, eget semper elit odio at sem.</p>
+                                <p class="card-text">{{ $message->mensagem }}</p>
                             </div>
                         </div>
                     </div>
@@ -132,7 +90,7 @@
             </div>
         </div>
         <!-- Modal - Excluir mensagem -->
-        <div class="modal fade" id="modalDel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modalDel{{ $message->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -144,13 +102,26 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
-                        <a href="#">
-                            <button type="button" class="btn btn-danger mb-0">Excluir</button>
+                        <form action="/admin/removeMessage/{{ $message->id }}" method="POST">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger mb-0">Excluir</button>
+                        </form>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="d-flex justify-content-center mt-4 link-mensagem">
+            {{ $messages->links() }}
+        </div>
+
+        @if(!empty(Request::get('success')))
+        <div class="alert alert-success text-center col-md-12 mt-5">
+            {{ Request::get('success') }}
+        </div>
+        @endif
+
 </section>
 
 @endsection
