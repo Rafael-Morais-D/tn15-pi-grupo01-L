@@ -58,13 +58,6 @@ class MensagemController extends Controller
         if($message->delete()) {
    
             return redirect()->route('mensagens.listAll', ['success' => 'Mensagem excluída com sucesso!']);
-
         }
     }
-
-
-
-
-
-
 }

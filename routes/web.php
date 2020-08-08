@@ -136,12 +136,6 @@ Route::get('/contato', 'MensagemController@pagContato');
 Route::post('/contato', 'MensagemController@sendMessage')->name('contato');
 Route::delete('/admin/removeMessage/{id}', 'MensagemController@deleteMessage');
 
-Route::put('/admin/toggleEmail/{id}', 'MensagemController@toggleEmail');
-
-// ENVIAR E-MAIL
-Route::post('/sendemail/send', 'MensagemController@send');
-
-
 // HISTORICO DE PEDIDOS
 Route::get('/admin/adm-historico-pedidos', function () {
     return view('admin/adm-historico-pedidos');
