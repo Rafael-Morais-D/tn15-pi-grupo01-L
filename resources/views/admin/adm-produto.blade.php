@@ -39,25 +39,33 @@
                 <tbody>
                     @foreach ($produtos as $produto)
                         <tr>
-                            <td scope="row">{{ $produto->id }}</td>
-                            <td scope="row" class="d-none d-md-table-cell">{{ $produto->ref }}</td>
-                            <td scope="row" class="d-none d-md-table-cell">{{ $produto->nome }}</td>
-                            <td scope="row" class="d-none d-md-table-cell">{{ $produto->imagem }}</td>
-                            <td scope="row" class="d-none d-md-table-cell">{{ $produto->descricao }}</td>
-                            <td scope="row" class="d-none d-md-table-cell">{{ $produto->preco }}</td>
-                            <td scope="row" class="d-none d-md-table-cell">{{ $produto->unidadeMedida }}</td>
-                            <td scope="row" class="d-none d-md-table-cell">{{ $produto->categoria_id }}</td>
-                            <td class="d-none d-md-table-cell">
+                            <td scope="row" class="align-middle">{{ $produto->id }}</td>
+                            <td scope="row" class="d-none d-md-table-cell align-middle">{{ $produto->ref }}</td>
+                            <td scope="row" class="d-none d-md-table-cell align-middle">{{ $produto->nome }}</td>
+                            <td scope="row" class="d-none d-md-table-cell align-middle">
+                                <img src="{{ $produto->imagem != null ? asset($produto->imagem) : asset('img/def.png') }}" width="100px">
+                            </td>
+                            <td scope="row" class="d-none d-md-table-cell align-middle">{{ $produto->descricao }}</td>
+                            <td scope="row" class="d-none d-md-table-cell align-middle">R$ {{ $produto->preco }}</td>
+                            <td scope="row" class="d-none d-md-table-cell align-middle">{{ $produto->unidadeMedida }}</td>
+                            <td scope="row" class="d-none d-md-table-cell align-middle">
+                                @foreach ($categorias as $categoria)
+                                    @if ($categoria->id == $produto->categoria_id)
+                                        {{ $categoria->categoria }}
+                                    @endif
+                                @endforeach
+                            </td>
+                            <td class="d-none d-md-table-cell align-middle">
                                 <a href="#" data-toggle="modal" data-target="#modalEdit{{ $produto->id }}">
                                     <i class="fas fa-pencil-alt text-dark"></i>
                                 </a>
                             </td>
-                            <td class="d-none d-md-table-cell">
+                            <td class="d-none d-md-table-cell align-middle">
                                 <a href="#" data-toggle="modal" data-target="#modalDel{{ $produto->id }}">
                                     <i class="fas fa-trash-alt text-dark"></i>
                                 </a>
                             </td>
-                            <td scope="col" class="d-md-none d-table-cell">
+                            <td scope="col" class="d-md-none d-table-cell align-middle">
                                 <a href="#" data-toggle="modal" data-target="#modalCont{{ $produto->id }}">
                                     <i class="fas fa-eye mr-2 text-dark"></i>
                                 </a>
@@ -97,6 +105,14 @@
                                         </div>
                                         <div class="card mt-3">
                                             <div class="card-header text-center">
+                                                Imagem
+                                            </div>
+                                            <div class="card-body text-center">
+                                                <img src="{{ $produto->imagem != null ? asset($produto->imagem) : asset('img/def.png') }}" width="100px">
+                                            </div>
+                                        </div>
+                                        <div class="card mt-3">
+                                            <div class="card-header text-center">
                                                 Descrição
                                             </div>
                                             <div class="card-body">
@@ -124,7 +140,7 @@
                                                 Categoria
                                             </div>
                                             <div class="card-body">
-                                                <p class="card-text"></p>
+                                                <p class="card-text">{{ $produto->categoria_id }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -151,47 +167,43 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputNome">Nome</label>
-                                                <input id="inputNome" class="form-control" name="nome" type="text" placeholder="Nome do produto" aria-describedby="adicionarProdutoHelp">
+                                                <input id="inputNome" class="form-control" name="nome" value="{{ $produto->nome }}" type="text" placeholder="Nome do produto" aria-describedby="alterarProdutoHelp">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <label for="inputImagem">Imagem</label>
-                                                <input id="inputImagem" class="form-control" name="imagem" type="text" placeholder="Imagem teste" aria-describedby="adicionarImagemHelp">
-                                                {{-- <label for="uploadImg">Imagem</label>
-                                                <div class="custom-file">
-                                                    <input type="file" name="imagem" class="form-control" id="uploadImg" placeholder="Inserir imagem" aria-describedby="adicionarImagemHelp">
-                                                    <label class="custom-file-label" for="uploadImg">Escolher imagem</label>
-                                                </div> --}}
+                                                <label for="imagem">Imagem</label>
+                                                <label class="btn form-control">
+                                                    Escolher imagem<input type="file" name="imagem" value="{{ old('imagem') }}" class="form-control{{$errors->has('imagem') ? ' is-invalid':''}}" id="imagem" hidden>
+                                                </label>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputRef">REF</label>
-                                                <input id="inputRef" class="form-control text-uppercase" name="ref" type="text" placeholder="CAT-PRD" aria-describedby="adicionarRefHelp">
+                                                <input id="inputRef" class="form-control text-uppercase" name="ref" value="{{ $produto->ref }}" type="text" placeholder="CAT-PRD" aria-describedby="alterarRefHelp">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputCategoria">Categoria</label>
-                                                <input id="inputCategoria" class="form-control" name="categoria_id" type="number" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp">
-                                                {{-- <select id="inputCategoria" name="categoria" class="custom-select" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp">
+                                                <select id="inputCategoria" name="categoria" value="{{ $produto->categoria_id }}" class="custom-select" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp">
                                                     @foreach ($categorias as $categoria)
-                                                        <option>{{ $categoria->categoria }}</option>
+                                                        <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
                                                     @endforeach
-                                                </select> --}}
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-6">
                                                 <label for="inputPreco">Preço</label>
-                                                <input id="inputPreco" class="form-control" name="preco" type="number" placeholder="Preço" aria-describedby="adicionarPrecoHelp">
+                                                <input id="inputPreco" class="form-control" name="preco" value="{{ $produto->preco }}" type="number" placeholder="Preço" aria-describedby="alterarPrecoHelp">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="inputUnidadeMedida">Unidade de Medida</label>
-                                                <input id="inputUnidadeMedida" class="form-control" name="unidadeMedida" type="text" placeholder="Unidade de medida" aria-describedby="adicionarUnidadeMedidaHelp">
+                                                <input id="inputUnidadeMedida" class="form-control" name="unidadeMedida" value="{{ $produto->unidadeMedida }}" type="text" placeholder="Unidade de medida" aria-describedby="alterarUnidadeMedidaHelp">
                                             </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="inputDescricao">Descrição</label>
-                                                <textarea id="inputDescricao" class="form-control" name="descricao" placeholder="Descrição do produto" aria-describedby="adicionarDescricaoHelp"></textarea>
+                                                <textarea id="inputDescricao" class="form-control" name="descricao" placeholder="Descrição do produto" aria-describedby="alterarDescricaoHelp">{{ $produto->descricao }}</textarea>
                                             </div>
                                         </div>
                                         <div class="modal-footer pr-0">
@@ -243,7 +255,7 @@
                 </div>
                 <br>
 
-                <form action="adm-produto" method="POST" enctype="multipart/form-data" class="container">
+                <form action="/admin/adm-produto" method="POST" enctype="multipart/form-data" class="container">
                     @csrf
                     {{ method_field('POST') }}
                     <div class="form-row">
@@ -252,13 +264,10 @@
                             <input id="inputNome" class="form-control" name="nome" type="text" placeholder="Nome do produto" aria-describedby="adicionarProdutoHelp" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inputImagem">Imagem</label>
-                            <input id="inputImagem" class="form-control" name="imagem" type="text" placeholder="Imagem teste" aria-describedby="adicionarImagemHelp" required>
-                            {{-- <label for="uploadImg">Imagem</label>
-                            <div class="custom-file">
-                                <input type="file" name="imagem" class="form-control" id="uploadImg" placeholder="Inserir imagem" aria-describedby="adicionarImagemHelp" required>
-                                <label class="custom-file-label" for="uploadImg">Escolher imagem</label>
-                            </div> --}}
+                            <label for="imagem">Imagem</label>
+                            <label class="btn form-control">
+                                Escolher imagem<input type="file" name="imagem" value="{{ old('imagem') }}" class="form-control{{$errors->has('imagem') ? ' is-invalid':''}}" id="imagem" hidden>
+                            </label>
                         </div>
                     </div>
                     <div class="form-row">
@@ -268,12 +277,11 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="inputCategoria">Categoria</label>
-                            <input id="inputCategoria" class="form-control" name="categoria_id" type="number" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp" required>
-                            {{-- <select id="inputCategoria" name="categoria" class="custom-select" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp" required>
+                            <select id="inputCategoria" name="categoria" class="custom-select" placeholder="Categoria do produto" aria-describedby="adicionarCategoriaHelp" required>
                                 @foreach ($categorias as $categoria)
-                                    <option>{{ $categoria->categoria }}</option>
+                                    <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
                                 @endforeach
-                            </select> --}}
+                            </select>
                         </div>
                     </div>
                     <div class="form-row">
