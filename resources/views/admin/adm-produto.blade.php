@@ -242,6 +242,9 @@
 
                 </tbody>
             </table>
+            <div class="d-flex justify-content-center mt-4">
+                {{ $produtos->onEachSide(0)->links() }}
+            </div>
         </div>
     @endif
         

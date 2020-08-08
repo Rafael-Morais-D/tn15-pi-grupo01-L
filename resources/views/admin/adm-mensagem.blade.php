@@ -113,7 +113,7 @@
             </tbody>
         </table>
         <div class="d-flex justify-content-center mt-4">
-            {{ $messages->links() }}
+            {{ $messages->onEachSide(0)->links() }}
         </div>
     </div>
 
