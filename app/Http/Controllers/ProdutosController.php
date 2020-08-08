@@ -18,6 +18,7 @@ class ProdutosController extends Controller
             $produtos = Produto::all();
 
             $produtos = Produto::paginate(10);
+            
             return view('/admin/adm-produto')->with('produtos', $produtos)->with('categorias', $categorias);
         }
         return redirect()->route('admin.login');

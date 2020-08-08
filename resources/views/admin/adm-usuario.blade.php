@@ -286,7 +286,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-center mt-4">
-                {{ $users->links() }}
+                {{ $users->onEachSide(0)->links() }}
             </div>
         </div>
             
