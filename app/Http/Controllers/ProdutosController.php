@@ -14,13 +14,9 @@ class ProdutosController extends Controller
     public function tabela() {
         
         if(Auth::check() === true) {
-            // $categorias = DB::table('categorias')
-            //                 ->join('produtos', 'categorias.id', '=', 'produtos.categoria_id')
-            //                 ->select('categorias.categoria')
-            //                 ->get();
             $categorias = Categoria::all();
-
             $produtos = Produto::all();
+
             $produtos = Produto::paginate(10);
             return view('/admin/adm-produto')->with('produtos', $produtos)->with('categorias', $categorias);
         }
@@ -35,13 +31,13 @@ class ProdutosController extends Controller
             'descricao' => 'required',
             'preco' => 'required',
             'unidadeMedida' => 'required',
-            'categoria_id' => 'required'
+            'categoria' => 'required'
         ]);
 
         $image = $request->file('imagem');
 
         if(empty($image)) {
-            $pathRelative = 'teste';
+            $pathRelative = null;
         } else {
             $image->storePublicly('uploads');
             
@@ -54,19 +50,6 @@ class ProdutosController extends Controller
             $pathRelative = "storage/uploads/$name";
         };
 
-
-        // $categorias = DB::table('categorias')
-            //                 ->join('produtos', 'categorias.id', '=', 'produtos.categoria_id')
-            //                 ->select('categorias.categoria')
-            //                 ->get();
-        // $produtos = Produto::all();
-        // $categorias = Categoria::all();
-        // $categoria = $request->categoria;
-        // $categoriaCerta = Categoria::find($categorias->id)->where($categoria = $categorias->categoria);
-        // $produtoCerto = Produto::find($produtos->categoria_id);
-        // $categoriaID = Categoria::find($categorias->categoria)->where( = );
-
-
         $produto = new Produto;
 
         $produto->ref = $request->ref;
@@ -75,7 +58,7 @@ class ProdutosController extends Controller
         $produto->descricao = $request->descricao;
         $produto->preco = $request->preco;
         $produto->unidadeMedida = $request->unidadeMedida;
-        $produto->categoria_id = $request->categoria_id;
+        $produto->categoria_id = $request->categoria;
 
         $produto->save();
 
@@ -92,13 +75,15 @@ class ProdutosController extends Controller
             'descricao' => 'required',
             'preco' => 'required',
             'unidadeMedida' => 'required',
-            'categoria_id' => 'required'
+            'categoria' => 'required'
         ]);
 
         $image = $request->file('imagem');
 
+        $produto = Produto::find($id);
+
         if(empty($image)) {
-            $pathRelative = 'teste';
+            $pathRelative = $produto->imagem;
         } else {
             $image->storePublicly('uploads');
             
@@ -111,15 +96,13 @@ class ProdutosController extends Controller
             $pathRelative = "storage/uploads/$name";
         };
 
-        $produto = Produto::find($id);
-
         $produto->ref = $request->ref;
         $produto->nome = $request->nome;
         $produto->imagem = $pathRelative;
         $produto->descricao = $request->descricao;
         $produto->preco = $request->preco;
         $produto->unidadeMedida = $request->unidadeMedida;
-        $produto->categoria_id = $request->categoria_id;
+        $produto->categoria_id = $request->categoria;
 
         $produto->update();
 
