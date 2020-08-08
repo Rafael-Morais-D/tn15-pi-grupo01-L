@@ -38,7 +38,7 @@
                         </a>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
-                        <a href="#" data-toggle="modal" data-target="#modalCont">
+                        <a href="#" data-toggle="modal" data-target="#modalCont{{ $message->id }}">
                             <i class="fas fa-eye mr-2 text-dark"></i>
                         </a>
                         <a href="#" data-toggle="modal" data-target="#modalDel{{ $message->id }}">
@@ -47,7 +47,7 @@
                     </td>
                 </tr>
                 <!-- Modal - Conteúdo mensagem -->
-                <div class="modal fade" id="modalCont" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="modalCont{{ $message->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -86,6 +86,7 @@
                         </div>
                     </div>
                 </div>
+
                 <!-- Modal - Excluir mensagem -->
                 <div class="modal fade" id="modalDel{{ $message->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -100,28 +101,28 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary mb-0" data-dismiss="modal">Cancelar</button>
                                 <form action="/admin/removeMessage/{{ $message->id }}" method="POST">
-                                @csrf
-                                {{ method_field('DELETE') }}
-                                <button type="submit" class="btn btn-danger mb-0">Excluir</button>
+                                    @csrf
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" class="btn btn-danger mb-0">Excluir</button>
                                 </form>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </tbody>
-            @endforeach
         </table>
-        <div class="d-flex justify-content-center mt-4 link-mensagem">
+        <div class="d-flex justify-content-center mt-4">
             {{ $messages->links() }}
         </div>
+    </div>
 
         @if(!empty(Request::get('success')))
         <div class="alert alert-success text-center col-md-12 mt-5">
             {{ Request::get('success') }}
         </div>
         @endif
-
-</section>
+    </section>
 
 @endsection
