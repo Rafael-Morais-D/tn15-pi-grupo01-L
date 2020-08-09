@@ -106,8 +106,13 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav text-center ml-md-auto">
                         <li class="nav-item">
-                            <p class="admin-login mb-0">Acesso Restrito <i class="fas fa-user-lock"></i></p>
+                            @if (Auth::guest())
+                            <a>Acesso Restrito <i class="fas fa-user-lock"></i></a>
+                            @else
+                            <a>Olá, {{ auth()->user()->nome }} <i class="fas fa-coffee"></i></a>
+                            @endif
                         </li>
+                    </ul>
                 </div>
             </nav>
         <main class="py-0">
