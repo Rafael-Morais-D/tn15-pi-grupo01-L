@@ -10,6 +10,9 @@ Bake & Go é um ecommerce de uma padaria que faz parte do projeto integrador fei
 1. **[Laravel](https://laravel.com/)**
 - **PHP** (Back End)
 2. **[Bootstrap](https://getbootstrap.com/)**
-- **HTML | CSS | JavaScript** (Front End)
+- **HTML5 | CSS3 | JavaScript** (Front End)
+3. **[MySQL](https://www.mysql.com/)**
+- **Banco de dados**
+
 
 ## Desenvolvedores
