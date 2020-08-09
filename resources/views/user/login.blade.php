@@ -6,11 +6,11 @@
     Bake & Go | Login 
 @endsection
 
-<div class="container-fluid py-5 mt-5">
-    <div>
+<div class="container-fluid py-5">
+    <div class="py-4">
         <div class="col-lg-6 mx-auto">
             <div class="card">
-                <div class="card text-center bg-light py-3">{{ __('Acesso do Usuário') }}</div>
+                <div class="card text-center bg-light py-3">{{ __('Acesse sua conta') }}</div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('user.login.do') }}">
                         @csrf

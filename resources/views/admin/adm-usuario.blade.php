@@ -24,12 +24,13 @@
                     <th scope="col" class="d-none d-md-table-cell">Nome</th>
                     <th scope="col" class="d-none d-md-table-cell">CPF</th>
                     <th scope="col" class="d-none d-md-table-cell">Endereço</th>
-                    <th scope="col" class="d-none d-md-table-cell">CEP</th>
-                    <th scope="col" class="d-none d-md-table-cell">Cidade</th>
-                    <th scope="col" class="d-none d-md-table-cell">UF</th>
+                    {{-- <th scope="col" class="d-none d-md-table-cell">CEP</th> --}}
+                    {{-- <th scope="col" class="d-none d-md-table-cell">Cidade</th> --}}
+                    {{-- <th scope="col" class="d-none d-md-table-cell">UF</th> --}}
                     <th scope="col" class="d-none d-md-table-cell">Email</th>
                     {{-- <th scope="col" class="d-none d-md-table-cell">Editar</th> --}}
                     <th scope="col" class="d-none d-md-table-cell">Excluir</th>
+                    <th scope="col" class="d-md-none d-table-cell">Admin</th>
                     <th scope="col" class="d-md-none d-table-cell">Opções</th>
                 </tr>
             </thead>
@@ -43,19 +44,16 @@
                             {{ method_field('PUT')}} 
                             @if($user->admin==null||$user->admin==0)
                             <input type="hidden" name="admin" value='1'>
-                            <button type='submit' class="btn btn-danger btn-sm">Tornar Admin</button>
+                            <button type='submit' class="btn btn-primary btn-sm"><i class="fas fa-user-alt-slash"></i></button>
                             @else
                             <input type="hidden" name="admin" value='0'>
-                            <button type="submit" class="btn btn-success btn-sm">Admin</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Admin <i class="fas fa-user-alt"></i></button>
                             @endif
                         </form>
                     </td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->nome }}</td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->cpf }}</td>
-                    <td scope="row" class="d-none d-md-table-cell">{{ $user->endereco }}</td>
-                    <td scope="row" class="d-none d-md-table-cell">{{ $user->cep }}</td>
-                    <td scope="row" class="d-none d-md-table-cell">{{ $user->cidade }}</td>
-                    <td scope="row" class="d-none d-md-table-cell">{{ $user->uf }}</td>
+                    <td scope="row" class="d-none d-md-table-cell">{{ $user->endereco }} - {{ $user->cidade }}/{{ $user->uf }} - {{ $user->cep }}</td>
                     <td scope="row" class="d-none d-md-table-cell">{{ $user->email }}</td>
                     {{-- <td class="d-none d-md-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalEdit{{ $user->id }}">
@@ -66,6 +64,19 @@
                         <a href="#" data-toggle="modal" data-target="#modalDel{{ $user->id }}">
                             <i class="fas fa-trash-alt text-dark"></i>
                         </a>
+                    </td>
+                    <td scope="col" class="d-md-none d-table-cell">
+                        <form action="/admin/toggleAdmin/{{$user->id}}" method="post">
+                            @csrf
+                            {{ method_field('PUT')}} 
+                            @if($user->admin==null||$user->admin==0)
+                            <input type="hidden" name="admin" value='1'>
+                            <button type='submit' class="btn btn-primary btn-sm"><i class="fas fa-user-alt-slash"></i></button>
+                            @else
+                            <input type="hidden" name="admin" value='0'>
+                            <button type="submit" class="btn btn-primary btn-sm">Admin <i class="fas fa-user-alt"></i></button>
+                            @endif
+                        </form>
                     </td>
                     <td scope="col" class="d-md-none d-table-cell">
                         <a href="#" data-toggle="modal" data-target="#modalConteudo{{ $user->id }}">
@@ -186,7 +197,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Confira abaixo os dados - ID {{$user->id}} </h5>
+                                    <h5 class="modal-title">Confira abaixo os dados de {{$user->nome}} </h5>
                                 </div>
                                 <div class="modal-body">
                                     <div class="card">
@@ -218,23 +229,7 @@
                                             Endereço
                                         </div>
                                         <div class="card-body ">
-                                            <p class="card-text">{{ $user->endereco }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="card mt-3">
-                                        <div class="card-header text-center">
-                                            CEP
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text">{{ $user->cep }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="card mt-3">
-                                        <div class="card-header text-center">
-                                            UF
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text">{{ $user->uf }}</p>
+                                            <p class="card-text">{{ $user->endereco }} - {{ $user->cidade }}/{{ $user->uf }} - {{ $user->cep }}</p>
                                         </div>
                                     </div>
                                     <div class="card mt-3">
