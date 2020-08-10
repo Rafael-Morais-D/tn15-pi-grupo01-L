@@ -70,7 +70,7 @@
                                                     <i class="far fa-plus-circle" onclick="cestaAdicionarProduto({{$pedido_produto['produto']['id']}})"></i>
                                                 </a>
                                             </div>
-                                            <small><a href="#" onclick="cestaRemoverProduto({{$pedido_produto['produto']['id']}}, 0)">Remover produto</a></small>
+                                            <a href="#" onclick="cestaRemoverProduto({{$pedido_produto['produto']['id']}}, 0)"><small>Remover produto</a></small>
                                         </td>
                                         <td class="align-middle">R${{number_format($pedido_produto->produto->preco, 2, ',','.')}}</td>
                                         @php
@@ -88,38 +88,35 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="form-inline">
-                            <div class="form-group col-md-6">
-                                <label for="cupomDesconto" class="col-auto pl-0 mt-3 mb-5">Cupom de Desconto</label>
-                                <div class="mt-3 mb-5">
-                                    <input type="text" class="form-control" name="cupomDesconto" id="cupomDesconto" placeholder="INSIRA SEU CUPOM">
-                                </div>
-                            </div>
-                                <form action="{{route('pagina.finalizar')}}" method='get'>
-                                    <button type='submit' class="btn btn-primary float-right col-lg-6 mt-3 mb-5">Finalizar Compra</button>
-                                </form>
-                        </div>
-                    </div>
+                        {{-- <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <label for="cupomDesconto">Cupom de Desconto</label>
+                                <input type="text" class="form-control col-lg-12 text-uppercase" name="cupomDesconto" id="cupomDesconto" placeholder="INSIRA SEU CUPOM">
+                            </div> --}}
+                        <form action="{{route('pagina.finalizar')}}" method='get'>
+                            <button type='submit' class="btn btn-info text-center col-lg-3 mt-5 mb-4">Finalizar Compra</button>
+                        </form>
+                        {{-- </div> --}}
                 @empty
-                    <div class="col-md-12 p-0 text-center">
-                        <div class="my-4 p-5 p-auto">
-                            <h4>Não há itens na sua cesta de compras ainda!</h4>
-                            <a class="text-secondary" href="/">Volte para a página inicial.</a>
-                            @endforelse
-                        </div>
+                <div class="col-md-12 p-0 text-center">
+                    <div class="my-4 p-5 p-auto">
+                        <h4>Não há itens na sua cesta de compras ainda!</h4>
+                        <a class="text-secondary" href="/">Volte para a página inicial.</a>
+                        @endforelse
                     </div>
                 </div>
             </div>
-            <form id="form-remover-produto" method="POST" action="{{ route('cesta-compras.remover')}}">
-                @csrf
-                {{ method_field('DELETE') }}
-                <input type="hidden" name="pedido_id">
-                <input type="hidden" name="produto_id">
-                <input type="hidden" name="item">
-            </form>
-            <form id="form-adicionar-produto" method="POST" action="{{ route('cesta-compras.adicionar')}}">
-            @csrf 
-            <input type="hidden" name="id">
+        </div>
+        <form id="form-remover-produto" method="POST" action="{{ route('cesta-compras.remover')}}">
+            @csrf
+            {{ method_field('DELETE') }}
+            <input type="hidden" name="pedido_id">
+            <input type="hidden" name="produto_id">
+            <input type="hidden" name="item">
+        </form>
+        <form id="form-adicionar-produto" method="POST" action="{{ route('cesta-compras.adicionar')}}">
+        @csrf
+        <input type="hidden" name="id">
         </form>
     </section>
 
