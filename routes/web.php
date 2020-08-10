@@ -57,19 +57,13 @@ Auth::routes();
 */
 
 Route::get('/cesta-compras','CestaComprasController@index')->name('cesta-compras');
-
 Route::get('/cesta-compras/adicionar', function(){
     return redirect()->route('index');
 });
-Route::post('/cesta-compras/adicionar', 'CestaCompras@adicionar')->name('cesta-compras.adicionar');
-
-Route::delete('/cesta-compras/remover','CestaCompras@remover')->name('cesta-compras.remover');
-Route::post('/cesta-compras/removerItemSession','CestaCompras@removerItemSession')->name('cesta-compras.remover.ss');
-
-Route::get('converterPedido', 'CestaCompras@converterPedido')->name('converter.pedido');
-
+Route::post('/cesta-compras/adicionar', 'CestaComprasController@adicionar')->name('cesta-compras.adicionar');
+Route::delete('/cesta-compras/remover','CestaComprasController@remover')->name('cesta-compras.remover');
+Route::get('converterPedido', 'CestaComprasController@converterPedido')->name('converter.pedido');
 Route::get('finalizarCompra', 'CestaComprasController@compras')->name('pagina.finalizar');
-
 Route::post('compraFinalizada', 'CestaComprasController@concluir')->name('pedido.concluido');
 
 
