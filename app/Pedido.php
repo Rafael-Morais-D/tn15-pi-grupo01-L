@@ -26,4 +26,4 @@ class Pedido extends Model
         $pedido = self::where($where)->first(['id']);
         return !empty($pedido->id) ? $pedido->id : null;
     }
-
+}
