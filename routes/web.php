@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/produtos', 'PaginaProdutos@index');
+
 Route::get('/erro', function() {
     return view('erro');
 });

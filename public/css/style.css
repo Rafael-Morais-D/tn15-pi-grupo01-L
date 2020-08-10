@@ -152,6 +152,16 @@ img.logo-header {
   outline: 0;
 }
 
+#carouselPao .carousel-item{
+  height: 45vh;
+  position: relative;
+}
+
+.carousel-item img {
+  position: absolute;
+  bottom: -100px;
+}
+
 .mensagem {
   min-height: 100%;
   height: 439px;

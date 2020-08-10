@@ -112,14 +112,8 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/quem-somos">Quem somos</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
-                                <div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="/produtos">Pães e Bolos</a>
-                                    <a class="dropdown-item" href="/produtos">Frios</a>
-                                    <a class="dropdown-item" href="/produtos">Lanches e Salgados</a>
-                                    <a class="dropdown-item" href="/produtos">Mercearia</a>
-                                </div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/produtos">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/contato">Contato</a>
