@@ -23,7 +23,7 @@ class CreatePedidosTable extends Migration
             $table->foreignId("produtos_id");
             $table->foreign('produtos_id')->references('id')->on('produtos');
             $table->string('user_endereco');
-            $table->foreign('user_endereco')->references('endereco')->on('users');
+            // $table->foreign('user_endereco')->references('endereco')->on('users');
             $table->enum('status', ['RE', 'PA', 'CA']);
             $table->timestamps();
             

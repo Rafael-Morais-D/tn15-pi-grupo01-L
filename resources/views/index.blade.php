@@ -22,7 +22,7 @@
     </div>
 
     <div class="row mx-1" data-aos="fade-up" data-aos-duration="1500">
-      <div class="row col-md-12 text-center p-0 my-0 mx-0 mx-lg-4 mx-xl-5">
+      <div class="row col-md-12 text-center p-0 my-0 mx-0 ml-lg-4 ml-xl-5">
         <div class="col-lg-6 my-auto text-center text-lg-right">
           @for ($i = 0; $i < 3; $i++)
             <div class="card mb-2">
@@ -57,7 +57,7 @@
     </div>
 
     <div class="row mx-1" data-aos="fade-up" data-aos-duration="1500">
-      <div class="row col-md-12 text-center p-0 my-0 mx-0 mx-lg-4 mx-xl-5">
+      <div class="row col-md-12 text-center p-0 my-0 mx-0 ml-lg-4 ml-xl-5">
         <div class="col-lg-6 w-100 my-auto text-center text-lg-left">
           @for ($i = 0; $i < 3; $i++)
             <div class="card mb-2">

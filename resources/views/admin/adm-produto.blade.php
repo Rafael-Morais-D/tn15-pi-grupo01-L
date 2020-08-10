@@ -140,7 +140,13 @@
                                                 Categoria
                                             </div>
                                             <div class="card-body">
-                                                <p class="card-text">{{ $produto->categoria_id }}</p>
+                                                <p class="card-text">
+                                                    @foreach ($categorias as $categoria)
+                                                        @if ($categoria->id == $produto->categoria_id)
+                                                            {{ $categoria->categoria }}
+                                                        @endif
+                                                    @endforeach    
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
