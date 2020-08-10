@@ -6,9 +6,29 @@
     Bake & Go | Adm. Histórico de Pedidos
 @endsection
 
-<section class="container py-5 mt-5 px-md-0 adm-pag">
+<section class="container email-mensagem py-5 mt-5 px-md-0 adm-pag">
+    <br>
     <h2 class="mb-0">Histórico de Pedidos</h2>
     <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center mt-4">
+            <thead>
+                <tr>
+                    <th scope="col">Pedido</th>
+                    <th scope="col" class="d-none d-md-table-cell">Data</th>
+                    <th scope="col" class="d-none d-md-table-cell">Cliente</th>
+                    <th scope="col" class="d-none d-md-table-cell">Produto</th>
+                    <th scope="col" class="d-none d-md-table-cell">Total</th>
+                    <th scope="col" class="d-none d-md-table-cell">Endereço</th>
+                    <th scope="col" class="d-none d-md-table-cell">Pagamento</th>
+                    <th scope="col" class="d-none d-md-table-cell">Status</th>
+                    <th scope="col" class="d-md-none d-table-cell">Opções</th>
+                </tr>
+            </thead>
+            
+    </div>
+    </section>
+
+    {{-- <div class="table-responsive">
         <table class="table table-bordered table-hover text-center mt-4">
             <thead>
                 <tr>
@@ -207,7 +227,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </div> --}}
+{{-- </section>
                 
-@endsection
+@endsection --}}

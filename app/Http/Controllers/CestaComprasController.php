@@ -7,8 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use App\Pedido;
 use App\Produto;
 use App\PedidoProduto;
-use App\CestaCompras;
-use Session;
 
 class CestaComprasController extends Controller
 {
@@ -16,62 +14,33 @@ class CestaComprasController extends Controller
     //     return view('cesta-compras');
     // }
 
-    // function __contruct() {
-    //     $this->middleware('auth');
-    // }
+    function __contruct() {
+        $this->middleware('auth');
+    }
 
-    // ACESSANDO  A PÁGINA CESTA DE COMPRAS
-    public function index(){
+    // ACESSANDO A PÁGINA CESTA DE COMPRAS
+    public function index() {
 
-        if(Auth::check()===true){
-            $pedidos = Pedido::where([
-                'status'=>'RE',
-                'user_id'=>Auth::id()
+        $pedidos = Pedido::where([
+            'status'=>'RE',
+            'user_id'=>Auth::id()
             ])->get();
         
             return view('cesta-compras', compact('pedidos'));
-            
         }
 
-        // ALTERNATIVA DE VISUALIZAR A CESTA ATRAVÉS DE INFOS NA SESSÃO
-        $oldCart = Session::get('cart');
-        $cart = new CestaCompras($oldCart);
-
-        return view('cesta-compras')->with([
-            'produtos'=>$cart->produtos, 'totalPrice'=>$cart->totalPrice
-        ]);
-
-    }
-
     // ADICIONANDO PRODUTO A CESTA
-    public function adicionar(){
+    public function adicionar() {
+
         $this->middleware('VerifyCsrfToker');
 
         $req = Request();
         $idproduto = $req->input('id');
 
         $produto = Produto::find($idproduto);
-        if(empty($produto->id)){
-            $req->session()->flash('mensagem falha', 'Produto não encontrado na nossa loja!');
+        if(empty($produto->id)) {
+            $req->session()->flash('mensagem falha', 'Produto não encontrado!');
             return redirect()->route('cesta-compras');
-        }
-
-        // ADICIONANDO ATRAVÉS DE SESSÃO
-        if(Auth::check()===false){
-
-            $oldCart = Session::has('cart') ? Session::get('cart') : null;
-            $cart = new CestaCompras($oldCart);
-            $cart->add($produto, $produto->id);
-
-            $req->session()->put('cart', $cart);
-
-            if($req->input('back')){
-                return redirect()->back();
-            }
-            
-            $req->session()->flash('mensagem-sucesso', 'Produto adicionado a cesta de compras!');
-            return redirect()->route('cesta-compras');
-            
         }
 
         $idusuario = Auth::id();
@@ -81,7 +50,7 @@ class CestaComprasController extends Controller
             'status'=> 'RE'
         ]);
         
-        if(empty($idpedido)){
+        if(empty($idpedido)) {
             $pedido_novo = Pedido::create([
                 'user_id'=>$idusuario,
                 'status'=>'RE'
@@ -93,21 +62,17 @@ class CestaComprasController extends Controller
         PedidoProduto::create([
             'pedido_id'=>$idpedido,
             'produto_id'=>$idproduto,
-            'valor'=>$produto->precoFinal,
+            'preco'=>$produto->preco,
             'status'=>'RE'
         ]);
-
-        if($req->input('back')){
-            return redirect()->back();
-        }
         
         $req->session()->flash('mensagem-sucesso', 'Produto adicionado a cesta de compras!');
 
         return redirect()->route('cesta-compras');
-    }
+    }    
 
     // REMOVENDO PRODUTO DA CESTA
-    public function remover(){
+    public function remover() {
 
         $this->middleware('VerifyCsrfToker');
 
@@ -123,7 +88,7 @@ class CestaComprasController extends Controller
             'status'=> 'RE'
         ]);
 
-        if( empty($idpedido)){
+        if( empty($idpedido)) {
             $req->session()->flash('mensagem-falha', 'Pedido não encontrado');
             return redirect()->route('cesta-compras');
         }
@@ -134,12 +99,12 @@ class CestaComprasController extends Controller
         ];
 
         $produto = PedidoProduto::where($where_produto)->orderBy('id', 'desc')->first();
-        if(empty($produto->id)){
+        if(empty($produto->id)) {
             $req->session()->flash('mensagem-falha', "Produto não encontrado na cesta de compras!");
             return redirect()->route('cesta-compras');
         }
 
-        if($remove_apenas_item){
+        if($remove_apenas_item) {
             $where_produto['id'] = $produto->id;
         }
 
@@ -147,10 +112,7 @@ class CestaComprasController extends Controller
 
         $check_pedido = PedidoProduto::where(['pedido_id'=>$produto->pedido_id])->exists();
 
-        // print_r($check_pedido);
-        // die;
-
-        if(!$check_pedido){
+        if(!$check_pedido) {
             Pedido::where([
                 'id'=>$produto->pedido_id
             ])->delete();
@@ -159,148 +121,72 @@ class CestaComprasController extends Controller
         $req->session()->flash('mensagem-sucesso', 'Produto removido da cesta de compras!');
 
         return redirect()->route('cesta-compras');
-
     }
 
-    // REMOVENDO  ATRAVÉS DE SESSÃO
-    public function removerItemSession(){
-        $this->middleware('VerifyCsrfToker');
+//     // CONCLUINDO O PEDIDO
+//     public function concluir(){
+//         $this->middleware('VerifyCsrfToker');
 
-        $req = Request();
-        $idproduto = $req->input('id');
-
-        if(Auth::check()===false){
-
-            $produto = Produto::find($idproduto);
-            $item = (boolean)$req->input('item');
-
-            $oldCart = Session::has('cart') ? Session::get('cart') : null;
-            $cart = new CestaCompras($oldCart);
-            $cart->remove($produto, $produto->id, $item);
-
-            $req->session()->put('cart', $cart);
-
-            if(!empty($cart->produtos)){
-                $req->session()->flash('mensagem-sucesso', 'Produto removido da cesta de compras!');
-            } else{
-                $req->session()->forget('cart');
-            }
-            return redirect()->route('cesta-compras');   
-        }
-    }
-
-    // CONVERTER OS PRODUTOS NA SESSION EM ITENS DA BASE DE DADOS
-    public function converterPedido() {
-
-        if(Auth::check()===false){
-            return redirect()->route('login.direct');
-        }
-
-        $cart = Session::get('cart');
-
-        $idusuario = Auth::id();
-
-        $idpedido = Pedido::consultaId([
-            'user_id'=>$idusuario,
-            'status'=> 'RE'
-        ]);
-
-        $check_items = PedidoProduto::where(['pedido_id'=>$idpedido])->exists();
-
-        if($idpedido){
-            if($check_items){
-                PedidoProduto::where(['pedido_id'=>$idpedido])->delete();
-            }
-            Pedido::where([
-                'id'=>$idpedido
-            ])->delete();
-        }
-
-        $pedido_novo = Pedido::create([
-            'user_id'=>$idusuario,
-            'status'=>'RE'
-        ]);
-
-        $idpedido = $pedido_novo->id;
-
-        $produtos = $cart->produtos;
-
-        foreach ($produtos as $produto) {
-            for ($i=0;$i<$produto['qtd'];$i++){
-                PedidoProduto::create([
-                    'pedido_id'=>$idpedido,
-                    'produto_id'=>$produto['produto']['id'],
-                    'valor'=>$produto['produto']['precoFinal'],
-                    'status'=>'RE'
-                ]);
-            }
-        }
-        return redirect()->route('pagina.finalizar');
-    }
-
-    // CONCLUINDO O PEDIDO
-    public function concluir(){
-        $this->middleware('VerifyCsrfToker');
-
-        $req = Request();
-        $idpedido = $req->input('pedido_id');
-        $idusuario = Auth::id();
+//         $req = Request();
+//         $idpedido = $req->input('pedido_id');
+//         $idusuario = Auth::id();
 
 
-        $check_pedido = Pedido::where([
-            'id' => $idpedido,
-            'user_id'=>$idusuario,
-            'status'=>'RE'
-        ])->exists();
+//         $check_pedido = Pedido::where([
+//             'id' => $idpedido,
+//             'user_id'=>$idusuario,
+//             'status'=>'RE'
+//         ])->exists();
         
-        if(!$check_pedido){
-            $req->session()->flash('mensagem-falha', 'Pedido não encontrado');
-            return redirect()->route('cesta-compras');
-        }
+//         if(!$check_pedido){
+//             $req->session()->flash('mensagem-falha', 'Pedido não encontrado');
+//             return redirect()->route('cesta-compras');
+//         }
 
-        $check_produtos = PedidoProduto::where([
-            'pedido_id'=>$idpedido,
-            'status'=>'RE'
-        ])->exists();
+//         $check_produtos = PedidoProduto::where([
+//             'pedido_id'=>$idpedido,
+//             'status'=>'RE'
+//         ])->exists();
 
-        if(!$check_produtos){
-            $req->session()->flash('mensagem-falha', 'Produtos do pedido não encontrados!');
-            return redirect()->route('cesta-compras');
-        }
+//         if(!$check_produtos){
+//             $req->session()->flash('mensagem-falha', 'Produtos do pedido não encontrados!');
+//             return redirect()->route('cesta-compras');
+//         }
 
-        PedidoProduto::where([
-            'pedido_id'=>$idpedido
-        ])->update([
-            'status'=> 'PA'
-        ]);
-        Pedido::where([
-            'id'=>$idpedido
-        ])->update([
-            'status'=>'PA'
-        ]);
+//         PedidoProduto::where([
+//             'pedido_id'=>$idpedido
+//         ])->update([
+//             'status'=> 'PA'
+//         ]);
+//         Pedido::where([
+//             'id'=>$idpedido
+//         ])->update([
+//             'status'=>'PA'
+//         ]);
 
-        $pedido = Pedido::where([
-            'id'=>$idpedido
-        ])->first();
+//         $pedido = Pedido::where([
+//             'id'=>$idpedido
+//         ])->first();
 
-        return view('compraFinalizada')->with('pedido', $pedido);
+//         return view('compraFinalizada')->with('pedido', $pedido);
 
-    }
+//     }
 
-    // FINALIZANDO O PEDIDO - PAGAMENTO
-    public function compras(Request $request) {
+//     // FINALIZANDO O PEDIDO - PAGAMENTO
+//     public function compras(Request $request) {
         
-        if(Auth::check()===true) {
-            $pedidos = Pedido::where([
-                'status'=>'RE',
-                'user_id'=>Auth::id()
-            ])->get();
+//         if(Auth::check()===true) {
+//             $pedidos = Pedido::where([
+//                 'status'=>'RE',
+//                 'user_id'=>Auth::id()
+//             ])->get();
         
-            return view('user.finalizarCompra', compact('pedidos'));
+//             return view('user.finalizarCompra', compact('pedidos'));
             
-        }
+//         }
         
-    }
+//     }
+
 }
 
 

@@ -103,7 +103,11 @@
                                         <input type="text" name="quantidade{{ $produto->id }}" id="quantidade{{ $produto->id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"placeholder="Quanto vai querer? Ex.: 200g">
                                     </div>
                                     <span class="float-right">
-                                        <a href="/cesta-compras" class="btn btn-primary float-right">Add a Cesta</a>
+                                        <form action="{{ route('cesta-compras.adicionar') }}" method="POST" id="formComprar">
+                                            @csrf
+                                            <input type="hidden" name="id" value={{ $produto->id }}>
+                                            <button type="submit" class="btn btn-primary float-right">Add a Cesta</button>
+                                        </form>
                                     </span>
                                 </div>
                             </div>

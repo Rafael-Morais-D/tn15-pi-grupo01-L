@@ -15,6 +15,5 @@ class CupomDesconto extends Model
         'modo_limite',
         'dthr_validade',
         'ativo'
-
     ];
 }

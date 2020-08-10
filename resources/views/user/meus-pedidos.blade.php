@@ -15,7 +15,7 @@
                     <th scope="col">Pedido</th>
                     <th scope="col" class="d-none d-md-table-cell">Data</th>
                     <th scope="col" class="d-none d-md-table-cell">Produto</th>
-                    <th scope="col" class="d-none d-md-table-cell">Valor Total</th>
+                    <th scope="col" class="d-none d-md-table-cell">Total</th>
                     <th scope="col" class="d-none d-md-table-cell">Endereço</th>
                     <th scope="col" class="d-none d-md-table-cell">Pagamento</th>
                     <th scope="col" class="d-none d-md-table-cell">Status</th>

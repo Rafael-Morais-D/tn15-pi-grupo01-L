@@ -10,10 +10,10 @@ class PedidoProduto extends Model
         'pedido_id',
         'produto_id',
         'status',
-        'valor'
+        'preco'
     ];
-    
-    public function produto(){
-        return $this->belongsTo('App\Produto','produto_id','id');
+
+    public function produto() {
+        return $this->belongsTo('App\Produto', 'produto_id', 'id');
     }
 }

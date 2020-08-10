@@ -12,7 +12,7 @@
     </div>
     @if(session('mensagem-sucesso'))
     <section class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="message alert alert-success text-center">
                 {{ session('mensagem-sucesso') }}
             </div>
@@ -21,101 +21,27 @@
     @endif
     @if(session('mensagem-falha'))
     <section class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="message alert alert-danger text-center">
                 {{ session('mensagem-falha') }}
             </div>
         </div>
     </section>
     @endif
-
-    <div class="container">
-        <div class="row">
-            @guest
-            @if (session()->has('cart'))
-                <div class="col-12 text-center">
-                    <div id="table"  class="tableCarrinho">
-                        <table class="table text-center mt-3 tableCarrinho">
-                            <thead class="thead">
-                                <tr>
-                                    <th scope="col" colspan="2" class="text-left"><h4 class="mb-0">Itens selecionados</h4></th>
-                                    <th scope="col">Qtd</th>
-                                    <th scope="col">Preço Unitário</th>
-                                    <th scope="col">Preço Total</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($produtos as $produto)  
-                                <tr>
-                                    <td colspan="2">
-                                        <div class="d-flex">
-                                            <img src="{{$produto['produto']['imagem']}}" idth="72" height="72" alt="">
-                                            <div class="text-left mx-0 mx-md-3">
-                                                <h5 class="my-0"> {{$produto['produto']['nome']}}</h5>
-                                                <small class="text-muted my-0">REF {{$produto['produto']['id']}}</small><br>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="center-align">
-                                        <div class="center-align setas-add-cart">
-                                            <a href="#" class="">
-                                                <li><i class="fas fa-minus" onclick="cestaComprasRemoverProdutoSession({{$produto['produto']['id']}},1)"></i></li>
-                                            </a>
-                                            <span>{{$produto['qtd']}}</span>
-                                            <a href="#" class="">
-                                                <li><i class="fas fa-plus" onclick="cestaComprasAdicionarProduto({{$produto['produto']['id']}})"></i></li>
-                                            </a>
-                                        </div>
-                                        <a href="#" class="retirar-pedido" data-position="right" data-delay="50" data-tooltip="Remover produto da cesta de compras" onclick="cestaComprasRemoverProdutoSession({{$produto['produto']['id']}},0)">Remover produto</a>
-                                        
-                                    </td>
-                                    <td class="align-middle">R$ {{number_format($produto['produto']['precoFinal'],2,',','.')}}</td>
-                                    <td class='align-middle  font-weight-bold'>R${{number_format($produto['price'],2,',','.')}}</td>
-                                </tr>
-                                @endforeach
-                                <tr>
-                                    <td colspan="3"></td>
-                                    <td class="align-middle font-weight-bold">Total</td>
-                                    <td class="align-middle font-weight-bold">R${{number_format($totalPrice,2,',','.')}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="form-inline">
-                        <div class="form-group col-md-6">
-                            <label for="cupomDesconto" class="col-auto pl-0">Cupom de Desconto</label>
-                            <div class="col-md-7">
-                                <input type="text" class="form-control" name="cupomDesconto" id="cupomDesconto" placeholder="INSIRA SEU CUPOM">
-                            </div>
-                        </div>
-                        <div class="form-group col-md-2 offset-4">
-                            <form action="{{route('converter.pedido')}}" method='get'>
-                                @csrf
-                                <button type='submit' class="btn btn-primary">Finalizar Compra</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            @else
-                <div class="col-md-12 p-0 text-center">
-                    <div class="my-4 p-5 p-auto">
-                        <h4>Não há itens na sua cesta de compras ainda!</h4>
-                        <a class="text-secondary" href="/">Volte para a página inicial.</a>
-
-                    </div>
-                </div>
-            @endif
-            @else
+    <section class="container">
+        <div class="row-cesta mr-2 ml-2">
+            <form class="col-12 mb-3 link-continuar" id="carrinhoForm" action="/pagamento" method="#">
+                <p class="mb-5 text-center">Confira abaixo os produtos selecionados ou <a href="/">continue comprando</a></p>
                 @forelse ($pedidos as $pedido)
                     <div class="col-12 text-center">
-                        <div id="table"  class="tableCarrinho">
+                        <div id="table" class="tableCarrinho">
                             <table class="table text-center mt-3 tableCarrinho">
                                 <thead class="thead">
                                     <tr>
                                         <th scope="col" colspan="2" class="text-left"><h4 class="mb-0">Itens selecionados</h4></th>
                                         <th scope="col">Qtd</th>
                                         <th scope="col">Preço Unitário</th>
-                                        <th scope="col">Preço Total</th>
+                                        <th scope="col">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -126,32 +52,29 @@
                                         
                                     <tr>
                                         <td colspan="2">
-                                            <div class="d-flex">
-                                                <img src="{{$pedido_produto->produto->imagem}}" idth="72" height="72" alt="">
-                                                <div class="text-left mx-0 mx-md-3">
-                                                    <h5 class="my-0"> {{$pedido_produto->produto->nome}}</h5>
+                                            <div class="d-flex align-items-start justify-content-start flex-column flex-lg-row">
+                                                <img src="{{$pedido_produto->produto->imagem}}" width="65" height="auto" alt="" class="mr-3">
+                                                <div class="text-left">
+                                                    <h5 class="my-1"> {{$pedido_produto->produto->nome}}</h5>
                                                     <small class="text-muted my-0">REF {{$pedido_produto->produto->id}}</small><br>
-                                                    <a href="#" class="ml-3 text-dark"><small>Editar</small></a>
-                                                    <a href="#" class="ml-3 text-dark"><small>Excluir</small></a>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="center-align">
-                                            <div class="center-align setas-add-cart">
-                                                <a href="#" class="" onclick="cestaComprasRemoverProduto({{$pedido->id}}, {{$pedido_produto->produto_id}},1)">
-                                                    <li><i class="fas fa-minus"></i></li>
+                                        <td class="align-middle">
+                                            <div class="align-middle">
+                                                <a href="#" class="">
+                                                    <i class="far fa-minus-circle" onclick="cestaRemoverProduto({{$pedido_produto['produto']['id']}}, 1)"></i>
                                                 </a>
-                                                <span>{{$pedido_produto->qtd}}</span>
-                                                <a href="#" class="" onclick="cestaComprasAdicionarProduto({{$pedido_produto->produto_id}})">
-                                                    <li><i class="fas fa-plus"></i></li>
+                                                <span>{{$pedido_produto['qtd']}}</span>
+                                                <a href="#" class="">
+                                                    <i class="far fa-plus-circle" onclick="cestaAdicionarProduto({{$pedido_produto['produto']['id']}})"></i>
                                                 </a>
                                             </div>
-                                            <a href="#" class="retirar-pedido" data-position="right" data-delay="50" data-tooltip="Remover produto da cesta de compras" onclick="cestaComprasRemoverProduto({{$pedido->id}}, {{$pedido_produto->produto_id}},0)">Remover produto</a>
-                                            
+                                            <a href="#" onclick="cestaRemoverProduto({{$pedido_produto['produto']['id']}}, 0)"><small>Remover produto</a></small>
                                         </td>
-                                        <td class="align-middle">R$ {{number_format($pedido_produto->produto->precoFinal, 2, ',','.')}}</td>
+                                        <td class="align-middle">R${{number_format($pedido_produto->produto->preco, 2, ',','.')}}</td>
                                         @php
-                                            $total_produto = $pedido_produto->valores - $pedido_produto->descontos;
+                                            $total_produto = $pedido_produto->precos - $pedido_produto->descontos;
                                             $total_pedido += $total_produto;
                                         @endphp
                                         <td class='align-middle  font-weight-bold'>R${{number_format($total_produto, 2, ',','.')}}</td>
@@ -162,56 +85,40 @@
                                         <td class="align-middle font-weight-bold">Total</td>
                                         <td class="align-middle font-weight-bold">R${{number_format($total_pedido, 2, ',','.')}}</td>
                                     </tr>
-                                    
                                 </tbody>
                             </table>
                         </div>
-                        <div class="form-inline">
-                            <div class="form-group col-md-6">
-                                <label for="cupomDesconto" class="col-auto pl-0">Cupom de Desconto</label>
-                                <div class="col-md-7">
-                                    <input type="text" class="form-control" name="cupomDesconto" id="cupomDesconto" placeholder="INSIRA SEU CUPOM">
-                                </div>
-                            </div>
-                            <div class="form-group col-md-2 offset-4">
-                                <form action="{{route('pagina.finalizar')}}" method='get'>
-                                    <button type='submit' class="btn btn-primary">Finalizar Compra</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                        {{-- <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <label for="cupomDesconto">Cupom de Desconto</label>
+                                <input type="text" class="form-control col-lg-12 text-uppercase" name="cupomDesconto" id="cupomDesconto" placeholder="INSIRA SEU CUPOM">
+                            </div> --}}
+                        <form action="{{route('pagina.finalizar')}}" method='get'>
+                            <button type='submit' class="btn btn-info text-center col-lg-3 mt-5 mb-4">Finalizar Compra</button>
+                        </form>
+                        {{-- </div> --}}
                 @empty
-                    <div class="col-md-12 p-0 text-center">
-                        <div class="my-4 p-5 p-auto">
-                            <h4>Não há itens na sua cesta de compras ainda!</h4>
-                            <a class="text-secondary" href="/">Volte para a página inicial.</a>
-
-                        </div>
+                <div class="col-md-12 p-0 text-center">
+                    <div class="my-4 p-5 p-auto">
+                        <h4>Não há itens na sua cesta de compras ainda!</h4>
+                        <a class="text-secondary" href="/">Volte para a página inicial.</a>
+                        @endforelse
                     </div>
-                @endforelse
-            @endguest
+                </div>
+            </div>
         </div>
-    </div>
-    @guest
-        <form id="form-remover-produto-session" method='post' action="{{ route('cesta-compras.remover.ss')}}">
-            @csrf
-            <input type="hidden" name="id">
-            <input type="hidden" name="item">
-        </form>
-    @else
-        <form id="form-remover-produto" method='post' action="{{ route('cesta-compras.remover')}}">
+        <form id="form-remover-produto" method="POST" action="{{ route('cesta-compras.remover')}}">
             @csrf
             {{ method_field('DELETE') }}
             <input type="hidden" name="pedido_id">
             <input type="hidden" name="produto_id">
             <input type="hidden" name="item">
         </form>
-    @endguest
-    <form id="form-adicionar-produto" method="post" action="{{ route('cesta-compras.adicionar')}}">
-        @csrf 
+        <form id="form-adicionar-produto" method="POST" action="{{ route('cesta-compras.adicionar')}}">
+        @csrf
         <input type="hidden" name="id">
-    </form>
-</section>
+        </form>
+    </section>
 
 <script src='./js/cesta-compras.js'></script>
 
