@@ -120,12 +120,12 @@
                                         <p class="mb-0 flex-grow-1 "><strong class="checkout-qtd">{{$pedido_produto->qtd}} X</strong> {{$pedido_produto->produto->nome}}
                                     </div>
                                     <div class="col-3 text-right d-flex align-items-center">
-                                        <p class="mb-0 flex-grow-1">R${{number_format($pedido_produto->valores,2,',','.')}}</p>
+                                        <p class="mb-0 flex-grow-1">R${{number_format($pedido_produto->precos,2,',','.')}}</p>
                                     </div>
                                 </li>
                                 <hr class="my-2 text-muted">
                                 @php
-                                    $total_produto = $pedido_produto->valores - $pedido_produto->descontos;
+                                    $total_produto = $pedido_produto->precos - $pedido_produto->descontos;
                                     $total_pedido += $total_produto;
                                     $total_produtos += $total_produto;
                                     $total_descontos += $pedido_produto->descontos;

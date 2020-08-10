@@ -62,7 +62,7 @@ class CestaComprasController extends Controller
         PedidoProduto::create([
             'pedido_id'=>$idpedido,
             'produto_id'=>$idproduto,
-            'valor'=>$produto->valor,
+            'preco'=>$produto->preco,
             'status'=>'RE'
         ]);
         
@@ -122,55 +122,6 @@ class CestaComprasController extends Controller
 
         return redirect()->route('cesta-compras');
     }
-
-//     // CONVERTER OS PRODUTOS NA SESSION EM ITENS DA BASE DE DADOS
-//     public function converterPedido() {
-
-//         if(Auth::check()===false){
-//             return redirect()->route('login.direct');
-//         }
-
-//         $cart = Session::get('cart');
-
-//         $idusuario = Auth::id();
-
-//         $idpedido = Pedido::consultaId([
-//             'user_id'=>$idusuario,
-//             'status'=> 'RE'
-//         ]);
-
-//         $check_items = PedidoProduto::where(['pedido_id'=>$idpedido])->exists();
-
-//         if($idpedido){
-//             if($check_items){
-//                 PedidoProduto::where(['pedido_id'=>$idpedido])->delete();
-//             }
-//             Pedido::where([
-//                 'id'=>$idpedido
-//             ])->delete();
-//         }
-
-//         $pedido_novo = Pedido::create([
-//             'user_id'=>$idusuario,
-//             'status'=>'RE'
-//         ]);
-
-//         $idpedido = $pedido_novo->id;
-
-//         $produtos = $cart->produtos;
-
-//         foreach ($produtos as $produto) {
-//             for ($i=0;$i<$produto['qtd'];$i++){
-//                 PedidoProduto::create([
-//                     'pedido_id'=>$idpedido,
-//                     'produto_id'=>$produto['produto']['id'],
-//                     'valor'=>$produto['produto']['valor
-//                     'status'=>'RE'
-//                 ]);
-//             }
-//         }
-//         return redirect()->route('pagina.finalizar');
-//     }
 
 //     // CONCLUINDO O PEDIDO
 //     public function concluir(){
@@ -235,8 +186,6 @@ class CestaComprasController extends Controller
 //         }
         
 //     }
-
-
 
 }
 

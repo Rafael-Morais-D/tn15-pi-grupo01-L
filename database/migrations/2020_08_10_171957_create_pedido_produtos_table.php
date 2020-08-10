@@ -18,7 +18,7 @@ class CreatePedidoProdutosTable extends Migration
             $table->foreignId('pedido_id');
             $table->foreignId('produto_id');
             $table->enum('status', ['RE', 'PA', 'CA']);
-            $table->decimal('valor', 6, 2)->default(0);
+            $table->decimal('preco', 6, 2)->default(0);
             $table->decimal('desconto', 6, 2)->default(0);
             $table->foreignId('cupom_desconto_id')->nullable();
             $table->timestamps();

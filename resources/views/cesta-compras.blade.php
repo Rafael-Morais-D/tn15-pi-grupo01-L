@@ -12,7 +12,7 @@
     </div>
     @if(session('mensagem-sucesso'))
     <section class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="message alert alert-success text-center">
                 {{ session('mensagem-sucesso') }}
             </div>
@@ -21,7 +21,7 @@
     @endif
     @if(session('mensagem-falha'))
     <section class="row">
-        <div class="col-12">
+        <div class="col-md-12">
             <div class="message alert alert-danger text-center">
                 {{ session('mensagem-falha') }}
             </div>
@@ -31,7 +31,7 @@
     <section class="container">
         <div class="row-cesta mr-2 ml-2">
             <form class="col-12 mb-3 link-continuar" id="carrinhoForm" action="/pagamento" method="#">
-                <p class="mb-5 text-center">Confira abaixo os produtos selecionados, clique em Finalizar Compra ou <a href="/">continue comprando</a></p>
+                <p class="mb-5 text-center">Confira abaixo os produtos selecionados ou <a href="/">continue comprando</a></p>
                 @forelse ($pedidos as $pedido)
                     <div class="col-12 text-center">
                         <div id="table" class="tableCarrinho">
@@ -61,20 +61,20 @@
                                             </div>
                                         </td>
                                         <td class="align-middle">
-                                            <div class="align-middle setas-add-cart">
-                                                <a href="#" class="" onclick="cestaRemoverProduto({{ $pedido->id }}, {{ $pedido_produto->produto_id }}, 1)">
-                                                    <i class="far fa-minus-circle"></i>
+                                            <div class="align-middle">
+                                                <a href="#" class="">
+                                                    <i class="far fa-minus-circle" onclick="cestaRemoverProduto({{$pedido_produto['produto']['id']}}, 1)"></i>
                                                 </a>
-                                                <span>{{$pedido_produto->qtd}}</span>
-                                                <a href="#" class="" onclick="cestaAdicionarProduto({{ $pedido_produto->produto_id }})">
-                                                    <i class="far fa-plus-circle"></i>
+                                                <span>{{$pedido_produto['qtd']}}</span>
+                                                <a href="#" class="">
+                                                    <i class="far fa-plus-circle" onclick="cestaAdicionarProduto({{$pedido_produto['produto']['id']}})"></i>
                                                 </a>
                                             </div>
-                                            <small><a href="#" onclick="cestaRemoverProduto({{ $pedido->id }}, {{ $pedido_produto->produto_id }}, 0)" class="tooltipped" data-position="right" data-delay="50" data-tooltip="Remover produto da cesta de compras">Remover produto</a></small>
+                                            <small><a href="#" onclick="cestaRemoverProduto({{$pedido_produto['produto']['id']}}, 0)">Remover produto</a></small>
                                         </td>
                                         <td class="align-middle">R${{number_format($pedido_produto->produto->preco, 2, ',','.')}}</td>
                                         @php
-                                            $total_produto = $pedido_produto->valor - $pedido_produto->descontos;
+                                            $total_produto = $pedido_produto->precos - $pedido_produto->descontos;
                                             $total_pedido += $total_produto;
                                         @endphp
                                         <td class='align-middle  font-weight-bold'>R${{number_format($total_produto, 2, ',','.')}}</td>
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                                 <form action="{{route('pagina.finalizar')}}" method='get'>
-                                    <button type='submit' class="btn btn-info float-right col-lg-6 mt-3 mb-5">Finalizar Compra</button>
+                                    <button type='submit' class="btn btn-primary float-right col-lg-6 mt-3 mb-5">Finalizar Compra</button>
                                 </form>
                         </div>
                     </div>
@@ -123,8 +123,6 @@
         </form>
     </section>
 
-@push('scripts')
-    <script  src='./js/cesta-compras.js'></script>
-@endpush
+<script src='./js/cesta-compras.js'></script>
 
 @endsection
