@@ -64,11 +64,22 @@
                 <i style='font-size:24px' class='fas'>&#xf06c;</i>
             </div>
         </div>
+        <div class="col-lg-10 mx-auto text-center">
+
+            <hr>
+            <h2>O que você gostaria de levar hoje?</h2>
+            <nav class="navbar navbar-light justify-content-center" style="box-shadow: none; z-index:2">
+                @foreach ($categorias as $categoria) 
+                    <a href="#categoria_{{$categoria->categoria}}" class="nav-link btn btn-primary mx-1 mb-3 col-12 col-md-2"><small>{{$categoria->categoria}}</small></a>
+                @endforeach
+            </nav>
+
+        </div>
     </section>
 
     @foreach ($categorias as $categoria)
         
-        <section id="categoria_{{$categoria->categoria}}">
+        <section id="categoria_{{$categoria->categoria}}" class="mt-4">
             <div class="col-lg-10 mx-auto text-left mb-3">
                 <hr>
                 <h2 class="mb-4 px-md-3">{{$categoria->categoria}}</h2>
@@ -78,12 +89,13 @@
                         
                     @if ($produto->categoria_id == $categoria->id)
                         
-                        <div class="col mb-4 px-0 px-md-3">
+                        <div class="card-deck col mb-4">
                             <div class="card">
                                 <img class="card-img-top" src="{{ $produto->imagem != null ? asset($produto->imagem) : asset('img/def.png') }}">
                                 <div class="card-body">
-                                <span class="float-right">R${{ $produto->preco }}/<small>{{ $produto->unidadeMedida }}</small></span>
-                                    <h5 class="text-truncate" title="{{ $produto->nome }}">{{ $produto->nome }}</h5>            
+                                    <span class="float-right">R${{ $produto->preco }}/<small>{{ $produto->unidadeMedida }}</small></span>
+                                    <h5 class="text-truncate" title="{{ $produto->nome }}">{{ $produto->nome }}</h5>
+                                    <p>{{ $produto->descricao }}</p>           
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" id="inputGroup-sizing-default" for="quantidade{{ $produto->id }}"><small>Qtd</small></label>
