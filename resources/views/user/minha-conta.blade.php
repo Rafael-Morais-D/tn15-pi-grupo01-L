@@ -14,7 +14,7 @@
     <hr class="accent my-4">
     {{-- <form action="/user/minha-conta" method="GET" class="container">
         @csrf --}}
-    <h3 class="mb-4 text-center">Olá, {{ auth()->user()->nome }}.</h3>
+    <h3 class="mb-4 text-center" x>Olá, {{ auth()->user()->nome }}.</h3>
     <div class="form-cadastro">
         <div class="col-lg-7 mx-auto">
             <div class="card card-body">
