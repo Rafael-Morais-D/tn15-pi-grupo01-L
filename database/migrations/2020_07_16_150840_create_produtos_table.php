@@ -17,7 +17,7 @@ class CreateProdutosTable extends Migration
             $table->id();
             $table->string('ref', 10);
             $table->string('nome', 50)->unique();
-            $table->string('descricao', 100);
+            $table->string('descricao');
             $table->decimal('preco', 8, 2);
             $table->string('unidadeMedida');
             $table->string('imagem', 100);

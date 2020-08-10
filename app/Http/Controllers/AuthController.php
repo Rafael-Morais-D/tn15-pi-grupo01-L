@@ -13,7 +13,7 @@ class AuthController extends Controller
         if(Auth::check()===true) {
             $users = User::all();
             $users = User::paginate(10);
-            if(Auth::user()->admin==1) {
+            if(Auth::user()->admin!=1) {
                 return view('admin.adm-usuario')->with('users', $users);
             }
         }
@@ -25,7 +25,7 @@ class AuthController extends Controller
         if(Auth::check()===true) {
             $users = User::all();
             $users = User::paginate(10);
-            if(Auth::user()->admin==1) {
+            if(Auth::user()->admin!=1) {
                 return view('admin.adm-usuario')->with('users', $users);
             }
         }         
