@@ -21,8 +21,8 @@
       <hr class="accent my-5">
     </div>
 
-    <div class="row" data-aos="fade-up" data-aos-duration="1500">
-      <div class="row col-md-12 text-center p-0 my-0">
+    <div class="row mx-1" data-aos="fade-up" data-aos-duration="1500">
+      <div class="row col-md-12 text-center p-0 my-0 mx-0 mx-lg-4 mx-xl-5">
         <div class="col-lg-6 my-auto text-center text-lg-right">
           @for ($i = 0; $i < 3; $i++)
             <div class="card mb-2">
@@ -42,7 +42,7 @@
                         <input type="text" name="quantidade{{ $produtos[$i]->id }}" id="quantidade{{ $produtos[$i]->id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"placeholder="Quanto vai querer? Ex.: 200g">
                     </div>
                     <span class="float-right">
-                      <a href="/cesta-compras" class="btn btn-primary float-right">Add a Cesta</a>
+                      <a href="/cesta-compras" class="btn btn-primary float-right mb-3 mb-md-0">Add a Cesta</a>
                     </span>
                   </div>
                 </div>
@@ -56,8 +56,8 @@
       </div>
     </div>
 
-    <div class="row" data-aos="fade-up" data-aos-duration="1500">
-      <div class="row col-md-12 text-center p-0 my-0">
+    <div class="row mx-1" data-aos="fade-up" data-aos-duration="1500">
+      <div class="row col-md-12 text-center p-0 my-0 mx-0 mx-lg-4 mx-xl-5">
         <div class="col-lg-6 w-100 my-auto text-center text-lg-left">
           @for ($i = 0; $i < 3; $i++)
             <div class="card mb-2">
@@ -77,7 +77,7 @@
                         <input type="text" name="quantidade{{ $produtos[$i]->id }}" id="quantidade{{ $produtos[$i]->id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"placeholder="Quanto vai querer? Ex.: 200g">
                     </div>
                     <span class="float-right">
-                      <a href="/cesta-compras" class="btn btn-primary float-right">Add a Cesta</a>
+                      <a href="/cesta-compras" class="btn btn-primary float-right mb-3 mb-md-0">Add a Cesta</a>
                     </span>
                   </div>
                 </div>
@@ -85,14 +85,14 @@
             </div>
           @endfor
         </div>
-        <div class="col-lg-5 col-md order-lg-first">
+        <div class="col-12 col-lg-5 col-md order-lg-first">
           <img class="img-fluid" src="{{ asset("img/05_bakeandgo.jpg") }}" alt="Conheça nosso bolo de chocolate com frutas vermelhas.">
         </div>
       </div>
     </div>
     
     <hr class="accent my-5">
-    <div class="col-12 mt-5 mb-5 text-center">
+    <div class="col-12 mt-5 mb-5 text-center p-0">
       <i class="fal fa-wheat fa-lg mr-1 mr-md-3"></i><a href="/produtos" class="btn btn-primary col-10 col-md-3 py-2 py-md-3"><h3 class="mb-0">VEJA TODOS OS NOSSOS DELICIOSOS PRODUTOS!</h3></a><i class="fal fa-wheat fa-lg ml-1 ml-md-3"></i>
     </div>
     <hr class="accent my-5">
@@ -220,7 +220,7 @@
                   <!-- Section - Contador -->
                   <section class="counter-section img" id="section-counter">
                   <div class="container">
-                    <div class="row justify-content-center py-5">
+                    <div class="row justify-content-center py-5 mx-0 mx-md-5">
                       <div class="col-md-12">
                         <div class="row" data-aos="fade-up" data-aos-duration="1500">
                           <div class="col-md-4 d-flex justify-content-center counter-wrap animate">
@@ -254,7 +254,7 @@
                   </section>
                   <!-- Section - Atendimento -->
                   <section class="catAtendimento">
-                    <div class="row py-4" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="row py-4 mx-0 mx-md-5" data-aos="fade-up" data-aos-duration="1500">
                       <div class="col-lg-6 w-100 my-auto mb-4 text-lg-left">
                         <h3>Das nossas mão para sua mesa!</h3>          
                         <h4>Peça também pelo <a href="#">WhatsApp<i class="ic-wa fab fa-whatsapp fa-lg text-dark ml-2"></a></i></h4>
