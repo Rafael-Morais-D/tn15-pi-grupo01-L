@@ -15,37 +15,91 @@
   </div>
 </section>
 <!-- Section com produtos-->
-<section class="catProdutos">
+<section class="container-fluid catProdutos" style="max-width: 1360px">
   <div class="col-lg-10 mx-auto col-12 text-center mb-3">
     <h3 class="mt-5 mb-4 text-uppercase"><i class="fal fa-wheat fa-lg mt-4 mr-3"></i>Conheça nossos produtos<i class="fal fa-wheat fa-lg ml-3"></i></h3>
     <hr class="accent my-5">
   </div>
-  <div class="row" data-aos="fade-up" data-aos-duration="1500">
-    <div class="col-lg-6 w-100 my-auto text-center text-lg-right">
-      <h2>Pão Italiano</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-      <a href="/cesta-compras">
-        <button type="submit" class="btn hvr-icon-basket mb-4">Add a Cesta <i class="fa fa-shopping-basket hvr-icon"></i></button></a>
-    </div>
-    <div class="col-lg-5 col-md mx-auto">
-      <img class="img-fluid" src="{{ asset("img/03_bakeandgo.jpg") }}" alt="Conheça nosso pão artesanal, feito com fermetação natural.">
+
+  <div class="row mx-1" data-aos="fade-up" data-aos-duration="1500">
+    <div class="row col-md-12 text-center p-0 my-0 mx-0 mx-lg-4 mx-xl-5">
+      <div class="col-lg-6 my-auto text-center text-lg-right">
+        @for ($i = 0; $i < 3; $i++)
+          <div class="card mb-2">
+            <div class="row no-gutters m-0">
+              <div class="col-md-4">
+                <img src="{{ $produtos[$i]->imagem != null ? asset($produtos[$i]->imagem) : asset('img/def.png') }}" class="card-img">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body text-left">
+                  <span class="float-right">R${{ $produtos[$i]->preco }}/<small>{{ $produtos[$i]->unidadeMedida }}</small></span>
+                  <h5 class="text-truncate" title="{{ $produtos[$i]->nome }}">{{ $produtos[$i]->nome }}</h5>
+                  <p class="text-truncate">{{ $produtos[$i]->descricao }}</p>           
+                  <div class="input-group mb-3 mt-4">
+                      <div class="input-group-prepend">
+                          <label class="input-group-text" id="inputGroup-sizing-default" for="quantidade{{ $produtos[$i]->id }}"><small>Qtd</small></label>
+                      </div>
+                      <input type="text" name="quantidade{{ $produtos[$i]->id }}" id="quantidade{{ $produtos[$i]->id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"placeholder="Quanto vai querer? Ex.: 200g">
+                  </div>
+                  <span class="float-right">
+                    <a href="/cesta-compras" class="btn btn-primary float-right mb-3 mb-md-0">Add a Cesta</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        @endfor
+      </div>
+      <div class="col-lg-5 col-md-mx-auto">
+        <img class="img-fluid" src="{{ asset("img/03_bakeandgo.jpg") }}" alt="Conheça nosso pão artesanal, feito com fermetação natural.">
+      </div>
     </div>
   </div>
-  <div class="row" data-aos="fade-up" data-aos-duration="1500">
-    <div class="col-lg-6 w-100 my-auto text-center text-lg-left">
-      <h2>Bolo de Chocolate com frutas vermelhas</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-      <a href="/cesta-compras">
-        <button type="submit" class="btn hvr-icon-basket mb-4">Add a Cesta <i class="fa fa-shopping-basket hvr-icon"></i></button></a>
-      </div>
-      <div class="col-lg-5 col-md mx-auto order-lg-first">
-        <img class="img-fluid" src="{{ asset("img/05_bakeandgo.jpg") }}" alt="Conheça nosso bolo de chocolate com frutas vermelhas.">
+
+  <div class="row mx-1" data-aos="fade-up" data-aos-duration="1500">
+    <div class="row col-md-12 text-center p-0 my-0 mx-0 mx-lg-4 mx-xl-5">
+      <div class="col-lg-6 w-100 my-auto text-center text-lg-left">
+        @for ($i = 0; $i < 3; $i++)
+            <div class="card mb-2">
+              <div class="row no-gutters m-0">
+                <div class="col-md-4">
+                  <img src="{{ $produtos[$i]->imagem != null ? asset($produtos[$i]->imagem) : asset('img/def.png') }}" class="card-img">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body text-left">
+                    <span class="float-right">R${{ $produtos[$i]->preco }}/<small>{{ $produtos[$i]->unidadeMedida }}</small></span>
+                    <h5 class="text-truncate" title="{{ $produtos[$i]->nome }}">{{ $produtos[$i]->nome }}</h5>
+                    <p class="text-truncate">{{ $produtos[$i]->descricao }}</p>           
+                    <div class="input-group mb-3 mt-4">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" id="inputGroup-sizing-default" for="quantidade{{ $produtos[$i]->id }}"><small>Qtd</small></label>
+                        </div>
+                        <input type="text" name="quantidade{{ $produtos[$i]->id }}" id="quantidade{{ $produtos[$i]->id }}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"placeholder="Quanto vai querer? Ex.: 200g">
+                    </div>
+                    <span class="float-right">
+                      <a href="/cesta-compras" class="btn btn-primary float-right mb-3 mb-md-0">Add a Cesta</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          @endfor
+        </div>
+        <div class="col-12 col-lg-5 col-md order-lg-first">
+          <img class="img-fluid" src="{{ asset("img/05_bakeandgo.jpg") }}" alt="Conheça nosso bolo de chocolate com frutas vermelhas.">
+        </div>
       </div>
     </div>
-  </section>    
-  <hr class="accent my-5">
+
+    <hr class="accent my-5">
+    <div class="col-12 mt-5 mb-5 text-center p-0">
+      <i class="fal fa-wheat fa-lg mr-1 mr-md-3"></i><a href="/produtos" class="btn btn-primary col-10 col-md-3 py-2 py-md-3"><h3 class="mb-0">VEJA TODOS OS NOSSOS DELICIOSOS PRODUTOS!</h3></a><i class="fal fa-wheat fa-lg ml-1 ml-md-3"></i>
+    </div>
+    <hr class="accent my-5">
+  </section>
+
   <!-- Menu -->
-  <section class="menu-produtos">
+  {{-- <section class="menu-produtos">
     <div class="container">
       <div class="row-menu">
         <div class="col-lg-10 mx-auto col-12 text-center mb-3">
@@ -159,7 +213,7 @@
         <a href="/produtos" class="btn btn-primary mb-5">VER MENU</a>
       </div>
     </div>
-  </section>
+  </section> --}}
   <!-- Section - Contador -->
   <section class="counter-section img" id="section-counter">
     <div class="container">
