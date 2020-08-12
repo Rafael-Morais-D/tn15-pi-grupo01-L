@@ -100,7 +100,7 @@
     <div id="app">
         <header>
             <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-                <a class="navbar-brand" href="/"><img class="logo-header" src="{{ asset("img/bakeandgo_logo_02_black.png") }}" alt="Logo Bake & Go"></a>
+                <a class="navbar-brand" href="/"><img class="logo-header" src="{{ asset("img/bakeandgo_logo_01_black.png") }}" alt="Logo Bake & Go"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -223,12 +223,12 @@
                         </div>
                         <div class="col-12 text-center mb-5">
                             <!-- LOGO -->
-                            <img class="logo-footer" src="{{ asset("img/bakeandgo_logo_01_white.png") }}" alt="Logo Bake & Go">
+                            <img class="logo-footer mt-2" src="{{ asset("img/bakeandgo_logo_02_white.png") }}" alt="Logo Bake & Go">
                         </div>
                         <div class="col-12 d-flex flex-row flex-wrap justify-content-center justify-content-md-between px-1">
                             <!-- INFORMAÇÕES LEGAIS -->
                             <div class="d-inline text-center mr-sm-2 text-white">
-                                &copy; 2020 Bake & Go | CNPJ 01.012.012/0001-99
+                                &copy; 2020 Bake & Go
                             </div>
                             <div class="d-inline text-center ml-sm-2 text-white footer-link">
                                 <a href="#" title="Políticas de Privacidade" data-toggle="modal" data-target="#politicasPriv">Políticas de Privacidade</a> | <a href="#" title="Termos de Uso" data-toggle="modal" data-target="#termosDeUso">Termos de Uso</a>
