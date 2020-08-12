@@ -1,4 +1,4 @@
-<p align="center"><img src="/public/img/bakeandgo_logo_02_black.png" width="400"></p>
+<p align="center"><img src="/public/img/bakeandgo_logo_01_black.png" width="400"></p>
 
 ## Bake & Go
 
