@@ -68,7 +68,7 @@
                       <span class="float-right">
                         <a href="/cesta-compras" class="btn btn-primary float-right">Add a Cesta</a>
                       </span>
-                    </div>  
+                    </div>
                   </div>
                   <div class="card card-body">
                     <div class="d-flex justify-content-between align-items-start">
@@ -161,7 +161,7 @@
                           <div class="col-md-4 d-flex justify-content-center counter-wrap animate">
                             <div class="block-18 text-center">
                               <div class="text">
-                                <strong class="number" data-number="1202">1202</strong>
+                                <strong class="counter number">1202</strong>
                                 <span class="mt-2">Pães assados este mês</span>
                                 </div>
                               </div>
@@ -169,7 +169,7 @@
                             <div class="col-md-4 d-flex justify-content-center counter-wrap animate">
                               <div class="block-18 text-center">
                                 <div class="text">
-                                  <strong class="number" data-number="476">476</strong>
+                                  <strong class="counter number">476</strong>
                                   <span class="mt-2">Entregas realizadas</span>
                                 </div>
                               </div>
@@ -177,7 +177,7 @@
                             <div class="col-md-4 d-flex justify-content-center counter-wrap animate">
                               <div class="block-18 text-center">
                                 <div class="text">
-                                  <strong class="number" data-number="625">625</strong>
+                                  <strong class="counter number">625</strong>
                                   <span class="mt-2">Clientes satisfeitos</span>
                                 </div>
                               </div>
@@ -191,16 +191,16 @@
                   <section class="catAtendimento">
                     <div class="row py-4" data-aos="fade-up" data-aos-duration="1500">
                       <div class="col-lg-6 w-100 my-auto mb-4 text-lg-left">
-                        <h3>Das nossas mão para sua mesa!</h3>          
+                        <h3>Das nossas mão para sua mesa!</h3>
                         <h4>Peça também pelo <a href="#">WhatsApp<i class="ic-wa fab fa-whatsapp fa-lg text-dark ml-2"></a></i></h4>
                         <h4 class="mt-5 mb-2">Atendimento e delivery</h4>
                         <p class="mb-0">Segunda — Sexta, das 9h às 17h</p>
-                        <p class="mb-5">Sábado — Domingo, das 10h às 16h</p>    
-                        </div>                 
+                        <p class="mb-5">Sábado — Domingo, das 10h às 16h</p>
+                        </div>
                         <div class="col-lg-6 order-lg-first">
                           <img class="img-fluid" src="{{ asset("img/07_bakeandgo.jpg") }}" alt="Faça seu pedido também pelo WhatsApp.">
                         </div>
                       </div>
                     </section>
-                    
+
 @endsection

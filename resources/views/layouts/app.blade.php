@@ -28,6 +28,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    {{-- Counter Up on Scroll --}}
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.counter').counterUp({
+                delay: 10,
+                time: 1000
+            });
+        });
+    </script>
 
     <!-- Metatags - SEO -->
     <script type="application/ld+json">
@@ -202,8 +212,8 @@
                             </li>
                             <li class="d-inline mr-1 ml-1 mr-md-3 mr-1 ml-1 ml-md-3 text-uppercase">
                                 <a href="/contato" title="Entre em contato">Contato</a>
-                            </li>    
-                        </ul>            
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-12 text-center mb-5">
                         <!-- LOGO -->
@@ -257,7 +267,10 @@
         </div>
         <!-- ANIMACAO FADE UP - JS SCRIPTS -->
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>AOS.init();</script> 
+        <script>AOS.init();</script>
+        <!-- Counter Up on Scroll -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+        <script src="/js/jquery.counterup.js"></script>
     </div>
 </body>
 </html>
